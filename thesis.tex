@@ -35,20 +35,20 @@
 
 %if output to PDF then put the following in PDF header
 \ifpdf  
-    \pdfinfo { /Title  (Computer-Aided Diagnosis for Prostate Cancer using Multi-Parametric Magnetic Resonance Imaging)
+    \pdfinfo { /Title  (Vision-based localization with discriminative features from heterogeneous visual data)
                /Creator (TeX)
                /Producer (pdfTeX)
-               /Author (Guillaume Lemaitre g.lemaitre58@gmail.com)
-               /CreationDate (D:201610151200ss)  %format D:YYYYMMDDhhmmss
-               /ModDate (D:201610151200ss)
-               /Subject (PhD Dissertation of Guillaume Lemaitre)
-               /Keywords (CAD, mp-MRI, spectroscopy, MRI) }
+               /Author (Nathan Piasco nathan.piasco@gmail.com)
+               /CreationDate (D:201904011200ss)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:201904011200ss)
+               /Subject (PhD Dissertation of Nathan Piasco)
+               /Keywords (Visual localisation, CBIR, multi-modal data) }
     \pdfcatalog { /PageMode (/UseOutlines)
                   /OpenAction (fitbh)  }
 \fi
 
 
-\title{Computer-Aided Diagnosis for Prostate Cancer using Multi-Parametric Magnetic Resonance Imaging}
+\title{Vision-based localization with discriminative features from heterogeneous visual data}
 
 
 
@@ -56,7 +56,7 @@
 % The section below defines www links/email for author and institutions
 % They will appear on the title page of the PDF and can be clicked
 \ifpdf
-  \author{\href{mailto:guillaume.lemaitre@udg.edu}{Guillaume Lema\^itre}}
+  \author{\href{mailto:nathan.piasco@u-bourgogne.fr}{Nathan Piasco}}
 %  \cityofbirth{born in XYZ} % uncomment this if your university requires this
 %  % If city of birth is required, also uncomment 2 sections in PhDthesisPSnPDF
 %  % Just search for the "city" and you'll find them.
@@ -64,50 +64,50 @@
   % Place it in ./0_frontmatter/figures and specify the width
 
 %% First university
-  \firstlab{\href{http://le2i.cnrs.fr/}{LE2I}}
+  \firstlab{\href{http://le2i.cnrs.fr/}{ImViA-VIBOT}}
   \firstlogolab{\includegraphics[width=2cm]{logos/logole2i.eps}}
   \firstuni{\href{http://www.u-bourgogne.fr/}{Universit\'e de Bourgogne}}
   \firstlogouni{\includegraphics[width=2cm]{logos/logo-ub-no-bg.pdf}}
 
   
 %% Second university
-  \secondlab{\href{http://vicorob.udg.es/}{ViCOROB}}
-  \secondlogolab{\includegraphics[width=2cm]{logos/vicorobLogo1.png}}
+  \secondlab{\href{http://recherche.ign.fr/presentation.php}{LaSTIG ACTE, IGN, ENSG}}
+  \secondlogolab{\includegraphics[width=2cm]{logos/IGN_log_Q}}
 
-  \seconduni{\href{https://www.udg.edu/}{Universitat de Girona}}
-  \secondlogouni{\includegraphics[scale =0.5]{logos/UdG_dues_linies_centrat_blau.png}}
+  \seconduni{\href{https://www.udg.edu/}{Universit\'e Paris-Est}}
+  \secondlogouni{\includegraphics[width=2cm]{logos/univ-paris-est.png}}
 
-  \supervisora{Fabrice M\'eriaudeau (LE2I/CISIR - UBFC/UTP)}
-  \supervisorb{Robert Mart\'i Marly (ViCOROB - UdG)}
-  \supervisorc{Jordi Freixenet Bosch (ViCOROB - UdG)}
-  \supervisord{Paul Michael Walker (LE2I - UBFC)}  
-  
+  \supervisora{D\'esir\'e Sidib\'e (ImViA - UBFC)}
+  \supervisorb{Val\'erie Gouet-Brunet (LaSTIG - UPE)}
+  \supervisorc{C\'edric Demonceaux (ImViA - UBFC)}
+  \supervisord{}
 % If you are not creating a PDF then use the following. The default is PDF.
 \else
-  \author{Guillaume Lema\^itre}
+  \author{Nathan Piasco}
 %  \cityofbirth{born in XYZ}
 %% First university
-  \firstlab{\href{http://le2i.cnrs.fr/}{LE2I}}
+  \firstlab{\href{http://le2i.cnrs.fr/}{ImViA-VIBOT}}
   \firstlogolab{\includegraphics[width=2cm]{logos/logole2i.eps}}
   \firstuni{\href{http://www.u-bourgogne.fr/}{Universit\'e de Bourgogne}}
-  \firstlogouni{\includegraphics[width=2cm]{logos/logoubblue.eps}}
+  \firstlogouni{\includegraphics[width=2cm]{logos/logo-ub-no-bg.pdf}}
+
   
 %% Second university
-  \secondlab{\href{http://vicorob.udg.es/}{ViCOROB}}
-  \secondlogolab{\includegraphics[width=2cm]{logos/logovicorob.eps}}
-  \seconduni{\href{https://www.udg.edu/}{Universitat de Girona}}
-  \secondlogouni{\includegraphics[width=2cm]{logos/logoudg.eps}}
-  
-  
-  \supervisora{Fabrice M\'eriaudeau (LE2I/CISIR - UBFC/UTP)}
-  \supervisorb{Robert Mart\'i Marly (ViCOROB - UdG)}
-  \supervisorc{Jordi Freixenet Bosch (ViCOROB - UdG)}
-  \supervisord{Paul Michael Walker (LE2I - UBFC)}
+  \secondlab{\href{http://recherche.ign.fr/presentation.php}{LaSTIG ACTE, IGN, ENSG}}
+  \secondlogolab{\includegraphics[width=2cm]{logos/IGN_log_Q}}
+
+  \seconduni{\href{https://www.udg.edu/}{Universit\'e Paris-Est}}
+  \secondlogouni{\includegraphics[width=4cm]{logos/univ-paris-est.png}}
+
+  \supervisora{D\'esir\'e Sidib\'e (ImViA - UBFC)}
+  \supervisorb{Val\'erie Gouet-Brunet (LaSTIG - UPE)}
+  \supervisorc{C\'edric Demonceaux (ImViA - UBFC)}
+  \supervisord{}
 \fi
 
 %\renewcommand{\submittedtext}{change the default text here if needed}
 \degree{Philosophi\ae Doctor (PhD)}
-\degreedate{November 2016}
+\degreedate{October 2019}
 
 
 % ----------------------------------------------------------------------
@@ -145,8 +145,8 @@
 Reviewers:
 
 \begin{itemize}
-\item[] Su Ruan, Professor at Universit\'e de Rouen - LITIS
-\item[] Reyer Zwiggelaar, Professor at Aberystwyth Universtiy - Vision, Graphics, and Visualisation Group
+\item[] 
+\item[] 
 %\item[] Soumya Ghose, Research Associate at Case Western Reserve University
 \end{itemize}
 
@@ -214,15 +214,6 @@ Day of the defense: 28 November 2016
 % Parts of the thesis are included below. Rename the files as required.
 % But take care that the paths match. You can also change the order of appearance by moving the include commands.
 \include{1_introduction/introduction}	% background information
-\include{2_modality/chapter2}						% aims of the project
-
-\include{3_review/chapter3}			
-\include{4_materials/chapter4}	
-\include{5_normalization/chapter5}
-\include{6_pipeline/chapter6}
-\include{7_conclusion/chapter7}
-
-\include{8_appendices/appendices}        % description of lab methods
 
 
 
@@ -250,7 +241,7 @@ Day of the defense: 28 November 2016
 \renewcommand{\bibname}{References} % changes the header; default: Bibliography
 
 %\bibliography{9_backmatter/references} % adjust this to fit your BibTex file
-\bibliography{9_backmatter/literature_review_2}
+\bibliography{9_backmatter/mendeley}
 
 %\end{tiny}
 %\end{multicols}
