@@ -1,0 +1,33 @@
+\begin{table}[!ht]
+	\centering
+	\caption[\Ac{cnn} image descriptor in \ac{vbl}]{\label{tab:cnn_details} \textbf{\ac{cnn} image descriptor in \ac{vbl}:} Details of \ac{cnn} architectures used in \ac{vbl} for the purpose of data representation. Abbreviations present in the table refer to: Regions of Interest (ROI), Landmark Distribution Descriptors (LDD), Maximum Activations of Convolutions (MAC), Regional MAC (R-MAC), Contextual Reweighting Network (CRN). $^\dagger$~Specify if the network is feeded with the whole image or with fragments. $^\ddagger$~Aggregation method within the \ac{cnn} architecture. $^*$~Off-the-shelf means that the network was initially trained for scene classification~\citep{Krizhevsky2012} or over computer vision tasks.}
+	\renewcommand{\arraystretch}{1.1}
+	\small{
+		\begin{tabular}{p{0.12\textwidth} p{0.14\textwidth} l l p{0.4\textwidth}}
+			\hline
+			\textbf{Reference} 			& \textbf{Input}$^\dagger$ 	& \textbf{Aggregation}$^\ddagger$ 		& \textbf{Training}$^*$ & \textbf{Commentary}\\
+			\hline
+			\hline
+			\citep{Babenko2014,Sunderhauf2015,Yan2016} & Whole image & No & Off-the-shelf & Use fully connected layers as image features\\
+			\citep{Kumar2016mastersThesis} & Whole image & No & Off-the-shelf & Aggregating of multiple features to form a panorama descriptor\\
+			\hline
+			\citep{Sunderhauf2015a,Yan2016} & Image ROI & No & Off-the-shelf & Data reduction with Gaussian random projection \\
+			\citep{Panphattarasap2016} & Image ROI & No & Off-the-shelf & The multiple extracted features are associated into a LDD \\			
+			\hline
+			\citep{Babenko2015} & Whole image & SPoC & Off-the-shelf & Feature dimensionality reduction with PCA \\
+			\hline
+			\citep{Razavian2014a} & Image sub-part (regular grid) & MAC & Off-the-shelf & Extraction of multiple features at different scales on the image\\
+			\hline					
+			\citep{Zhi2016} & Image ROI & Partial Mean & Off-the-shelf & Two-stage features and patches mean pooling \\
+			\hline
+			\citep{Tolias2016} & Whole image & R-MAC & Off-the-shelf & Feature dimensionality reduction with PCA  \\							
+			\citep{Gordo2016} & Whole image & R-MAC & Fine tuned & ROI extracted on the convolutional layer side rather than on the image \\
+			\citep{Radenovic2016} & Whole image & MAC/R-MAC & Fine tuned & Fine tuning with two siamese shared-weight networks\\
+			\hline
+			\citep{Arandjelovic2016} & Whole image & NetVLAD & Fine tuned & Network specially fine-tuned for the task of image retrieval \\
+			\citep{Iscen2017} & Whole image & NetVLAD & Fine tuned & Evaluation of panorama representation through \ac{cnn} \\
+			\citep{Kim2017a} & Whole image & NetVLAD & Fine tuned &  Use of a CRN to emphasize discriminative features \\
+			\hline
+		\end{tabular}
+	}
+\end{table}
