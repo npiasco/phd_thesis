@@ -1,0 +1,30 @@
+\begin{table}
+	\centering
+	\begin{scriptsize}
+	\newcolumntype{Y}{>{\centering\arraybackslash}X}
+	\begin{tabular}{c l | c c | c c | c c }
+						&		&	\multicolumn{2}{c|}{Image retrieval} & \multicolumn{2}{c|}{PnlP refinement} & Relocnet & Posenet  \\
+		\multicolumn{2}{c|}{Scene} 	&	 FC-sup.	  & FC-unsup. & FC-sup.	& FC-unsup.  & \citep{Balntas2018} & \citep{Kendall2017} \\
+		\hline	
+	\multirow{7}{*}{\rotatebox{90}{7-Scenes~\citep{Shotton2013}}}
+	&		Chess 	&  0.29/13.0 	& 0.34/15.4	& 0.07/2.7 & 0.13/4.7 & 0.12/4.1 & 0.13/4.5	\\
+	&		Fire	&  0.40/15.5 	& 0.48/19.3	& 0.07/3.2 & 0.22/8.2 & 0.26/10.4 &	0.27/11.3	\\
+	&		Heads	&  0.28/20.5    & 0.25/17.9	& 0.05/3.9 & 0.15/10.5 & 0.14/10.5 & 0.17/13.0		\\
+	&		Office  &  0.38/13.0    & 0.50/16.1	& 0.09/2.9 & 0.23/6.3 & 0.18/5.3 & 0.19/5.6		\\
+	&		Pumpkin &  0.43/13.1	& 0.54/15.0	& 0.13/3.6 & 0.29/7.1 & 0.26/4.2 & 0.26/4.8		\\
+	&		Red Kitchen & 0.23/9.5  & 0.26/10.5	& 0.05/2.0 & 0.12/3.3 & 0.23/5.1 & 0.23/5.4		\\
+	&		Stairs  &	0.46/14.9	& 0.49/15.5	& 0.40/9.2 & 0.48/12.2 & 0.28/7.5 & 0.35/12.4	\\[1pt]
+	\hline
+	\multirow{8}{*}{\rotatebox{90}{12-Scenes~\citep{Valentin2016}}} 
+	& Apt1-kitchen 	& 0.12/7.7 & 0.14/9.2 & 0.09/4.1 & 0.14/5.0 & - & - \\
+	& Apt1-living 	& 0.12/6.8 & 0.13/6.7 & 0.08/2.9 & 0.10/3.3 & - & - \\
+	& Apt2-kitchen 	& 0.10/6.5 & 0.10/6.6 & 0.10/3.7 & 0.10/3.9 & - & - \\
+	& Apt2-living 	& 0.11/5.6 & 0.13/7.3 & 0.10/4.7 & 0.11/3.7 & - & - \\
+	& Apt2-bed 		& 0.13/7.0 & 0.12/7.1 & 0.12/5.7 &\textcolor{red}{0.15}/5.0 & - & - \\
+	& Apt2-luke 	& 0.15/7.2 & 0.16/7.8 & 0.14/5.5 & 0.14/5.3 & - & - \\
+	& Office 5a	    & 0.12/5.3 & 0.13/6.3 & 0.09/3.6 & \textcolor{red}{0.14}/4.6 & - & - \\
+	& Office 5b 	& 0.15/7.2 & 0.18/6.7 & 0.10/4.7 & 0.14/5.0 & - & - \\
+	\end{tabular}
+	\end{scriptsize}
+	\caption[Pose refinement on indoor datasets]{\label{tab:7_scenes} Results on the \textbf{7 scenes}~\citep{Shotton2013} and \textbf{12 scenes}~\citep{Valentin2016} indoor datasets, we report median position/orientation error in meters/degree. We compare the first pose estimation (im. retrieval) and, the final image localisation (PnlP) of our method and two state-of-the-art approaches. \textcolor{red}{Red} numbers show failure cases when the pose refinement increases the initial pose error. Sup. and unsup. stand for supervised, respectively unsupervised, depth from monocular training.}
+\end{table}
