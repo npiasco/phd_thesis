@@ -1,0 +1,26 @@
+\section{Experiments}
+\label{sec:experiments}
+
+\input{3_side_modality_learning_for_localisation/figures/experiments/netvlad_mac}
+
+\input{3_side_modality_learning_for_localisation/tabs/depth_eval}
+
+\subsection{Preliminary results}
+\subsubsection{Contribution of the depth information}
+In this paragraph, we investigate the impact on localization performances provided by the side geometry information on our method. To ensure a fair comparison in terms of number of trainable parameters, we introduce RGB$^+$ network that has the same architecture as our proposed method. We train RGB$^+$ with images only to compare the localization results against our method that uses side depth information. For training RGB$^+$, we simply remove the loss introduced in equation~(\ref{eq:generator}), and make the weights of the decoder trainable when optimizing triplets losses constraints. Results on the validation dataset with encoder architecture Alexnet are presented in table~\ref{tab/eval_depth}.
+
+Increasing the size of the system results in a better localization (RGB$^{+}$ + MAC versus RGB + MAC). However, our RGB(D) + MAC system always produces higher localization results facing RGB$^{+}$ + MAC, which shows that the side depth information provided during training is wisely used to describe the image location.
+
+\subsubsection{Descriptor comparison}
+We present in figure~\ref{fig:netvlad_vs_mac} localization scores of the three different methods on the validation set with Alexnet as base encoder. It clearly demonstrate the superiority of the NetVLAD polling layer comparing to the MAC descriptor. Thus, we only use NetVLAD as pooling layer for the rest of the experiments, in combination with Alexnet or Resnet encoder architecture. Still, this preliminary experiment has shown that the proposed method can be used in combination with various descriptor pooling layers.
+
+\input{3_side_modality_learning_for_localisation/figures/experiments/oxford_cmu_res}
+
+\subsection{Results}
+\label{subsec:results}
+
+Localization results on the 6 query sets are presented in figure~\ref{fig:results}. Both methods trained with auxiliary depth information (hallucination RGB(H) and our RGB(D)) perform on average better than the RGB baseline. This shows that the geometric clues given during the training process can be efficiently used for the task of image-only retrieval for localization. Compare to hallucination network, our method shows better results, both in term of recall and precision. We report results for the hallucination network only with encoder Alexnet as we were not able to obtain stable training when using a deeper architecture.
+
+We obtain convincing localization results for the CMU query sets (figure~\ref{fig:results} d-f). That mean that our method is able to generalize well on unseen architectural structures for the depth map creation and the extraction of discriminative clue for localization.
+
+Our method shows the best localization improvement on the Oxford - Snow query sets (figure~\ref{fig:results}-b) and CMU -- Snow (for encoder Alexnet, see figure~\ref{fig:results}-e). Standard image descriptors are confused by local changes caused by the snow on the scene whereas our descriptor remains confident by reconstructing the geometric structure of the scene. Similar results should be intended regarding Oxford -- Night query set (figure~\ref{fig:results}-c), however our proposal is not able to improve localization accuracy for this particular scenario. We investigate the night to day localization problem in the following.

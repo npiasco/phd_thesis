@@ -1,0 +1,20 @@
+\section{Challenging localization scenario}
+\label{sec:chall_loc}
+
+\subsection{Night to day localization}
+\label{subsec:night2day}
+
+Night to day localization is an extremely challenging problem: our best RGB baseline achieves less than 13\% recall@1. This can be explained by the huge difference in visual appearance between night and daytime images, as illustrated in figure~\ref{fig:dataset}. Our system should be able to improve the RGB baseline relying on the learned scene geometry, which remains the same during day and night. Unfortunately, we use training data exclusively composed of daytime images, thus making the decoder unable to reconstruct a depth map from an image taken at night. The last line of figure~\ref{fig:mod_ex} shows the poor quality of decoder output after initial training. In order to improve the decoder's performances, we propose to use weakly annotated data to fine tune the decoder part of our system. We collect 1000 pairs of image and depth map acquired at night and retrain only decoder weights $\theta_G$ using loss of equation~(\ref{eq:l1_loss}). Figure~\ref{fig:mod_ex} presents the qualitative amelioration on the inferred depth map after the fine tuning. Such post-processing trick cannot be used to improve standard RGB image descriptors, because we need to know the location of the night data. For instance, we use a night run from the Robotcar dataset with a low quality GPS signal, that makes impossible the automatic creation of triplets that are essential for training a deep image descriptor. 
+
+We show in figure~\ref{fig:ft_night}-c that we are able to nearly multiply by two the localization performances by only fine tuning a small part of our system. Our best network achieves 23\% recall@1 against 13\% recall@1 for the best RGB baseline.
+
+\input{3_side_modality_learning_for_localisation/figures/chall_loc/night_ft}
+
+\input{3_side_modality_learning_for_localisation/figures/chall_loc/night_ft_loc_res}
+
+\subsection{Influence on over environments}
+\label{subsec:night2day_inf}
+In this section we measure the influence of the fine tuning process on over localization scenarios. Performances could decrease if our system \textit{``forgets''} how to produce depth map from daylight images. To prevent that, we integrate half of daylight images with the night images in the training data used for fine tuning. 
+
+We show results of the fine-tuned network on figure~\ref{fig:ft_night}. Localization accuracy remains stable after the fine tuning. We even observe slight increase in the localization performances for some scenario (figure~\ref{fig:ft_night}-b): thank to the fine tuning with night images, the decoder had improved the depth map generation of dark images acquired during daytime. The fact that fine tuning our system to deal with hard localization scenario do not negatively impact the performances on over environment makes our new method well suited for real application when we cannot predict what will be the outdoor conditions.
+

@@ -1,0 +1,23 @@
+\section{Laser reflectance as side information}
+
+\label{sec:modality_ref}
+\input{3_side_modality_learning_for_localisation/figures/reflectance/ref_examples}
+
+In this section we investigate the use of another modality replacing the depth map in order to evaluate the generalization capabilities of the proposed framework. We use lidar reflectance values as auxiliary modality for these experiments.
+
+\subsection{Laser reflectance}
+Lidar reflectance is defined by the proportion of the signal returned to the laser sensor after hitting an object in the scene. Reflectance characterizes the material property of an object. We use the reflectance information provided in the Robotcar dataset~\cite{Maddern2016}. Reflectance value range from 0 to 1 depending if the object as reflected from 0 to 100\% of the original laser beam. We proceed the sparse reflectance data as same as the depth map using inpainting algorithm from~\cite{Bevilacqua2017} to produce dense reflectance maps. We use exactly the same decoder architecture for the reflectance map and the depth map. Examples of dense reflectance map are presented in figure~\ref{fig:ref_examples}.
+
+\subsection{Reflectance versus Depth}
+We report in figure~\ref{fig:ref_vs_depth} results using reflectance map during the descriptor training (\textbf{RGB(R)}, in gray). Localization accuracy is slightly worst when using the reflectance map than the results obtained while using the depth map. Still, reflectance information is beneficial as it increase the results over the RGB only descriptor. We can draw the conclusion that scene geometry is more informative for long term localization than reflectance property of observed objects.
+
+
+\subsection{Multi-modal complementarity}
+In this final experiment we compare the performances of a single side modality training descriptor and a multiple side modalities training descriptor. We slightly modify our original system to benefit for both depth and reflectance information. The modified network is presented in figure~\ref{fig:multi_mod}. We report localization results of the three methods, depth map as side information (RGB(D), in blue), reflectance map as side information (RGB(R), in gray) and depth and reflectance map as side information (RGB(DR), in black), in figure~\ref{fig:ref_vs_depth}.
+
+We do not observe systematic improvement when using both modalities. Nevertheless we obtain our best localization results for 3 out of 5 query sets (figure~\ref{fig:ref_vs_depth} b, c \& e). We observe that modality combination is beneficial only if each modal information perform equivalently when used standalone. In other world, if one modality is a lot more informative than the over on a specific dataset (for instance depth over reflectance for the query set CMU - Snow, figure~\ref{fig:ref_vs_depth}-d), the combination of the both will cancel potential benefit given by the most informative modality.
+
+This preliminary results are encouraging concerning the use of multiple modalities during the training process of the descriptor. Still, complementary experiment have to be done, in particular concerning the final descriptor fusion. Modality-aware aggregation descriptor or more complex attention mechanism may be considered~\cite{Seymour2018}.
+
+\input{3_side_modality_learning_for_localisation/figures/reflectance/ref_vs_depth}
+\input{3_side_modality_learning_for_localisation/figures/reflectance/multi_mod}

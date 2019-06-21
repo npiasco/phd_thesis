@@ -1,0 +1,17 @@
+{
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+	\caption{\label{tab/eval_depth} Contribution of the depth side information during training.}
+	\scriptsize \center
+	\begin{tabular}{ l  c | c  c  c | c  c}
+	\multicolumn{2}{c|}{\textbf{Network}} & \multicolumn{3}{c|}{\textbf{Top-1 recall@D}} & \multicolumn{2}{c}{\textbf{Recall@N}} \\	
+	           Name & \#Param.  	& @15 & @30 & @50 & @1 & @5\\
+	\hline
+	RGB + MAC &  2.5M		& 46.7 & 56.7 & 60.9 & 56.3 & 76.6 \\
+	RGB$^{+}$ + MAC & 7.9M	& 51.0 & 61.0 & 66.7 & 60.1 &  79.3 \\  
+	RGB(D) + MAC &  7.9M	& \textbf{55.9} & \textbf{64.4} & \textbf{67.8} & \textbf{64.0} &  \textbf{80.5} \\
+	\hline
+	\end{tabular}
+\end{table}
+}
