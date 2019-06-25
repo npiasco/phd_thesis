@@ -23,7 +23,7 @@
 % Macros help you summarise frequently repeated Latex commands.
 % Here, they are placed in an external file /Latex/Macros/MacroFile1.tex
 % An macro that you may use frequently is the figuremacro (see introduction.tex)
-\include{Latex/Macros/MacroFile1}
+\input{Latex/Macros/MacroFile1}
 \input{file_system/package}
 \input{file_system/acronym_definition}
 
@@ -122,6 +122,19 @@
 % --------------------------------------------------------------
 \onehalfspacing
 %\DeclareInstance{acro-title}{empty}{sectioning}{name-format =}
+
+\AtBeginDocument{%
+}
+
+\AtEndDocument{%
+	\bibliographystyle{abbrvnat} % calls style file plainnat.bst
+	
+	\renewcommand{\bibname}{References} % changes the header; default: Bibliography
+	
+	%\bibliography{9_backmatter/references} % adjust this to fit your BibTex file
+	\bibliography{6_backmatter/mendeley}
+}
+
 \begin{document}
 
 %\language{english}
@@ -214,7 +227,7 @@ Day of the defense:
 % Parts of the thesis are included below. Rename the files as required.
 % But take care that the paths match. You can also change the order of appearance by moving the include commands.
 
-\include{1_introduction/chapter_1}	% background information
+\subfile{1_introduction/chapter_1}	% background information
 \include{2_visual_based_localization/chapter_2}
 \include{3_side_modality_learning_for_localisation/chapter_3}
 \include{4_pose_refinement/chapter_4}
@@ -238,12 +251,6 @@ Day of the defense:
 %\begin{tiny} % tiny(5) < scriptsize(7) < footnotesize(8) < small (9)
 
 %\bibliographystyle{Latex/Classes/PhDbiblio-url2} % Title is link if provided
-\bibliographystyle{abbrvnat} % calls style file plainnat.bst
-
-\renewcommand{\bibname}{References} % changes the header; default: Bibliography
-
-%\bibliography{9_backmatter/references} % adjust this to fit your BibTex file
-\bibliography{6_backmatter/mendeley}
 
 %\end{tiny}
 %\end{multicols}

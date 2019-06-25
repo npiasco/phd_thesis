@@ -1,9 +1,16 @@
-BASENAME=thesis
-NAME=$(BASENAME).tex
-PDF=$(BASENAME).pdf
 LATEX_COMPILER=pdflatex
 LATEX_FLAGS=-shell-escape
 BIB_COMPILER=bibtex
+
+BASENAME=thesis
+NAME=$(BASENAME).tex
+	
+BASENAME_CH1=chapter_1
+BASEDIR_CH1=1_introduction/
+NAME_CH1=$(BASEDIR_CH1)$(BASENAME_CH1).tex
+
+all: pdf
+
 
 pdf:
 	$(LATEX_COMPILER) $(LATEX_FLAGS) $(NAME)
@@ -11,6 +18,12 @@ pdf:
 	$(LATEX_COMPILER) $(LATEX_FLAGS) $(NAME)
 	$(LATEX_COMPILER) $(LATEX_FLAGS) $(NAME)
 
+chap1:
+	$(LATEX_COMPILER) -output-directory=$(BASEDIR_CH1) $(LATEX_FLAGS) $(NAME_CH1)
+	$(BIB_COMPILER) $(BASEDIR_CH1)$(BASENAME_CH1)
+	$(LATEX_COMPILER) -output-directory=$(BASEDIR_CH1) $(LATEX_FLAGS) $(NAME_CH1)
+	$(LATEX_COMPILER) -output-directory=$(BASEDIR_CH1) $(LATEX_FLAGS) $(NAME_CH1)
+		
 clean:
 	find . -name "*.aux" -o -name "*.bb" -o -name "*.bl" -o -name "*.lo" -o -name "*.lo" -o -name "*.soc" | xargs rm -f
 	find . -name "*.nl" -o -name "*.ou" -o -name "*.to" -o -name "*.bc" -o -name "*.run.xml" | xargs rm -f
