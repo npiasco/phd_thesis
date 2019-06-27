@@ -57,6 +57,9 @@ The whole system is trained according to the following constraints:
 
 We use two different optimizers: one updating $\theta_{I}$ and $\theta_{D}$ weights regarding constraint~(\ref{eq:sys_optimization_1}) and the other updating $\theta_{G}$ weights regarding constraint~(\ref{eq:sys_optimization_2}). Because decoder $D_G$ relies on feature maps computed by encoder $E_I$ (see equation~(\ref{eq:generator})), at each optimization step on $\theta_{I}$ we need to update decoder weights $\theta_{G}$ to take in account possible changes in the image features. We finally train our entire system, by alternating between the optimization of weights $\{\theta_{I}, \theta_{D}\}$ and $\{\theta_G\}$ until convergence.
 
+\subsection{Hard mining}
+
+
 \subsection{Descriptors fusion and dimension reduction}
 \label{subsec:fuse_desc}
 We test several descriptors fusion function, the one introduced in equation~\ref{eq:desc_fuse}, in order to benefit as much as possible of the complementarity of the main and the auxiliary modalities. We compare: simple descriptors concatenation, hand-tuned descriptors scalar weighting, trained scalar weighting~\cite{Sizikova2016}, trained modal attention mechanism at the level of descriptors and trained spatial and modal attention mechanism at the level of deep features~\cite{Seymour2018}. We found that all the fusion policies perform equally, so we use the simple concatenation operator to fuse the descriptors. Actually, the modalities fusion is learned by our system through the triplet loss $L_{F_{\theta_{I}, \theta_{D}}}$, making the system aware of what is important and complementary in the radiometric and geometric domain without the need of complex fusion methods.
