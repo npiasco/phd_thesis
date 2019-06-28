@@ -3,7 +3,7 @@
 	\centering
 	\caption[Features in \ac{vbl}]{\label{tab:features_list} \textbf{Features in \ac{vbl}:} Synthetic overview of features used in Visual-Based Localization. Columns Det. and Desc. stand for detector and descriptor respectively and describe the capability of the feature.}
 	\renewcommand{\arraystretch}{1.1}
-	\small{
+	\scriptsize{
 		\begin{tabular}{l l c c l}
 			\hline
 			\textbf{Name} 			& \textbf{Feature type} 	& \textbf{Det.} 		& \textbf{Desc.} 		& \textbf{Used in \ac{vbl}}\\
@@ -18,7 +18,8 @@
 			ORB \citep{Rublee2011} 			& Point 		& \cmark	& \cmark		& \citep{Griffith2017} \\
 			BRIEF \citep{Calonder2010} & Point		& \xmark	& \cmark		& \citep{Krajnik2014,Krajnik2017a} \\
 			BRISK \citep{Leutenegger2011brisk} & Point		& \cmark	& \cmark		& \citep{Feng2016a,Middelberg2014,Muhlfellner2015} \\
-			Learned features & Point		& \xmark	& \cmark		& \citep{Carlevaris-Bianco2014,Paulin2015,Krajnik2017a} \\
+			Learned descriptor & Point		& \xmark	& \cmark		& \citep{Carlevaris-Bianco2014,Paulin2015,Krajnik2017a,Piasco2019,Piasco2019a,Taira2018} \\
+			Learned features & Point		& \cmark	& \cmark		& \citep{Sarlin2018a, Dusmanu2019} \\
 			\hline
 			Lines \citep{VC1962}				& Geometric		& \cmark	& \xmark		& \citep{Hays2008,Arth2015,Morago2016,Ramalingam2011} \\
 			Contours \citep{canny1986computational}				& Geometric		& \cmark	& \xmark		& \citep{Ramalingam2010,Russell2011} \\
@@ -29,22 +30,24 @@
 			Tiny images			& Global		& ---		& \cmark		& \citep{Hays2008,Gee2012,Corke2013} \\
 			Histogram			& Global		& ---		& \cmark		& \citep{Hays2008,Ni2009} \\
 			Fourier Transform	& Global		& ---		& \cmark		& \citep{Wan2016} \\
-			\ac{cnn} 			& Global		& ---		& \cmark		& Refer to table~\ref{tab:cnn_details} \\
+			\Ac*{cnn} 			& Global		& ---		& \cmark		& Refer to table~\ref{tab:cnn_details} \\
 			\hline
 			HOG \citep{Dalal2005}			& Patch			& \xmark	& \cmark		& \citep{Shrivastava2011,Aubry2014,McManus2014,Morago2016} \\
 			RPN \citep{Ren2015} 			& Patch 		& \cmark	& \xmark		& \citep{Gordo2016} \\
 			Edge boxes \citep{Zitnick2014}		& Patch			& \cmark	& \xmark		& \citep{Sunderhauf2015a,Panphattarasap2016,Yan2016} \\
 			MSER \citep{Matas2004}			& Blob			& \cmark	& \xmark		& \citep{Kim2015,Nister2006} \\
 			\hline
-			Planar surface & 3D			& \cmark	& \xmark		& \citep{Fernandez-Moral2013} \\
-			Normal vector		& 3D			& \cmark	& \xmark		& \citep{Li2016,Fernandez-Moral2013} \\
-			Spherical function \citep{Saupe2001}			& 3D			& \xmark	& \cmark		& \citep{Lu2015}\\
+			Normal vector		& Point-3D			& \cmark	& \xmark		& \citep{Li2016,Fernandez-Moral2013} \\
+			Learned 3D point descriptor			& Point-3D			& \xmark	& \cmark		& \citep{Zeng2016,Deng2018,Yew2018}\\
+			Planar surface & Patch-3D			& \cmark	& \xmark		& \citep{Fernandez-Moral2013} \\			
+			Spherical function \citep{Saupe2001}			& Global-3D			& \xmark	& \cmark		& \citep{Lu2015}\\
+			Learned point cloud descriptor		& Global-3D			& \xmark	& \cmark		& \citep{Uy2018,Schonberger2017a}\\
 			\hline
 			VCLH \citep{Cham2010}			& Semantic		& \cmark	& \cmark		& \citep{Cham2010} \\
             Skyline							& Semantic		& \cmark	& \cmark		& \citep{Baatz2012,Tzeng2013,Chen2015} \\
 			PointRay \citep{Bansal2014}		& Semantic		& \cmark	& \cmark		& \citep{Bansal2014} \\
 			Objects	 						& Semantic		& \xmark	& \cmark		& \citep{Lu2015,Salas-Moreno2013,Ardeshir2014,Qu2015} \\
-			\ac{cnn} ImageNet \citep{Krizhevsky2012} 	& Semantic 		& ---		& \cmark		& \citep{Sunderhauf2015} \\			
+			\acs*{cnn} ImageNet \citep{Krizhevsky2012} 	& Semantic 		& ---		& \cmark		& \citep{Sunderhauf2015} \\			
 			\hline
 		\end{tabular}
 	}
