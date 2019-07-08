@@ -7,6 +7,9 @@
 \label{subsec:dataset}
 	We have tested our new method on the \textit{Oxford Robotcar} public dataset~\cite{Maddern2016} and the \textit{CMU Visual localization} dataset~\cite{Bansal2014a} from the city of Pittsburg. There are common dataset used for image-based localization~\cite{Sattler2018} and loop closure algorithm involving neural networks training~\cite{Porav2018} under challenging conditions.
 		
+\subsection{Dense depth maps creation}
+Occlusion filter + exps
+		
 \subsubsection{Training data}
 	We use the temporal redundancy present in Oxford Robotcar dataset to build the images triplets to train our CNN. We build 400 triplets using three runs acquired at dates: \texttt{2015-05-19, 2015-08-28} and \texttt{2015-11-10}. We selected an area of the city different from the one used for training our networks for validation.
 	Depth modality is extracted from the lidar point cloud. When re-projected in the image frame coordinate, it produces a sparse depth map. Since deep convolutional neural networks require dense data as input, we pre-process these sparse modality maps with inpainting algorithm from~\cite{Bevilacqua2017} in order to make them dense. We drop depth values larger than 100 meters in order to produce depth map with value in $[0, 1]$, consistent with the sigmoid decoder output.
