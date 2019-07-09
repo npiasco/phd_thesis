@@ -1,7 +1,7 @@
 \begin{landscape}
 \begin{table}[t]
 	\centering
-	\caption[Features in \ac{vbl}]{\label{tab:features_list} \textbf{Features in \ac{vbl}:} Synthetic overview of features used in Visual-Based Localization. Columns Det. and Desc. stand for detector and descriptor respectively and describe the capability of the feature.}
+	\caption[Features in \ac{vbl}]{\label{tab:features_list} \textbf{Features in \ac{vbl}:} Synthetic overview of features used in Visual-Based Localization.}
 	\renewcommand{\arraystretch}{1.1}
 	\scriptsize{
 		\begin{tabular}{l l c c l}
@@ -22,8 +22,10 @@
 			Learned features & Point		& \cmark	& \cmark		& \citep{Sarlin2018a,Dusmanu2019,Noh2017} \\
 			\hline
 			Lines \citep{VC1962}				& Geometric-2D		& \cmark	& \xmark		& \citep{Hays2008,Arth2015,Morago2016,Ramalingam2011} \\
+            Skyline							& Geometric-2D		& \cmark	& \cmark		& \citep{Baatz2012,Tzeng2013,Chen2015} \\
 			Contours \citep{canny1986computational}				& Geometric-2D		& \cmark	& \xmark		& \citep{Ramalingam2010,Russell2011} \\
 			VLD \citep{Liu2012}			& Geometric-2D		& \xmark	& \cmark		& \citep{Majdik2013} \\
+			VCLH \citep{Cham2010}		& Geometric-2D	& \cmark	& \cmark		& \citep{Cham2010} \\			
             PGM \citep{Li2015}			& Geometric-2D		& \xmark	& \cmark		& \citep{Li2015} \\
 			\hline
 			GIST \citep{Oliva2001} 			& Global 		& ---		& \cmark		& \citep{Hays2008,Russell2011,Murillo2013,Azzi2016} \\
@@ -38,16 +40,11 @@
 			MSER \citep{Matas2004}			& Blob			& \cmark	& \xmark		& \citep{Kim2015,Nister2006} \\
 			\hline
 			Normal vector		& Point-3D			& \cmark	& \xmark		& \citep{Li2016,Fernandez-Moral2013} \\
+			PointRay \citep{Bansal2014}		& Point-3D		& \cmark	& \cmark		& \citep{Bansal2014} \\			
 			Learned 3D point descriptor			& Point-3D			& \xmark	& \cmark		& \citep{Zeng2016,Deng2018,Yew2018}\\
 			Planar surface & Patch-3D			& \cmark	& \xmark		& \citep{Fernandez-Moral2013} \\			
 			Spherical function \citep{Saupe2001}			& Global-3D			& ---	& \cmark		& \citep{Lu2015}\\
 			Learned point cloud descriptor		& Global-3D			& ---	& \cmark		& \citep{Uy2018,Schonberger2017a}\\
-			\hline
-			VCLH \citep{Cham2010}			& Semantic		& \cmark	& \cmark		& \citep{Cham2010} \\
-            Skyline							& Semantic		& \cmark	& \cmark		& \citep{Baatz2012,Tzeng2013,Chen2015} \\
-			PointRay \citep{Bansal2014}		& Semantic		& \cmark	& \cmark		& \citep{Bansal2014} \\
-			Objects	 						& Semantic		& \cmark	& \xmark		& \citep{Lu2015,Salas-Moreno2013,Ardeshir2014,Qu2015} \\
-			\acs*{cnn} ImageNet \citep{Krizhevsky2012} 	& Semantic 		& ---		& \cmark		& \citep{Sunderhauf2015} \\			
 			\hline
 		\end{tabular}
 	}
