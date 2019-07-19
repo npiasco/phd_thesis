@@ -124,6 +124,7 @@
 %\DeclareInstance{acro-title}{empty}{sectioning}{name-format =}
 
 \AtBeginDocument{%
+	\tableofcontents 
 }
 
 \AtEndDocument{%
@@ -209,9 +210,11 @@ Day of the defense:
 
 \include{0_frontmatter/acknowledgement}
 
-\tableofcontents            % print the table of contents
+%\tableofcontents            % print the table of contents
+
 \include{0_frontmatter/abstract}
 }
+
 
 %: --------------------------------------------------------------
 %:                  MAIN DOCUMENT SECTION
@@ -227,11 +230,11 @@ Day of the defense:
 % Parts of the thesis are included below. Rename the files as required.
 % But take care that the paths match. You can also change the order of appearance by moving the include commands.
 
-\subfile{1_introduction/chapter_1}	% background information
-\subfile{2_visual_based_localization/chapter_2}
-\subfile{3_side_modality_learning_for_localisation/chapter_3}
-\subfile{4_pose_refinement/chapter_4}
-\subfile{5_conclusion/chapter_5}
+\subfile{1_introduction/chapter_1}	% background information + intro
+\subfile{2_visual_based_localization/chapter_2} % SOTA
+\subfile{3_side_modality_learning_for_localisation/chapter_3} % CBIR VLB method
+\subfile{4_pose_refinement/chapter_4} % Relative Pose refinement
+\subfile{5_conclusion/chapter_5} %  Conclusion + perspectives
 
 % --------------------------------------------------------------
 %:                  BACK MATTER: appendices, refs,..
