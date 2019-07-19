@@ -123,3 +123,6 @@ sympy-plots-for-*.tex/
 
 *~
 *auto/
+
+*.DS_Store
+*.mtc*
