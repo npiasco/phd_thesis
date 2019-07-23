@@ -9,6 +9,11 @@ In recent works~\citep{Arandjelovic2017,Radenovic2016, Gordo2016}, authors tackl
 
 Further explanations regarding \ac{cnn} and specially aggregation methods performed inside the network can be found in the next section~\S\ref{subsubsec:cnn_aggregation}.
 
+
+\paragraph{Triplet minning}
+
+\citet{Iscen2018} introduce a manifold distance to compare dataset examples. With a pretrained model and without any supervision on the training data, they are able to mine relevant examples to fine-tune their image descriptor.
+
 \subsection{Features Aggregation}
 \label{subsec:features_aggregation}
 The similarity search can be computationally expensive when the data is described by a large descriptor, i.e. a vector of high dimension. Particularly, local features (\S\ref{subsec:local_feature}) are prompt to produce a large number of descriptors for each single data. Features aggregation is then performed in order to reduce the dimensionality of the descriptor vector. In \ac{vbl}, the aggregation process emphasize specific features that are more beneficial for the localization task.
