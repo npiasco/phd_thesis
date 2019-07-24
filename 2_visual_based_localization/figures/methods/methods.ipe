@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180903103625" modified="D:20190724172852"/>
+<info created="D:20180903103625" modified="D:20190724174936"/>
 <bitmap id="1" width="1280" height="960" length="125422" ColorSpace="DeviceRGB" Filter="DCTDecode" BitsPerComponent="8" encoding="base64">
 /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRof
 Hh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwh
@@ -31587,7 +31587,7 @@ h
 </path>
 <text matrix="0.00059978 1 -1 0.00059978 897.174 639.472" pos="96 864" stroke="darkgreen" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Online}</text>
 <text matrix="1 0 0 1 -144 16" transformations="translations" pos="120 868" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" size="LARGE"></text>
-<text matrix="0.00059978 1 -1 0.00059978 897.17 399.472" pos="96 864" stroke="red" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Offline}</text>
+<text matrix="0.00059978 1 -1 0.00059978 897.17 463.472" pos="96 864" stroke="red" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Offline}</text>
 <text matrix="1 0 0 1 -152 12" transformations="translations" pos="320 864" stroke="black" type="minipage" width="160" height="11.668" depth="6.7" valign="top" size="20" style="center">Visual query</text>
 <text matrix="1 0 0 1 -144 -16" transformations="translations" pos="208 400" stroke="black" type="minipage" width="384" height="10.321" depth="5.34" valign="top" size="20" style="center">Reference visual data + location</text>
 <path matrix="1 0 0 1 -280 0" stroke="black" pen="ultrafat">
@@ -32230,7 +32230,7 @@ h
 </path>
 <text matrix="0.00059978 1 -1 0.00059978 917.174 623.472" pos="96 864" stroke="darkgreen" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Online}</text>
 <text matrix="1 0 0 1 -124 0" transformations="translations" pos="120 868" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" size="LARGE"></text>
-<text matrix="0.00059978 1 -1 0.00059978 917.17 383.472" pos="96 864" stroke="red" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Offline}</text>
+<text matrix="0.00059978 1 -1 0.00059978 917.17 447.472" pos="96 864" stroke="red" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Offline}</text>
 <text matrix="1 0 0 1 -132 -4" transformations="translations" pos="320 864" stroke="black" type="minipage" width="160" height="11.668" depth="6.7" valign="top" size="20" style="center">Visual query</text>
 <text matrix="1 0 0 1 -124 -32" transformations="translations" pos="208 400" stroke="black" type="minipage" width="384" height="9.669" depth="4.68" valign="top" size="20" style="center">Reference visual data</text>
 <path matrix="1 0 0 1 -260 -16" stroke="black" pen="ultrafat">
@@ -32409,9 +32409,9 @@ h
 <text matrix="1 0 0 1 -104 432" transformations="translations" pos="688 432" stroke="black" type="minipage" width="128" height="21.649" depth="16.7" valign="top" size="20" style="center">Local query features</text>
 <text matrix="1 0 0 1 -8 -116" transformations="translations" pos="1256 944" stroke="black" type="minipage" width="248" height="11.555" depth="6.58" valign="top" size="20" style="center">6 DoF query pose</text>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 480" size="large" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 464" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 480" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 496" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 464" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 480" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 496" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 400" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 384" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 400" size="large" stroke="black"/>
@@ -32419,23 +32419,22 @@ h
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1112 444" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1112 428" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 432" size="large" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 464" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1072 460" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 464" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1072 460" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1072 448" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 452" size="large" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 484" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1080 492" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 484" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1080 492" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 448" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 440" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 416" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 480" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1200 488" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 488" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1248 480" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1180 464" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1192 456" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 452" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1248 460" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1248 460" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1180 452" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1180 404" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1180 424" size="normal" stroke="black"/>
@@ -32448,48 +32447,48 @@ h
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1204 388" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 384" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1252 392" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1168 544" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1168 544" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1172 548" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1180 548" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1172 540" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1184 544" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 516" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1172 540" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 48" name="mark/disk(sx)" pos="1184 544" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 516" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 528" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 528" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 484" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 456" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 432" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 500" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 500" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 500" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 416" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 400" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 528" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 544" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1044 548" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1100 548" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 548" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 544" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1044 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1100 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 528" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1092 528" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1108 528" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 532" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1204 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 528" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1204 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 528" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 536" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 524" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 476" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 444" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 444" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 444" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 444" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1152 444" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 524" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 512" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 476" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 444" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 444" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 444" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 444" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1152 444" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 524" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 512" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 544" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 516" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 500" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 516" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 500" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 532" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 516" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 496" size="small" stroke="black"/>
@@ -32509,50 +32508,50 @@ h
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1136 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1160 548" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1188 548" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1188 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1196 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1204 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1232 540" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1216 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1212 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1048 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1068 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1072 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1076 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1080 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1092 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1100 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1128 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1148 528" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 508" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 500" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 480" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1032 476" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1088 388" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 396" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1216 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1212 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1048 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1068 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1072 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1076 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1080 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1092 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1100 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1128 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1148 528" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 508" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 500" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1024 480" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1032 476" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1088 388" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1056 396" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1072 392" size="large" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1108 388" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1116 396" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 428" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 460" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 444" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 392" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 412" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 428" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 428" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 456" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1108 388" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1116 396" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 428" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 460" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 444" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 392" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 412" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1104 428" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 428" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 456" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1040 472" size="large" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1044 484" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1064 496" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1088 488" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1112 480" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1044 484" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1064 496" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1088 488" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1112 480" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1112 468" size="large" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 472" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1120 472" size="large" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1200 452" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1208 452" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1232 452" size="normal" stroke="black"/>
@@ -32570,17 +32569,17 @@ h
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1232 392" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1232 396" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 492" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1140 492" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1148 492" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1140 492" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1148 492" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 488" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 480" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 472" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1132 472" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1140 472" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1152 472" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1160 472" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1156 492" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1152 472" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1160 472" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1156 492" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1160 492" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1036 536" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1036 536" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1036 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1044 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1060 524" size="small" stroke="black"/>
@@ -32592,60 +32591,60 @@ h
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1208 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1212 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1196 524" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1164 524" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1164 524" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1156 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1148 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1144 524" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1152 524" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 524" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 516" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 512" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 508" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 484" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 492" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 472" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 456" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 444" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 524" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 512" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 508" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 496" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 500" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 496" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 500" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 492" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 524" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 516" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 512" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 508" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 484" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 492" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 472" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 456" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1028 444" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 524" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 512" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 508" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 496" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 500" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 496" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 500" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1228 492" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 540" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1240 524" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 520" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1240 504" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1240 496" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1240 524" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1236 520" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1240 504" size="small" stroke="black"/>
+<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1240 496" size="small" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1208 552" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1216 548" size="tiny" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1220 552" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1216 384" size="tiny" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1192 388" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1216 384" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -316 44" name="mark/disk(sx)" pos="1192 388" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1224 388" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1216 384" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 512" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 508" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 512" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 492" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1172 476" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1172 476" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 468" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 480" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1176 480" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1176 476" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1180 484" size="small" stroke="black"/>
-<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 488" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="860 592" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="860 584" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="860 576" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 592" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 584" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 588" size="small" stroke="black"/>
-<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 576" size="small" stroke="black"/>
-<text matrix="1 0 0 1 256 40" transformations="translations" pos="660 800" stroke="black" type="minipage" width="176" height="33.639" depth="28.71" valign="top" size="20" style="center">Correspondences between image and model</text>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 512" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 508" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 512" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 492" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1172 476" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1172 476" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 468" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1168 480" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1176 480" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1176 476" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1180 484" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 40" name="mark/disk(sx)" pos="1184 488" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="860 592" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="860 584" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="860 576" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 592" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 584" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 588" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 -4" name="mark/disk(sx)" pos="876 576" size="normal" stroke="black"/>
+<text matrix="1 0 0 1 256 40" transformations="translations" pos="660 800" stroke="black" type="minipage" width="176" height="33.639" depth="28.71" valign="top" size="20" style="center">Correspondences between query and model</text>
 <path matrix="0.5 0 0 0.5 160 500" fill="white">
 912 608 m
 912 592 l
@@ -32861,6 +32860,58 @@ h
 1448 740 m
 1492 776 l
 </path>
+<use name="mark/disk(sx)" pos="920 424" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="872 484" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="872 476" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="860 488" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="944 500" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="944 488" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="936 424" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="944 440" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="884 528" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="896 528" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="916 528" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="932 520" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="940 512" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="924 496" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="936 496" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="932 460" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="884 432" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="884 440" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="888 448" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="892 448" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="892 436" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="896 448" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="900 444" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="900 432" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -12 4" name="mark/disk(sx)" pos="872 476" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -12 -12" name="mark/disk(sx)" pos="872 476" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -12 -32" name="mark/disk(sx)" pos="872 476" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -308 52" name="mark/disk(sx)" pos="1120 400" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -308 104" name="mark/disk(sx)" pos="1120 400" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -328 40" name="mark/disk(sx)" pos="1104 460" size="large" stroke="black"/>
+<use matrix="1 0 0 1 -312 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -336 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -296 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -256 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -248 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -280 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -296 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -280 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -300 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -320 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -320 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -176 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -168 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -196 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -232 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -232 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -240 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -236 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -344 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -352 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -332 36" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
+<use matrix="1 0 0 1 -316 40" name="mark/disk(sx)" pos="1080 548" size="tiny" stroke="black"/>
 </page>
 <page>
 <layer name="alpha"/>
@@ -32873,7 +32924,7 @@ h
 </path>
 <text matrix="0.00059978 1 -1 0.00059978 917.174 687.472" pos="96 864" stroke="darkgreen" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Online}</text>
 <text matrix="1 0 0 1 -124 64" transformations="translations" pos="120 868" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" size="LARGE"></text>
-<text matrix="0.00059978 1 -1 0.00059978 917.17 447.472" pos="96 864" stroke="red" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Offline}</text>
+<text matrix="0.00059978 1 -1 0.00059978 917.17 511.472" pos="96 864" stroke="red" type="label" width="80.142" height="17.213" depth="0" valign="baseline" size="40">\textbf{Offline}</text>
 <text matrix="1 0 0 1 -32 60" transformations="translations" pos="320 864" stroke="black" type="minipage" width="160" height="11.668" depth="6.7" valign="top" size="20" style="center">Visual query</text>
 <text matrix="1 0 0 1 -124 32" transformations="translations" pos="208 400" stroke="black" type="minipage" width="384" height="11.668" depth="6.7" valign="top" size="20" style="center">Reference visual data + poses</text>
 <path matrix="1 0 0 1 -80 48" stroke="black" dash="dashed" pen="ultrafat">
@@ -33061,82 +33112,82 @@ h
 816 848 l
 </path>
 <text matrix="1 0 0 1 -164 -200" transformations="translations" pos="660 800" stroke="black" type="minipage" width="176" height="23.574" depth="18.62" valign="top" size="20" style="center">\textbf{Data representation}</text>
-<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" pen="fat">
+<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" pen="ultrafat">
 32 0 0 32 784 560 e
 </path>
-<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="ultrafat">
 772 588 m
 776 604 l
 792 604 l
 796 588 l
 </path>
-<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="ultrafat">
 812 572 m
 828 568 l
 828 552 l
 812 548 l
 </path>
-<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="ultrafat">
 756 572 m
 740 568 l
 740 552 l
 756 548 l
 </path>
-<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.973841 -0.22723 0.22723 0.973841 -102.74 188.797" stroke="black" fill="white" pen="ultrafat">
 772 532 m
 776 516 l
 792 516 l
 796 532 l
 </path>
-<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" pen="fat">
+<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" pen="ultrafat">
 32 0 0 32 784 560 e
 </path>
-<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="fat">
+<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="ultrafat">
 772 588 m
 776 604 l
 792 604 l
 796 588 l
 </path>
-<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="fat">
+<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="ultrafat">
 812 572 m
 828 568 l
 828 552 l
 812 548 l
 </path>
-<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="fat">
+<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="ultrafat">
 756 572 m
 740 568 l
 740 552 l
 756 548 l
 </path>
-<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="fat">
+<path matrix="0.727273 0 0 0.727273 185.818 200.727" stroke="black" fill="white" pen="ultrafat">
 772 532 m
 776 516 l
 792 516 l
 796 532 l
 </path>
-<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" pen="fat">
+<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" pen="ultrafat">
 32 0 0 32 784 560 e
 </path>
-<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="ultrafat">
 772 588 m
 776 604 l
 792 604 l
 796 588 l
 </path>
-<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="ultrafat">
 812 572 m
 828 568 l
 828 552 l
 812 548 l
 </path>
-<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="ultrafat">
 756 572 m
 740 568 l
 740 552 l
 756 548 l
 </path>
-<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="fat">
+<path matrix="0.402084 -0.368577 0.368578 0.402084 202.363 627.797" stroke="black" fill="white" pen="ultrafat">
 772 532 m
 776 516 l
 792 516 l
