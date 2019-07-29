@@ -3,9 +3,16 @@
 	This section aims to highlight common usage and emerging trends in \ac{vbl}. As \ac{vbl} panorama is wide and varied, we first propose a review of recent datasets and evaluation metrics used for comparing different approaches.
     
 	\subsection{Datasets}
+		\paragraph{Coverage.}			
+		By definition, the previously described applications do not cover the same area. For instance, a system design for car pose estimation should be able to localize a vehicle in a larger area than a pedestrian \ac{vbl} system should do. Thus, there exists systems designed for world-wide localization estimation~\citep{Hays2008,Weyand2016,Vo2017} as well as more spatially focused system~\citep{Song2016}. Database coverage can be extended by using wide angle or omnidirectional cameras. Works presented in~\citep{Arandjelovic2017,Iscen2017,Kumar2016mastersThesis,Ramalingam2010,Torii2011,Zamir2010,Zamir2014} use databases composed of spherical panoramas. On the other hand, aerial images are likely to cover large area but restrict \ac{vbl} applications~\citep{Wan2016}.
+		
+		\paragraph{Database Consistency.}
+		\label{para:data_consistency}
+		Regardless of the type of images used, we distinguish between two kinds of databases: homogeneous and heterogeneous. Homogeneous databases are composed of images gathered through the same optical acquisition system in a restricted time interval. Google street view\footnote{https://www.google.fr/intl/usa/streetview/} or \textit{IGN St\'er\'eopolis} platform~\citep{Paparoditis2012} give access to this kind of database. Homogeneous databases are suitable for applications that perform systematic processing on the data~\citep{Majdik2013,Torii2015}. Conversely, heterogeneous databases are made of images collected by various people with different cameras at inconsistent periods. These databases are often constructed through on-line collaborative platforms, like flickr\footnote{https://www.flickr.com/}, by downloading images associated to specific tags. Heterogeneous databases have the advantage of introducing visual variations in the \ac{vbl} system and therefore improves robustness to appearance changes~\citep{Radenovic2016,Gordo2016} (see Section~\ref{sec:changing_environment}). Additionally, heterogeneous databases are easier to augment or update compared to homogeneous ones.
+
 		\paragraph{Current datasets} Because of the important difference between direct and indirect methods, there exists two kinds of datasets used in \ac{vbl}: unsorted list of images and spatially consistent datasets (that can be composed of point cloud or fine geo-referenced images). Table~\ref{tab:dataset} presents numerous datasets used in \ac{vbl}. Notice the growing number of publicly available datasets starring complete 3D scans of large cities~[dataset]\citep{Menze2015,Maddern2016,Wang2016}. As mentioned earlier, long-term localization in changing environment is an hot topic in robotic research. We observe therefore appearance of several datasets featuring multiple acquisitions of the same place over long periode of time~\citep{Maddern2016,Carlevaris-Bianco2016,Krajnik2010,Krajnik2014}.
 
-\input{2_visual_based_localization/tabs/datasets}
+		\input{2_visual_based_localization/tabs/datasets}
 
 		\paragraph{Evaluation Metrics}
 		\label{subsec:evaluation_metric}
