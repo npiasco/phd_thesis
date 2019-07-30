@@ -30,7 +30,16 @@
 	    	
 		\paragraph{Categorization}
 			Scene categorization~\citep{Wu2009} is a different manner to exploit semantic clues for \ac{vbl}. High level semantic features have been popularized with the augmentation of labelled data and the accessibility of high computation power devices (GPU, Cloud Computing). ImageNet challenge introduced in 2009 by~\citep{Deng2009} permits the emergence of fast and robust classification methods, like the one described in~\citep{Krizhevsky2012}. Image classification produces a sub-sample of semantically identical images associated to a class. In \ac{vbl}, classification can be used to decimate the database in order to proceed in a subsequent step to a more precise pose search. This method is successfully applied in~\citep{Sunderhauf2015}, where the used \ac{cnn} has a dual-purpose: narrowing the search scope by semantic labelling and producing a global descriptor by weight aggregation (see \S~\ref{para:global_cnn}). In~\citep{torralba2003context,Ni2009}, classical learning methods like Gaussian Mixture Models (GMM) or epitome are employed for associating images to a finite number of possible locations. Recent work from~\citep{Garg2017} use semantic categorization in order to establish transition probabilities from a given type of environment to another one. Authors embed this framework in the SeqSLAM algorithm, improving the global system accuracy. Finally, works presented in~\citep{Hays2008,Weyand2016} consider the problem of classification of images at a world-wide level.
-			
+
+	\subsection{Other modalities}
+	\label{subsec:other_modalities}        	
+	\citep{Lu2016}
+	
+	\citep{Bonardi2017}
+	
+	\citep{Rastgoo2018}
+		
+				
 	\subsection{Cross-data localization}
 	\label{subsec:cross_data}        
 		We have presented so far three different kinds of information that can be used for \ac{vbl}: optical, geometric and semantic. These types of data are commonly used together to improve localization. In this part, we consider the scenario where all types of data are not available at query time, for instance if the database uses more complete representation of the environment than the query input. It is a common scenario because some data are more difficult to acquire or required specific sensors (\eg geometric information). In this case, methods have to deal with asymmetric representation of the environment in term of data type. We denote this problem cross-data \ac{vbl} and classify the methods founded in the literature in two categories: methods using a common description regardless of the type of data and methods projecting one type of data within another data representation space.
