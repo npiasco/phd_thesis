@@ -3,11 +3,16 @@
 
 \input{2_visual_based_localization/figures/data_hetero/data_hetero}
 
-	Originally, images were the dedicated data to \ac{vbl} system~\citep{Robertson2004}. Still, conventional images for the task of localization have limitations, as mentioned in the previous section (see Section~\ref{sec:changing_environment}). The use of other type of data, such as geometric and semantic information, can circumvent these limitations.
+	Originally, images were the dedicated data modality to \ac{vbl} systems~\citep{Robertson2004}. Still, conventional images for the task of localization have limitations, as mentioned in the previous section (see Section~\ref{sec:changing_environment}). The use of other type of data, such as geometric and semantic information, can circumvent these limitations.
 
 	\subsection{Geometric information}
-		\label{subsec:geometric_info}
-		As presented in the outlines of this section, adding geometric information aims to overcome the limitations of only-based-optical \ac{vbl}.
+		\label{subsec:geometric_info}		
+		We divide geometric information on three main categories:
+		\begin{itemize}
+			\item Weak Geometry
+			\item Point cloud		
+			\item Full Geometry
+		\end{itemize}
         
 		\paragraph{Weak Geometry}
 			\label{subsubsec:weak_geometry}			
@@ -19,7 +24,7 @@
 
 			However, \ac{sfm} reconstruction is a costly operation. Rather than preprocessing the visual data to recover the geometry of the scene, appropriate sensors permit a direct capture of a 3D scene (\textit{e.g.} stereo camera, depth camera, laser, lidar, etc.). Raw data from depth sensor are often used to add supplementary information channel to the \ac{vbl} system. Works from~\citep{Ni2009,McManus2014,Wan2014} use disparity map from stereo camera. Several authors~\citep{Shotton2013,Guzman-rivera2014,Glocker2015} used active depth camera that project infra-red pattern to estimate depth. Similar technology is used in~\citep{Li2016a} to perform \ac{vbl} in complete obscurity. Consistent 3D models are also used to perform \ac{vbl} task. For indoor localization, works from \citep{Shotton2013,Pascoe2015} use textured model reconstructed from RGB-D sensor~\citep{Shotton2013} or hand-crafted with dedicated software~\citep{Pascoe2015}. City-scale models are used by \citep{Aubry2014,Poglitsch2015,Pascoe2015a,Pascoe2015b,Caselitz2016} to perform outdoor \ac{vbl}. 
 
-\input{2_visual_based_localization/tabs/data_types}
+	\input{2_visual_based_localization/tabs/data_types}
 
 	\subsection{Semantic information}
 		\label{subsec:semantic_info}
