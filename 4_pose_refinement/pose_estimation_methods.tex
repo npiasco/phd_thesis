@@ -11,6 +11,7 @@ Between methods based on prior information and F2P methods, works from \citet{Ar
 
 Innovative contribution from \citet{Torii2011} refine the query location with a linear interpolation in the feature space domain of the closest database images. The database is arranged with a graph representation, where images represent the nodes and the edges encode spatial relation, i.e. images that are close to each other (according to their GPS-tag) are connected. Firstly, a set of putative candidates are retrieved with a conventional quantization method, then the discrete feature space of the candidate is extended into a continuous space by linear interpolation according to their position in the graph. The exact position of the query is then guessed according to linear combination of GPS information of the database images. Although promising, this method relies on complete panorama images, limiting its range of applications. Similar method have been used in~\citep{Sattler2019} to prove that Posenet-like methods can only average learned pose from data instead of reasoning on the image geometry to compute real 6-\ac{dof} pose.
 
+\citep{Li2019} -> relative pose computation with CNN
 
 \subsection{Direct VBL with prior}
 \label{vbl_prior}
