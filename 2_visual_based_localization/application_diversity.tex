@@ -7,24 +7,27 @@
 
 	\subsection{Geometric information}
 		\label{subsec:geometric_info}		
-		We divide geometric information on three main categories:
+		We divide geometric information used in \ac{vbl} on four main categories:
 		\begin{itemize}
-			\item Weak Geometry
-			\item Point cloud		
-			\item Full Geometry
+			\item \textbf{Weak Geometry:} basic primitives like plans or simplified geometric model,
+			\item \textbf{Point Cloud:} unordered set of 3D points, triangulated from images or acquired from lidar,
+			\item \textbf{Depth Camera:} dense geometry obtained by active sensors,
+			\item \textbf{3D Model:} full geometric model covering the area of localization, hand-crafted or generated from other sources.
 		\end{itemize}
         
-		\paragraph{Weak Geometry}
+		\paragraph{Weak Geometry.}
 			\label{subsubsec:weak_geometry}			
 			In \citep{Torii2015,Chen2011}, authors introduce weak geometric clues that describe principal 3D planes present in the scene. This information is then used to modify existing images in the database: for rectification purpose~\citep{Chen2011} or to generate more images in order to cover a larger area~\citep{Torii2015}. \citet{Cham2010} use a 2D buildings outline map for \ac{vbl}. From a given image, authors extract buildings corner and match them according to the map. Along the same line, \ac{vbl} method from~\citep{Arth2015} relies on a 2.5D map of Gratz (schematic buildings outlines boxes from OpenStreetMap\footnote{https://www.openstreetmap.org}). 2D map is also used as geo-reference in the work from~\citep{Brubaker2013} (extended version in~\citep{Brubaker2016}) where authors produce, thanks to a stereo-camera, a path of a vehicle that is afterwards matched against the map. The matching process is embedded in a probabilistic framework to handle large environment. \citet{Baatz2012} introduce the use of a \ac{dem} to perform localization in mountainous terrain~\citep{Ramalingam2010,Tzeng2013,Chen2015}. \citet{Bansal2014} extend this idea in urban localization to perform purely geometric \ac{vbl} with images as query input and \ac{dem} of a city as database. These purely geometric descriptions, also used in~\citep{Matei2013,Christie2016,Ramalingam2010,Ramalingam2011} (see figure~\ref{fig:3d_info}), permit localization independently of the illumination conditions (compared to optically dependant methods, see \S\ref{para:illum}).
 
-		\paragraph{3D geometry}
+		\paragraph{Point Cloud.}
         \label{subsubsec:3d_geometry}
 			Previous section \S\ref{subsec:sfm_methods} emphasizes the growing importance of colourized point clouds obtained by \ac{sfm} in \ac{vbl}. Because such geometric models are built upon images collections, reconstructed point clouds also lie on two categories: homogeneous~\citep{Kendall2015,Kendall2016} and heterogeneous~\citep{Irschara2009,Sattler2011} models (see \S\ref{para:data_consistency}). The addition of geometric relation by \ac{sfm} improves retrieval performances~\citep{Sattler2012a} and permits precise pose estimation of the query, on the contrary of methods based on vanilla images collections.
 
-			However, \ac{sfm} reconstruction is a costly operation. Rather than preprocessing the visual data to recover the geometry of the scene, appropriate sensors permit a direct capture of a 3D scene (\textit{e.g.} stereo camera, depth camera, laser, lidar, etc.). Raw data from depth sensor are often used to add supplementary information channel to the \ac{vbl} system. Works from~\citep{Ni2009,McManus2014,Wan2014} use disparity map from stereo camera. Several authors~\citep{Shotton2013,Guzman-rivera2014,Glocker2015} used active depth camera that project infra-red pattern to estimate depth. Similar technology is used in~\citep{Li2016a} to perform \ac{vbl} in complete obscurity. Consistent 3D models are also used to perform \ac{vbl} task. For indoor localization, works from \citep{Shotton2013,Pascoe2015} use textured model reconstructed from RGB-D sensor~\citep{Shotton2013} or hand-crafted with dedicated software~\citep{Pascoe2015}. City-scale models are used by \citep{Aubry2014,Poglitsch2015,Pascoe2015a,Pascoe2015b,Caselitz2016} to perform outdoor \ac{vbl}. 
+		\paragraph{Depth Camera.}
+			However, \ac{sfm} reconstruction is a costly operation. Rather than preprocessing the visual data to recover the geometry of the scene, appropriate sensors permit a direct capture of a 3D scene (\textit{e.g.} stereo camera, depth camera, laser, lidar, etc.). Raw data from depth sensor are often used to add supplementary information channel to the \ac{vbl} system. Works from~\citep{Ni2009,McManus2014,Wan2014} use disparity map from stereo camera. Several authors~\citep{Shotton2013,Guzman-rivera2014,Glocker2015} used active depth camera that project infra-red pattern to estimate depth. Similar technology is used in~\citep{Li2016a} to perform \ac{vbl} in complete obscurity. 
 
-	\input{2_visual_based_localization/tabs/data_types}
+		\paragraph{3D Model.} 
+			Consistent 3D models are also used to perform \ac{vbl} task.  For indoor localization, works from \citep{Shotton2013,Pascoe2015} use textured model reconstructed from RGB-D sensor~\citep{Shotton2013} or hand-crafted with dedicated software~\citep{Pascoe2015}. City-scale models are used by \citep{Aubry2014,Poglitsch2015,Pascoe2015a,Pascoe2015b,Caselitz2016} to perform outdoor \ac{vbl}. 
 
 	\subsection{Semantic information}
 		\label{subsec:semantic_info}
@@ -46,6 +49,8 @@
 		
 				
 	\subsection{Cross-data localization}
+	\input{2_visual_based_localization/tabs/data_types}
+	
 	\label{subsec:cross_data}        
 		We have presented so far three different kinds of information that can be used for \ac{vbl}: optical, geometric and semantic. These types of data are commonly used together to improve localization. In this part, we consider the scenario where all types of data are not available at query time, for instance if the database uses more complete representation of the environment than the query input. It is a common scenario because some data are more difficult to acquire or required specific sensors (\eg geometric information). In this case, methods have to deal with asymmetric representation of the environment in term of data type. We denote this problem cross-data \ac{vbl} and classify the methods founded in the literature in two categories: methods using a common description regardless of the type of data and methods projecting one type of data within another data representation space.
 		
