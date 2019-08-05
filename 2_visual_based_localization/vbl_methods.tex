@@ -95,7 +95,7 @@ F2P (as well as P2D) provides correspondences between 2D pixels and 3D points. D
 
 Embedded in a random consensus scheme (see \S\ref{par:ransac}), six correspondences between the image and the 3D model are sufficient to retrieve the pose, if we have no information about the intrinsic parameters of the camera~\citep{Donoser2014,Li2010,Li2010,Heisterklaus2014}. This formulation is known as P6P and can be solved with Direct Linear Transformation (DLT \citep{Hartley2003}).
 
-In particular cases, three correspondences between the image and the model are sufficient (P3P pose computation problem). Especially, the pose estimation problem can be reduced to a P3P formulation if the intrinsic parameters of the camera are known~\citep{Irschara2009,Middelberg2014}, or if 3 or more \ac{dof} are fixed~\citep{Zeisl2015,Qu2016,Svarm2016,Svarm2014}. In those particular cases, P3P solvers~\citet{Kneip2011} are mostly used to recover the pose.
+In particular cases, three correspondences between the image and the model are sufficient (P3P pose computation problem). Especially, the pose estimation problem can be reduced to a P3P formulation if the intrinsic parameters of the camera are known~\citep{Irschara2009,Middelberg2014}, or if 3 or more \ac{dof} are fixed~\citep{Zeisl2015,Qu2016,Svarm2016,Svarm2014}. In those particular cases, P3P solvers~\citet{Kneip2014opengv} are mostly used to recover the pose.
 
 \subsubsection{Learned methods}
 \input{2_visual_based_localization/figures/methods/learned_method}
