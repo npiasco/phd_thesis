@@ -97,6 +97,8 @@ Embedded in a random consensus scheme (see \S\ref{par:ransac}), six corresponden
 
 In particular cases, three correspondences between the image and the model are sufficient (P3P pose computation problem). Especially, the pose estimation problem can be reduced to a P3P formulation if the intrinsic parameters of the camera are known~\citep{Irschara2009,Middelberg2014}, or if 3 or more \ac{dof} are fixed~\citep{Zeisl2015,Qu2016,Svarm2016,Svarm2014}. In those particular cases, P3P solvers~\citet{Kneip2014opengv} are mostly used to recover the pose.
 
+In~\citep{Speciale2019}, authors are interested in privacy preserving personal information in augmented-reality consumer application. They argues that \ac{sfm} point cloud can be targeted by inversion attack to recover the original state of the mapped scene. That is why they propose a 3D Line Cloud scene representation to replace the original point cloud and use 3D points to 3D lines association to recover the pose of a query image.
+
 \subsubsection{Learned methods}
 \input{2_visual_based_localization/figures/methods/learned_method}
 
