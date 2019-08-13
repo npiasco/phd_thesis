@@ -4,17 +4,39 @@
 	\caption[Data heterogeneity in \ac{vbl}]{\label{tab:data_types}\textbf{Data heterogeneity in \ac{vbl}.} Summary of the various types of data used in \ac{vbl}. First row indicates the type of data present in the database and the first column the type of the query confronted to this database. References in \textbf{bold} denote works using semantic interpretation of the data (see \S\ref{subsec:semantic_info}). $^{\dagger}$~Image-retrieval based methods that compare a input image to a set of images. Numerous references not displayed to readability reason. $^{\ddagger}$~Several works consider \ac{vbl} with as an input a set of images from the same scene rather than only one image input.}
 
 	\renewcommand{\arraystretch}{1.1}
-	\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+%	\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 	\footnotesize{
-	\begin{tabular}{|c | M{0.18\textwidth} | M{0.18\textwidth} | M{0.18\textwidth} | M{0.18\textwidth} |}
+	%\begin{tabular}{|c | M{0.18\textwidth} | M{0.18\textwidth} | M{0.18\textwidth} | M{0.18\textwidth} |}
+	\begin{tabular}{|c | c | c | c | c |}
 		\hline
-		\diagbox[width=0.20\textwidth, height=2\line]{Query}{Database} 		& Images collection \S\ref{subsec:visual_info} & Weak geometry \S\ref{subsubsec:weak_geometry}	& SfM \S\ref{subsec:sfm_methods} & 3D model \S\ref{subsubsec:3d_geometry} \\
+		\diagbox{Query}{Database} 		& \makecell{Images \\ \S\ref{subsec:visual_info}} & \makecell{Weak geometry\\ \S\ref{subsubsec:weak_geometry}}	& \makecell{Point Cloud \\ \S\ref{subsec:sfm_methods}} & \makecell{3D model \\ \S\ref{subsubsec:3d_geometry}} \\
         \hline
-          Image				& Similarity search$^{\dagger}$ \textbf{\citep{Arandjelovic2014a,Garg2017,Mousavian2015,torralba2003context,Ni2009,Weyand2016}} 		& \citep{Baatz2012,Cham2010,Chen2011,Torii2015} \textbf{\citep{Atanasov2016,Ardeshir2014,Arth2015,Castaldo2015,Wang2015}} &  \citep{Arth2009,Donoser2014,Heisterklaus2014,Irschara2009,Feng2016a,Li2010,Li2012,Lu2015,Lynen2015,Middelberg2014,Sattler2011,Sattler2012,Sattler2015,Sattler2016a,Svarm2014,Zeisl2015}	& \citep{Aubry2014,Mason2011,Russell2011} \\
+          Image				& 
+          \diagbox[dir=SW]
+          {\ac{cbir} search$^{\dagger}$}
+          {\makecell{\citep{Arandjelovic2014a,Garg2017,Mousavian2015} \\ \citep{torralba2003context,Ni2009,Weyand2016}}} &
+          \diagbox[dir=SW]
+          {\makecell{\citep{Baatz2012,Cham2010,Chen2011} \\ \citep{Torii2015}}}
+          {\makecell{\citep{Atanasov2016,Ardeshir2014,Arth2015} \\ \citep{Castaldo2015,Wang2015}}} &
+          \makecell{
+          	\citep{Arth2009,Donoser2014,Heisterklaus2014,Irschara2009} \\ 
+          	\citep{Li2012,Lu2015,Lynen2015,Middelberg2014} \\
+          	\citep{Sattler2011,Sattler2012,Sattler2015,Feng2016a} \\ 
+          	\citep{Sattler2016a,Svarm2014,Zeisl2015,Li2010}}	& 
+          \citep{Aubry2014,Mason2011,Russell2011} \\
             \hhline{-||-|-|-|-|}
             Several images$^{\ddagger}$	& \citep{Weyand2016,Zamir2010}		& \citep{Brubaker2016} & \citep{Kroeger2014}								& \textbf{X} \\
             \hhline{-||-|-|-|-|}
-            Image + Depth				& \textbf{X}						& \textbf{\citep{Christie2016}}						& \textbf{X}								& \citep{Cavallari,Gee2012,Glocker2013,Glocker2015,Guzman-rivera2014,Shotton2013,Valentin2015,Sizikova2016} \textbf{\citep{Fernandez-Moral2013,Salas-Moreno2013}}\\
+            Image RGBD			& \textbf{X}						& \textbf{\citep{Christie2016}}						& \textbf{X}								&
+            \diagbox[dir=SW]
+            {\makecell{
+            		\citep{Cavallari,Gee2012,Glocker2013} \\
+            		\citep{Glocker2015,Guzman-rivera2014,Shotton2013} \\
+            		\citep{Valentin2015,Sizikova2016}
+            }}
+            {
+			 \citep{Fernandez-Moral2013,Salas-Moreno2013}
+			 } \\
             \hhline{-||-|-|-|-|}
             SfM				& \textbf{X}						& \textbf{X}						& \citep{Middelberg2014} \textbf{\citep{Lu2015}}				& \textbf{X} \\
             \hhline{-||-|-|-|-|}
