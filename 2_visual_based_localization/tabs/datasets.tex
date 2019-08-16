@@ -1,44 +1,49 @@
 \begin{landscape}
-\begin{table}[t]
+\begin{table}
 	\centering
-	\caption[Currently used datasets in \ac{vbl}]{\label{tab:dataset} \textbf{Currently used datasets in \ac{vbl}.} Depending on the method to be evaluated (\textit{e.g.} direct or indirect), different datasets are used. Data information (pose, type and homogeneity) concern the documents composing the database and not the one used at query time. Data homogeneity refer to the definition given in paragraph~\ref{para:data_consistency}. RGB-D refer to data recorded with depth-cameras and RGB-S to information collected with standard cameras coupled with laser-scan depth estimation. $^{\dagger}$~6 DoF available in~\citep{Sattler2017}.}
+	\caption[Currently used datasets in \ac{vbl}]{\label{tab:dataset} \textbf{Currently used datasets in \ac{vbl}.} Data type concerns the documents composing the database, not the one used as queries. RGB-D refer to data recorded with depth-cameras and RGB-S to information collected with standard cameras coupled with laser-scan. $^{\dagger}$~6 DoF available in~\citep{Sattler2017}.}
 	\renewcommand{\arraystretch}{1.1}
 	\footnotesize{
-		\begin{tabular}{l  l  c  c  c}
+		\begin{tabular}{l  l  c  c}
       		\hline
-			\bf Name		& \bf Application domain	& \bf Data Pose Info.		& 	\bf Data Type	& \bf Data Homog.	  \\
+			\bf Name		& \bf Application domain	& \bf Pose Information		& 	\bf Data Type  \\
       		\hline
       		\hline
-			\href{http://lear.inrialpes.fr/people/jegou/data.php\#holidays}{INRIA Holidays} [dataset]\citep{Jegou2008} & Scene retrieval & No & RGB & No \\
-			\href{http://www.robots.ox.ac.uk/~vgg/data/oxbuildings/}{Oxford Buildings} [dataset]\citep{Philbin2007} & Landmark retrieval & No & RGB & No \\
-			\href{http://www.robots.ox.ac.uk/~vgg/data/parisbuildings/}{Paris} [dataset]\citep{Philbin2008} & Landmark retrieval  & No & RGB & No \\
-			\href{http://image.ntua.gr/iva/datasets/wc/}{World Cities Dataset} [dataset]\citep{Tolias2011} & Image retrieval & GPS & RGB & No \\
-            \href{http://www.ok.ctrl.titech.ac.jp/~torii/project/repttile/}{Pittsburgh 250k} [dataset]\citep{Torii2013} & Image retrieval & GPS & RGB & Yes \\
-            \href{https://purl.stanford.edu/vn158kj2087}{San Francisco Landmark} [dataset]\citep{Chen2011} & Landmark retrieval & GPS$^{\dagger}$ & RGB & Yes \\[3pt]
+			\href{http://lear.inrialpes.fr/people/jegou/data.php\#holidays}{INRIA Holidays} [dataset]\citep{Jegou2008} & Landmark retrieval & Landmark tags & RGB \\
+			\href{http://www.robots.ox.ac.uk/~vgg/data/oxbuildings/}{Oxford Buildings} [dataset]\citep{Philbin2007} & Landmark retrieval & Landmark tags & RGB \\
+			\href{http://www.robots.ox.ac.uk/~vgg/data/parisbuildings/}{Paris} [dataset]\citep{Philbin2008} & Landmark retrieval  & Landmark tags & RGB \\
+			\href{cmp.felk.cvut.cz/revisitop}{Revisiting Oxford and Paris} [dataset]\citep{Radenovic2018} & Landmark retrieval  & Landmark tags & RGB \\
+			\href{http://image.ntua.gr/iva/datasets/wc/}{World Cities Dataset} \citep{Tolias2011} & \ac{cbir} for localization & GPS & RGB \\
+            \href{http://www.ok.ctrl.titech.ac.jp/~torii/project/repttile/}{Pittsburgh 250k} \citep{Torii2013} & \ac{cbir} for localization & GPS & RGB \\
+            \href{https://purl.stanford.edu/vn158kj2087}{San Francisco Landmark} \citep{Chen2011} & Landmark retrieval & GPS$^{\dagger}$ + Landmark tags & RGB \\[3pt]
 
-			\href{http://crcv.ucf.edu/projects/GMCP_Geolocalization/}{Pittsburgh Street View} [dataset]\citep{Zamir2014} & Image retrieval & GPS + Compass & RGB & Yes \\
-			\href{http://www.ok.ctrl.titech.ac.jp/~torii/project/247/}{Tokyo 24-7 dataset} [dataset]\citep{Torii2015} & Image retrieval & GPS + Compass & RGB & No \\[3pt]
+			\href{http://crcv.ucf.edu/projects/GMCP_Geolocalization/}{Pittsburgh Street View} \citep{Zamir2014} & \ac{cbir} for localization & GPS + Compass & RGB \\
+			\href{http://www.ok.ctrl.titech.ac.jp/~torii/project/247/}{Tokyo 24-7 dataset} \citep{Torii2015} & \ac{cbir} for localization & GPS + Compass & RGB \\[3pt]
 
-			\href{https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/}{Nordland train dataset} & Inter-season matching & GPS & RGB & No \\
-			\href{http://labe.felk.cvut.cz/~tkrajnik/dataset/}{Stromovka dataset} [dataset]\citep{Krajnik2010} & Inter-season matching & Inter-season pair & RGB & No \\[3pt]		
+			\href{https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/}{Nordland train dataset} & Inter-season matching & GPS & RGB \\
+			\href{http://labe.felk.cvut.cz/~tkrajnik/dataset/}{Stromovka dataset} \citep{Krajnik2010} & Inter-season matching & Inter-season image pairs & RGB \\[3pt]		
 
-			\href{https://cvg.ethz.ch/research/mountain-localization/}{CH1 dataset} [dataset]\citep{Saurer2016} & Localization in mountain & GPS & RGB & No \\
-			\href{https://cvg.ethz.ch/research/mountain-localization/}{CH2 dataset} [dataset]\citep{Saurer2016} & Localization in mountain & GPS & RGB & Yes \\
-			\href{http://cphoto.fit.vutbr.cz/geoPose3K/}{GeoPose3K} [dataset]\citep{Brejcha2017a} & Localization in mountain & 6 DoF Pose & RGB & No \\[3pt]
-			\href{http://mi.eng.cam.ac.uk/projects/relocalisation/\#dataset}{Cambridge Dataset} [dataset]\citep{Kendall2015} & Camera localization & 6 DoF Pose & SfM & Yes \\
+			\href{https://cvg.ethz.ch/research/mountain-localization/}{CH1/CH2 dataset} \citep{Saurer2016} & Localization in mountain & GPS & RGB \\
+			\href{http://cphoto.fit.vutbr.cz/geoPose3K/}{GeoPose3K} \citep{Brejcha2017a} & Localization in mountain & 6 DoF Pose & RGB \\[3pt]
+			\href{http://mi.eng.cam.ac.uk/projects/relocalisation/\#dataset}{Cambridge Dataset} \citep{Kendall2015} & Camera localization & 6 DoF Pose & SfM \\
+			\href{https://www.visuallocalization.net/}{Visual Localization Benchmark} \citep{Sattler2018} & Long-term localization & 6 DoF Pose & SfM \\
+
 			% Rajouter Vienna dataset (homogen si je m'en souviens bien, je trouve pas le lien vers le DS
-			\href{http://www.cs.cornell.edu/projects/p2f/}{Rome16K} [dataset]\citep{Li2010} & Camera localization & 6 DoF Pose & SfM & No \\
-			\href{http://www.cs.cornell.edu/projects/p2f/}{Dubrovnik6K} [dataset]\citep{Li2010} & Camera localization & 6 DoF Pose & SfM & No \\
-			\href{https://www.graphics.rwth-aachen.de/software/image-localization}{Aachen} [dataset]\citep{Sattler2012a} & Camera localization & 6 DoF Pose & SfM & No \\
-			\href{http://phototour.cs.washington.edu/datasets/}{Notre Dame dataset} [dataset]\citep{Snavely2006} & Camera localization & 6 DoF Pose & SfM & No \\[3pt]
-			\href{https://www.microsoft.com/en-us/research/project/rgb-d-dataset-7-scenes/}{7 scenes} [dataset]\citep{Shotton2013} & Multi-purpose (indoor) & 6 DoF Pose & RGB-D & Yes \\
-			\href{https://strands.pdc.kth.se/public/Witham_Wharf_RGB-D_dataset/}{Witham Wharf dataset} [dataset]\citep{Krajnik2014} & Multi-purpose (indoor) & 6 DoF Pose & RGB-D & No \\		
-			\href{http://robots.engin.umich.edu/nclt/}{North Campus dataset} [dataset]\citep{Carlevaris-Bianco2016} & Multi-purpose & 6 DoF Pose & RGB-S & No \\			\href{http://mrg.robots.ox.ac.uk/the-oxford-robotcar-dataset/}{Oxford Robotcar} [dataset]\citep{Maddern2016} & Multi-purpose & 6 DoF Pose & RGB-S & No \\
-			\href{?}{TorontoCity dataset} [dataset]\citep{Wang2016} & Multi-purpose & 6 DoF Pose & RGB-S & Yes \\
-			\href{http://www.cvlibs.net/datasets/kitti/}{KITTI dataset} [dataset]\citep{Menze2015} & Multi-purpose & 6 DoF Pose & RGB-S & Yes \\
+			\href{http://www.cs.cornell.edu/projects/p2f/}{Rome16K} \citep{Li2010} & Camera localization & 6 DoF Pose & SfM \\
+			\href{http://www.cs.cornell.edu/projects/p2f/}{Dubrovnik6K} \citep{Li2010} & Camera localization & 6 DoF Pose & SfM \\
+			\href{https://www.graphics.rwth-aachen.de/software/image-localization}{Aachen} \citep{Sattler2012a} & Camera localization & 6 DoF Pose & SfM \\
+			\href{http://phototour.cs.washington.edu/datasets/}{Notre Dame dataset} \citep{Snavely2006} & Camera localization & 6 DoF Pose & SfM \\[3pt]
+			\href{https://www.microsoft.com/en-us/research/project/rgb-d-dataset-7-scenes/}{7 scenes} \citep{Shotton2013} & Multi-purpose (indoor) & 6 DoF Pose & RGB-D \\
+			\href{http://graphics.stanford.edu/projects/reloc/}{12 scenes} \citep{Valentin2016} & Multi-purpose (indoor) & 6 DoF Pose & RGB-D \\			
+			\href{https://strands.pdc.kth.se/public/Witham_Wharf_RGB-D_dataset/}{Witham Wharf dataset} \citep{Krajnik2014} & Multi-purpose (indoor) & 6 DoF Pose & RGB-D \\		
+			\href{http://robots.engin.umich.edu/nclt/}{North Campus dataset} \citep{Carlevaris-Bianco2016} & Multi-purpose (long-term loc.) & 6 DoF Pose & RGB-S \\			
+			\href{http://www.cvlibs.net/datasets/kitti/}{KITTI dataset} \citep{Menze2015} & Multi-purpose & 6 DoF Pose & RGB-S \\
+			\href{http://www.cs.cmu.edu/~aayushb/localization/}{CMU-Seasons} \citep{Bansal2014a} & Multi-purpose (long-term loc.) & 6 DoF Pose & RGB-S \\
+			\href{?}{TorontoCity dataset} \citep{Wang2016} & Multi-purpose & 6 DoF Pose & RGB-S \\
+			\href{http://mrg.robots.ox.ac.uk/the-oxford-robotcar-dataset/}{Oxford Robotcar} \citep{Maddern2016} & Multi-purpose (long-term loc.) & 6 DoF Pose & RGB-S  \\
 			\hline	
 		\end{tabular}
 	}
-    \footnotetext[4]{6 DoF available in~\citep{Sattler2017}}    
+    \footnotetext[4]{6 DoF available in~\citep{Sattler2017}}
 \end{table}
 \end{landscape}
