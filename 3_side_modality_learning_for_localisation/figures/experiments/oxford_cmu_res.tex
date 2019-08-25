@@ -1,22 +1,22 @@
 \begin{figure}
 	\center
-	\begin{minipage}{0.16\linewidth}
+	\begin{minipage}{0.27\linewidth}
 		\center \scriptsize
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_lt_queries/distance}
 		
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_lt_queries/recall}
 		
 		a) Oxford -- LT
-	\end{minipage}
-	\begin{minipage}{0.16\linewidth}
+	\end{minipage}\hfill
+	\begin{minipage}{0.27\linewidth}
 		\center \scriptsize
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_snow_queries/distance}	
 		
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_snow_queries/recall}
 				
 		b) Oxford -- Snow
-	\end{minipage}
-	\begin{minipage}{0.16\linewidth}
+	\end{minipage}\hfill
+	\begin{minipage}{0.27\linewidth}
 		\center \scriptsize
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_night_queries/distance}	
 		
@@ -24,23 +24,26 @@
 		
 		c) Oxford -- Night
 	\end{minipage}
-	\begin{minipage}{0.16\linewidth}
+	
+	\vspace{5pt}	
+
+	\begin{minipage}{0.27\linewidth}
 		\center \scriptsize
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_cmu_lt/distance}	
 		
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_cmu_lt/recall}
 		
 		d) CMU -- LT
-	\end{minipage}
-	\begin{minipage}{0.16\linewidth}
+	\end{minipage}\hfill
+	\begin{minipage}{0.27\linewidth}
 		\center \scriptsize
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_cmu_snow/distance}	
 		
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_cmu_snow/recall}
 		
 		e) CMU -- Snow
-	\end{minipage}
-	\begin{minipage}{0.16\linewidth}
+	\end{minipage}\hfill
+	\begin{minipage}{0.27\linewidth}
 		\center \scriptsize
 		\includegraphics[width=\linewidth]{plot/oxf_cmu/Results_cmu_autumn/distance}	
 		
@@ -52,12 +55,10 @@
 	\vspace{0.2cm}
 	
 	\begin{scriptsize}
-	\begin{tabular}{c l c l c l c l c l }
-		\textcolor{red}{\Large{--}} & Alexnet RGB & 
-		\textcolor{red}{\Large{- -}} & Resnet RGB & 
-		\textcolor{blue}{\Large{--}} & Alexnet RGB(D) (our) &
-		\textcolor{blue}{\Large{- -}} & Resnet RGB(D) (our) &  
-		\textcolor{magenta}{\Large{--}} & Alexnet RGB(H)  \\
+	\begin{tabular}{c l c l c l }
+		\textcolor{red}{\Large{\textbf{--}}} & Alexnet RGB & \textcolor{blue}{\Large{\textbf{--}}} & Alexnet RGB(D) (our) & 
+		\multirow{2}{*}{\textcolor{magenta}{\textbf{\Large{--}}}} & \multirow{2}{*}{Alexnet RGB(H)}\\
+		\textcolor{red}{\Large{- -}} & Resnet RGB & \textcolor{blue}{\Large{- -}} & Resnet RGB(D) (our) 
 	\end{tabular}		
 	\end{scriptsize}
 	

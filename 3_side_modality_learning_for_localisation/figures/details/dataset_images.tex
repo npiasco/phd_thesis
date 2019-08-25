@@ -1,35 +1,42 @@
-\begin{figure*}
-	\center
-	%\includegraphics[width=0.49\linewidth]{vect/dataset_ex_hori}\includegraphics[width=0.49\linewidth]{vect/dataset_ex_hori}
-%	\includegraphics[trim={0 10 0 0}, clip, width=\linewidth]{vect/dataset_ex}
-
-
-	\begin{minipage}{0.445\linewidth}
+\begin{figure}[t]
+	\centering
+	\begin{minipage}[t]{0.44\linewidth}
 		\includegraphics[width=\linewidth]{details/oxf_exs/ex1}
 		
 		\includegraphics[width=\linewidth]{details/oxf_exs/ex2}
 		
 		\includegraphics[width=\linewidth]{details/oxf_exs/ex4}
 		
+		\includegraphics[width=\linewidth]{details/oxf_exs/ex6}
+		
+		\includegraphics[width=\linewidth]{details/oxf_exs/ex3}
+		
+		\includegraphics[width=\linewidth]{details/oxf_exs/ex5}
+		
 		\scriptsize
-		\begin{tabularx}{\linewidth}{X X X X}
-			Reference im. & 	Long-term & Snow queries & Night queries
+		\begin{tabularx}
+		{\linewidth}{X X X X}
+			Reference images & 	Long-term & Snow queries & Night queries
 		\end{tabularx}
 	\end{minipage}\hfill	
-	\begin{minipage}{0.545\linewidth}
+	\begin{minipage}[t]{0.55\linewidth}
 		\includegraphics[width=\linewidth]{details/cmu_exs/ex1}
 		
 		\includegraphics[width=\linewidth]{details/cmu_exs/ex6}
 		
 		\includegraphics[width=\linewidth]{details/cmu_exs/ex4}	
 		
+		\includegraphics[width=\linewidth]{details/cmu_exs/ex2}	
+		
+		\includegraphics[width=\linewidth]{details/cmu_exs/ex3}	
+		
+		\includegraphics[width=\linewidth]{details/cmu_exs/ex5}	
+		
 		\scriptsize
 		\begin{tabularx}{\linewidth}{X X X X}
 			Reference images & Snow queries & Autumn queries & Long-term queries 
 		\end{tabularx}
 	\end{minipage}
-	
-	
 
 	\caption[Examples of test images]{\label{fig:dataset} \textbf{Examples of test images :} we evaluate our proposal on 6 challenging localization sequences. Query image samples and the closest reference images in the database are presented from Oxford Robotcar~\cite{Maddern2016} (left) and CMU season dataset~\cite{Bansal2014a} (right).}
-\end{figure*}
+\end{figure}
