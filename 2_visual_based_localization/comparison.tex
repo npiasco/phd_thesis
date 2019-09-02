@@ -13,7 +13,7 @@
 	
 		Visual content within a dataset can be uniform, reference and queries are from the same sensor and captured at the same time, or inconsistent, queries have been taken under different condition or with different sensor than the references data. In order to reflect real-life conditions, outdoor datasets are often inconsistent, with visual dissimilarity between queries and references induced by acquisition sensors, dynamic changes in the scene (cars \& pedestrians),  weather conditions etc. Indoor datasets use more uniform data~\citep{Shotton2013}, thus targeting application like camera re-localization for robot navigation or augmented reality.
 
-		\paragraph{Evaluation Metrics.}
+		\paragraph{Evaluation metrics.}
 		\label{subsec:evaluation_metric}
 			Authors use various types of performances criteria in order to compare \ac{cbir} for localization methods. The recall @$k$, or recall @$k$\%, is the most used metric. It represents the percentage of queries that present a good match within the $k$ or $k$\% top ranked images. A query is considered correctly localized if it lies inside a tolerance radius from its ground truth position (from 10 to 25m, depending on the dataset).  Usually $k$ is set to 10 or 1\%. If we consider only the top 1 retrieved candidate for evaluation, distance from the ground truth is used as the main precision criteria. For places or landmarks recognition tasks~\citep{Radenovic2018}, \ac{map} evaluate performances of the method.
 			

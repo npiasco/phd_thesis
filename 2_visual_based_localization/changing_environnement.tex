@@ -25,13 +25,13 @@
 			
 			In the following we report methods focusing on one specific problem induced by long-term localization. 
 
-			\subparagraph{Dealing with Seasons \& Weather.}
+			\subparagraph{Dealing with seasons \& weather.}
 				\citet{Valgren2010} have shown that usual local features, like SIFT or SURF, are not well suited for similarity association across season cycles. GRIEF local descriptor~\citep{Krajnik2017a} (derivatives of BRIEF~\citep{Calonder2010}) or ORB feature~\citep{Griffith2017} show better results for this task. Works described in~\citep{Krajnik2014,Krajnik2017a} model seasonal-like cycle in a probabilistic framework in order to downgrade features that are not likely to appear during a given period of time. A de-raining \ac{cnn} filter is proposed in~\citep{Porav2019} to improve localization with bad weather condition. Their model is trained with both synthetic and real data.
 		
-			\subparagraph{Dealing with Nocturnal illumination.}
+			\subparagraph{Dealing with nocturnal illumination.}
 				In some application, especially for vehicle localization, \ac{vbl} has to be performed during a complete day, including overnight~\citep{McManus2014,Milford2015} (see middle example of figure~\ref{fig:changes}). Dense descriptors'~extraction used in \citep{Torii2015} exhibit promising result for daytime to overnight images matching. At first glance, artificial lights ubiquitous in urban scene can be considered as sources of disruption. However, \citet{Nelson2015} focus on this particular clues to perform localization across only night road images. 
 				
-			\subparagraph{Dealing with Shadows.}
+			\subparagraph{Dealing with shadows.}
 				Some researches focus on the specific perturbation introduced by shadow casting over images. \citet{Wan2016} outline that satellite and overhead images can change drastically in appearance depending on the relative position of the sun during the day. Authors show that Fourier transforms can be used to create shadow-invariant image representation. \citet{Corke2013} implement the shadow suppression method presented in~\citep{Finlayson2006} to localize street images with important depth artefacts projected by trees or buildings. This method still remains very sensor-dependent.
 
 	\subsection{Cross-appearance localization}
