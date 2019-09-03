@@ -1,4 +1,4 @@
-\section{Method}
+\section{Final architecture}
 \label{sec:method}
 
 \input{3_side_modality_learning_for_localisation/figures/method/methods_training}
@@ -74,10 +74,6 @@ We can reduce the dimension of the final descriptor by applying PCA + whitening~
 
 \subsection{Side information learning with hallucination}
 \label{subsec:hall}
-
-knowledge distillation~\citep{hinton2015distilling}
-
-We compare our method of side information learning with a state-of-the-art approach system, named hallucination network~\cite{Hoffman2016}. The hallucination network is originally designed for object detection and classification in images. We adapt the work of~\cite{Hoffman2016} to create an image descriptor system that benefits from depth map side modality during training. Like our proposal, the trained hallucination network is used on images only and produces a global descriptor for image localization. The system is presented in figure~\ref{fig:hall_method}. The main difference with our proposal is that the hallucination network reproduces feature maps that would have been obtained by a network trained with depth map rather than the depth map itself. We refer readers to~\cite{Hoffman2016} for more information about the hallucination network.
 
 \vspace{4pt}\noindent\textit{Advantages and drawbacks.}
 \label{paragraph:adv}

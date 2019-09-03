@@ -1,2 +1,28 @@
 \section{Preliminary work}
 \label{sec:preliminary_work}
+
+\subsection{Intuition}
+\input{3_side_modality_learning_for_localisation/figures/preliminary/image_vs_depth}
+figure~\ref{fig:image_vs_depth}
+
+
+\subsection{Method components}
+\input{3_side_modality_learning_for_localisation/figures/preliminary/preliminary_method}
+figure~\ref{fig:preliminary_method}
+
+\subsubsection{Descriptor}
+
+
+\subsubsection{Depth from monocular}
+
+
+
+\subsection{Baseline}
+\input{3_side_modality_learning_for_localisation/figures/preliminary/hallucination}
+figure~\ref{fig:hall_method}
+knowledge distillation~\citep{hinton2015distilling}
+
+We compare our method of side information learning with a state-of-the-art approach system, named hallucination network~\cite{Hoffman2016}. The hallucination network is originally designed for object detection and classification in images. We adapt the work of~\cite{Hoffman2016} to create an image descriptor system that benefits from depth map side modality during training. Like our proposal, the trained hallucination network is used on images only and produces a global descriptor for image localization. The system is presented in figure~\ref{fig:hall_method}. The main difference with our proposal is that the hallucination network reproduces feature maps that would have been obtained by a network trained with depth map rather than the depth map itself. We refer readers to~\cite{Hoffman2016} for more information about the hallucination network.
+
+\subsection{Preliminary results}
+
