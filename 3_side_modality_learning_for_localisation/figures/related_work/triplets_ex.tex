@@ -1,8 +1,11 @@
 \begin{figure}
 	\centering
-
-	\includegraphics[width=\linewidth]{related_work/enc+vlad}
 	
-	\caption[]{\label{fig:triplet_ex} \textbf{} .}	
-
+	\begin{minipage}{0.6\linewidth}		
+		\includegraphics[width=\linewidth]{related_work/triplet_training}
+	\end{minipage}\hfill
+	\begin{minipage}{0.4\linewidth}			
+		\caption[Triplet training]{\label{fig:triplet_training} \textbf{\ac{cnn} descriptor training with images triplets:} the triplet loss guided the training by penalizing difference of the anchor and the positive embeddings and the similarity of the anchor and the negative embeddings (see equation~\ref{eq:triplet_loss}).}
+	\end{minipage}
+	
 \end{figure}
