@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180903103625" modified="D:20190903181434"/>
+<info created="D:20180903103625" modified="D:20190904173752"/>
 <bitmap id="1" width="1280" height="960" length="137119" ColorSpace="DeviceRGB" Filter="DCTDecode" BitsPerComponent="8" encoding="base64">
 /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRof
 Hh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwh
@@ -40391,9 +40391,9 @@ h
 </path>
 <text matrix="1 0 0 1 128 -148" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="12.197" depth="7.23" valign="top" size="small" style="center">Image/Depth pair</text>
 <text matrix="1 0 0 1 432 -164" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="11.949" depth="6.98" valign="top" size="small" style="center">Reconstructed depth</text>
-<text matrix="1 0 0 1 344 -120" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$D_G$</text>
+<text matrix="1 0 0 1 344 -120" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$D_a$</text>
 <text matrix="1 0 0 1 468 -60" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="5.557" depth="0.57" valign="top" size="small" style="center">L1 Loss</text>
-<text matrix="1 0 0 1 460 -276" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
+<text matrix="1 0 0 1 456 -276" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
 <text matrix="1 0 0 1 -20 -96" transformations="translations" pos="336 544" stroke="black" type="minipage" width="64" height="11.036" depth="6.05" valign="top" size="small" style="center">Descriptors concatenation</text>
 <path matrix="1 0 0 1 24 -124" stroke="black">
 368 576 m
@@ -40403,8 +40403,8 @@ h
 356 564 m
 380 564 l
 </path>
-<text matrix="1 0 0 1 27.0596 -134.088" transformations="translations" pos="436 764" stroke="black" type="label" width="18.607" height="8.172" depth="3.13" valign="baseline" size="large" style="math">L_{\theta_G}</text>
-<text matrix="1 0 0 1 24.2579 -325.485" transformations="translations" pos="436 764" stroke="black" type="label" width="30.619" height="5.444" depth="4.43" valign="baseline" size="footnote" style="math">L_{F_{\theta_D,\theta_I}}</text>
+<text matrix="1 0 0 1 27.0596 -134.088" transformations="translations" pos="436 764" stroke="black" type="label" width="12.738" height="8.173" depth="1.79" valign="baseline" size="large" style="math">L_z</text>
+<text matrix="1 0 0 1 28.2579 -325.485" transformations="translations" pos="436 764" stroke="black" type="label" width="19.576" height="8.172" depth="3.34" valign="baseline" size="large" style="math">L_{p, a}</text>
 <path matrix="1 0 0 1 28 -69.172" stroke="black" arrow="normal/small">
 268 552 m
 268 636 l
@@ -40426,7 +40426,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 436 -220" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
-<text matrix="1 0 0 1 -7.506 -282.247" transformations="translations" pos="436 764" stroke="black" type="label" width="20.791" height="8.164" depth="5.23" valign="baseline" size="large" style="math">L_{f_{\theta_I}}</text>
+<text matrix="1 0 0 1 -3.506 -282.247" transformations="translations" pos="436 764" stroke="black" type="label" width="12.725" height="8.172" depth="3.34" valign="baseline" size="large" style="math">L_p</text>
 <path matrix="2.25 0 0 2.29634 -48 -1130.4" stroke="black">
 208 664 m
 216 672 l
@@ -40435,7 +40435,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 436 -308" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
-<text matrix="1 0 0 1 -9.1 -371.203" transformations="translations" pos="436 764" stroke="black" type="label" width="23.216" height="8.164" depth="5.23" valign="baseline" size="large" style="math">L_{f_{\theta_D}}</text>
+<text matrix="1 0 0 1 -5.1 -371.203" transformations="translations" pos="436 764" stroke="black" type="label" width="12.961" height="8.173" depth="1.79" valign="baseline" size="large" style="math">L_a</text>
 <path matrix="1 0 0 1 29.946 -67.8876" stroke="black" dash="dashed" pen="heavier" arrow="normal/small">
 484 632 m
 496 632 l
@@ -40451,8 +40451,8 @@ h
 </path>
 <image matrix="0.128571 0 0 0.147325 128.471 520.467" rect="0 197.875 595 644.125" bitmap="5"/>
 <image matrix="0.127063 0 0 0.153101 433.145 500.321" rect="0 197.875 595 644.125" bitmap="11"/>
-<text matrix="1 0 0 1 216 -204" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$E_I$</text>
-<text matrix="1 0 0 1 216 -292" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$E_D$</text>
+<text matrix="1 0 0 1 216 -204" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.636" depth="1.65" valign="top" size="small" style="center">$E_p$</text>
+<text matrix="1 0 0 1 216 -292" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$E_a$</text>
 <path matrix="1 0 0 1.2 0 -99.2" stroke="black" pen="fat">
 304 496 m
 304 476 l
@@ -40460,7 +40460,7 @@ h
 336 496 l
 h
 </path>
-<text matrix="1 0 0 1 0 -4" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="6.703" depth="1.71" valign="top" style="center">$d_I$</text>
+<text matrix="1 0 0 1 0 -4" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="7.318" depth="2.34" valign="top" style="center">$P_p$</text>
 <path matrix="1 0 0 1.2 0 -187.2" stroke="black" pen="fat">
 304 496 m
 304 476 l
@@ -40468,7 +40468,7 @@ h
 336 496 l
 h
 </path>
-<text matrix="1 0 0 1 0 -92" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="6.703" depth="1.71" valign="top" style="center">$d_D$</text>
+<text matrix="1 0 0 1 0 -92" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="6.642" depth="1.66" valign="top" style="center">$P_a$</text>
 <path matrix="1 0 0 1 -20 -24" stroke="black">
 376 520 m
 376 496 l
@@ -40701,7 +40701,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 348 -204" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="11.949" depth="6.98" valign="top" size="small" style="center">Reconstructed depth</text>
-<text matrix="1 0 0 1 260 -160" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$D_G$</text>
+<text matrix="1 0 0 1 260 -160" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$D_a$</text>
 <text matrix="1 0 0 1 448 -184" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="5.557" depth="0.57" valign="top" size="small" style="center">L1 Loss</text>
 <text matrix="1 0 0 1 384 -44" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
 <text matrix="1 0 0 1 -52 164" transformations="translations" pos="336 544" stroke="black" type="minipage" width="64" height="11.036" depth="6.05" valign="top" size="small" style="center">Descriptors concatenation</text>
@@ -40713,8 +40713,8 @@ h
 356 564 m
 380 564 l
 </path>
-<text matrix="1 0 0 1 43.0596 -238.088" transformations="translations" pos="436 764" stroke="black" type="label" width="18.607" height="8.172" depth="3.13" valign="baseline" size="large" style="math">L_{\theta_G}</text>
-<text matrix="1 0 0 1 -51.7421 -93.485" transformations="translations" pos="436 764" stroke="black" type="label" width="30.217" height="5.444" depth="4.43" valign="baseline" size="footnote" style="math">L_{F_{\theta_G,\theta_I}}</text>
+<text matrix="1 0 0 1 43.0596 -238.088" transformations="translations" pos="436 764" stroke="black" type="label" width="12.738" height="8.173" depth="1.79" valign="baseline" size="large" style="math">L_z</text>
+<text matrix="1 0 0 1 -47.7421 -93.485" transformations="translations" pos="436 764" stroke="black" type="label" width="19.576" height="8.172" depth="3.34" valign="baseline" size="large" style="math">L_{p, a}</text>
 <path matrix="0.857143 0 0 1 8 164" stroke="black" arrow="normal/small">
 364 464 m
 392 464 l
@@ -40727,7 +40727,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 360 12" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
-<text matrix="1 0 0 1 -83.506 -50.247" transformations="translations" pos="436 764" stroke="black" type="label" width="20.791" height="8.164" depth="5.23" valign="baseline" size="large" style="math">L_{f_{\theta_I}}</text>
+<text matrix="1 0 0 1 -79.506 -50.247" transformations="translations" pos="436 764" stroke="black" type="label" width="12.725" height="8.172" depth="3.34" valign="baseline" size="large" style="math">L_p</text>
 <path matrix="2.25 0 0 2.29634 -124 -898.4" stroke="black">
 208 664 m
 216 672 l
@@ -40736,9 +40736,9 @@ h
 h
 </path>
 <text matrix="1 0 0 1 360 -76" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.48" depth="1.49" valign="top" size="small" style="center">Triplet Loss</text>
-<text matrix="1 0 0 1 -85.1 -139.203" transformations="translations" pos="436 764" stroke="black" type="label" width="22.752" height="8.164" depth="5.23" valign="baseline" size="large" style="math">L_{f_{\theta_G}}</text>
+<text matrix="1 0 0 1 -81.1 -139.203" transformations="translations" pos="436 764" stroke="black" type="label" width="12.961" height="8.173" depth="1.79" valign="baseline" size="large" style="math">L_a</text>
 <image matrix="0.127063 0 0 0.153101 349.145 460.321" rect="0 197.875 595 644.125" bitmap="11"/>
-<text matrix="1 0 0 1 172 -160" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.053" depth="1.07" valign="top" size="small" style="center">$E_I$</text>
+<text matrix="1 0 0 1 172 -160" transformations="translations" pos="8 692" stroke="black" type="minipage" width="64" height="6.636" depth="1.65" valign="top" size="small" style="center">$E_p$</text>
 <path matrix="1 0 0 1.2 -68 4.8" stroke="black" pen="fat">
 304 496 m
 304 476 l
@@ -40746,7 +40746,7 @@ h
 336 496 l
 h
 </path>
-<text matrix="1 0 0 1 -68 100" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="6.703" depth="1.71" valign="top" style="center">$d_I$</text>
+<text matrix="1 0 0 1 -68 100" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="7.318" depth="2.34" valign="top" style="center">$P_p$</text>
 <path matrix="1 0 0 1.2 -4 4.8" stroke="black" pen="fat">
 304 496 m
 304 476 l
@@ -40754,7 +40754,7 @@ h
 336 496 l
 h
 </path>
-<text matrix="1 0 0 1 -4 100" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="6.703" depth="1.71" valign="top" style="center">$d_G$</text>
+<text matrix="1 0 0 1 -4 100" transformations="translations" pos="304 492" stroke="black" type="minipage" width="32" height="6.642" depth="1.66" valign="top" style="center">$P_a$</text>
 <path matrix="1 0 0 1 -125.991 120.056" stroke="black">
 376 520 m
 376 496 l

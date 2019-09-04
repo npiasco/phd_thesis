@@ -19,21 +19,14 @@ Trainable parameters are $\theta_{I}$ the weights of image encoder and descripto
 
 For training our system, we follow standard procedure of descriptor learning based on triplet margin losses~\cite{Arandjelovic2017}. A triplet $\{q_{im}, q_{im}^+, q_{im}^-\}$ is composed of an anchor image $q_{im}$, a positive example $q_{im}^+$ representing the same scene as the anchor and an unrelated negative example $q_{im}^-$.
 The first triplet loss acting on $\{E_I, d_I\}$ is:
-\begin{multline}
-	\label{eq:triplet_loss}
-	L_{f_{\theta_{I}}}(q_{im}, q_{im}^+, q_{im}^-) = max\left(\lambda + \norm{f_{\theta_{I}}(q_{im}) - f_{\theta_{I}}(q_{im}^+)}_2 \right.\\
-	\left. - \norm{f_{\theta_{I}}(q_{im}) - f_{\theta_{I}}(q_{im}^-)}_2, 0 \right),
-\end{multline}
+
 
 %\begin{equation}
 %\label{eq:triplet_loss}
 %L_{f_{\theta_{I}}}(q_{im}, q_{im}^+, q_{im}^-) = max\left(\lambda + \norm{f_{\theta_{I}}(q_{im}) - f_{\theta_{I}}(q_{im}^+)}_2 - \norm{f_{\theta_{I}}(q_{im}) - f_{\theta_{I}}(q_{im}^-)}_2, 0 \right),
 %#\end{equation}
 where $f_{\theta_{I}}(x_{im})$ is the global descriptor of image $x_{im}$ and $\lambda$ an hyper-parameter controlling the margin between positive and negative examples. $f_{\theta_{I}}$ can be written as:
-\begin{equation}
-	\label{eq:desc_details}
-	f_{\theta_{I}}(x_{im}) = d_I(E_I(x_{im})),
-\end{equation}
+
 where $E_I(x_{im})$ represents the deep feature maps extracted by the decoder and $d_I$ the function used to build the final descriptor from the feature.
 
 We train the depth map encoder and descriptor $\{E_D, d_D\}$ in a same manner, with the triplet loss of equation~(\ref{eq:triplet_loss}), $L_{f_{\theta_{D}}}(\hat{q}_{depth}, \hat{q}_{depth}^+, \hat{q}_{depth}^-)$, where $f_{\theta_{D}}(x_{depth})$ is the global descriptor of depth map $x_{depth}$ and $\hat{x}_{depth}$ is the reconstructed depth map of image $x_{im}$ by the decoder $D_G$:
@@ -65,6 +58,7 @@ We use two different optimizers: one updating $\theta_{I}$ and $\theta_{D}$ weig
 
 \subsection{Hard mining}
 
++ Swap
 
 \subsection{Descriptors fusion and dimension reduction}
 \label{subsec:fuse_desc}
