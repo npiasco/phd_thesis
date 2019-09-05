@@ -29,9 +29,9 @@ where $\lambda$ is an hyper-parameter controlling the margin between positive an
 In order to recover the geometric information from the radiometric signal, we use a fully convolutional decoder $D_a$~\citep{Eigen2014}. $\theta_{a}$ are the trainable weights of our decoder. Lets $\{x, z\}$ be a pair of image and corresponding depth map, we can train our decoder to compute the depth map from input image with the following loss function:
 \begin{equation}
 	\label{eq:l1_loss}
-    L_z(x,z) = \norm{z - \hat{z}(x)}_{1},
+    L_{pix}(x,z) = \norm{z - \hat{z}(x)}_{1},
 \end{equation}
-where $\hat{z}(x) = D_a(E_p(x))$, is the output of the decoder. $L_z$ is a simple pixel loss penalizing absolute error between the output depth map $\hat{z}(x)$ and the target $z$.
+where $\hat{z}(x) = D_a(E_p(x))$, is the output of the decoder. $L_{pix}$ is a simple pixel loss penalizing absolute error between the output depth map $\hat{z}(x)$ and the target $z$.
 
 \paragraph{Auxiliary descriptor.}
 In order to take advantages of the learned depth representation in our final descriptor, we use intermediate deep features computed by $D_a$ to create another descriptor $f_a$:
@@ -51,7 +51,7 @@ where $[ \cdot ]$ is the concatenation operation. Overall optimization is obtain
 \begin{multline}
 	\label{eq:overall_loss}
 	L(x, x^+, x^-,z, z^+, z^-) = L_p(x, x^+, x^-) + L_a(x, x^+, x^-) + L_{p,a}(x, x^+, x^-)\\
-	 + \frac{1}{3}\left[ L_z(x, z) + L_z(x^+, z^+) + L_z(x^-, z^-) \right].
+	 + \frac{1}{3}\left[ L_{pix}(x, z) + L_{pix}(x^+, z^+) + L_{pix}(x^-, z^-) \right].
 \end{multline}
 
 Our initial method requires triplets of RGB-D data to be trained.
@@ -89,7 +89,7 @@ Like our proposal, this method requires triplets of RGB-D data to be trained and
 
 \subsection{Discussion}
 
-Exploratory testing of our method has lead to unsuccessful results. During the training step, our network fails to produce at the same time a meaningful image representation for localization (losses $L_p$, $L_a$ and $L_{p,a}$) and to reconstruct the scene geometry (loss $L_z$). After analyzing our architecture, we came up with the following conclusions: the two target objectives are disrupting each other. This problem is due to the design of our method: error back-propagation from triplet ranking losses are affecting both weights of encoder $E_p$ and decoder $D_a$, as same as error computed by $L_z$ in equation~\ref{eq:l1_loss}. 
+Exploratory testing of our method has lead to unsuccessful results. During the training step, our network fails to produce at the same time a meaningful image representation for localization (losses $L_p$, $L_a$ and $L_{p,a}$) and to reconstruct the scene geometry (loss $L_{pix}$). After analyzing our architecture, we came up with the following conclusions: the two target objectives are disrupting each other. This problem is due to the design of our method: error back-propagation from triplet ranking losses are affecting both weights of encoder $E_p$ and decoder $D_a$, as same as error computed by $L_{pix}$ in equation~\ref{eq:l1_loss}. 
 
 We do not encounter the same problem with our implementation of hallucination network. The only loss functions that can interfere during the optimization are triplet ranking loss $L_h$ and perceptual loss $L_{feat}$. Both losses lead to modification of hallucination encoder $E_h$ weights. But targeted task of the two loss function are the same: $L_h$ directly optimize the hallucination embedding for image retrieval and $L_{feat}$ force the features maps of encoder $E_h$ to be close to the features maps of encoder $E_a$, an encoder that have been trained for image retrieval task as well.
 
@@ -97,7 +97,6 @@ In the next section, we propose an improved version of our initial method that s
 
 \subsection{Final architecture}
 \input{3_side_modality_learning_for_localisation/figures/preliminary/methods_training}
-
 The modified architecture, presented in figure~\ref{fig:our_method}, is composed of:
 
 \begin{itemize}
@@ -107,40 +106,14 @@ The modified architecture, presented in figure~\ref{fig:our_method}, is composed
 	\item a fusion module that concatenates the image and depth map descriptor.
 \end{itemize}
 
-\paragraph{Training routine}
+\paragraph{Training routine.}
 \label{subsec:training}
-Trainable parameters are $\theta_{I}$ the weights of image encoder and descriptor $\{E_I, d_I\}$, $\theta_{D}$ the weights of the depth encoder and descriptor $\{E_D, d_D\}$ and $\theta_{G}$ the weights of the decoder used for depth map generation. 
+Principal and auxiliary descriptor, $\{E_p, P_p\}$ and $\{E_a, P_a\}$, are trained separately with triplet ranking losses $L_p$ and $L_a$. As before, loss $L_{p, a}$ is used for joint optimization. The auxiliary descriptor $\{E_a, P_a\}$ takes as input the reconstructed depth map $\hat{z}(x)$. Similar to our first architecture, decoder $D_a$ take features maps of encoder $E_p$ to generate output $\hat{z}(x)$. We constrain $\hat{z}(x)$ to be close to ground truth depth map $z$ with the pixel loss defined in equation~\ref{eq:l1_loss}. 
 
-For training our system, we follow standard procedure of descriptor learning based on triplet margin losses~\cite{Arandjelovic2017}. A triplet $\{q_{im}, q_{im}^+, q_{im}^-\}$ is composed of an anchor image $q_{im}$, a positive example $q_{im}^+$ representing the same scene as the anchor and an unrelated negative example $q_{im}^-$.
-The first triplet loss acting on $\{E_I, d_I\}$ is:
-
-%\begin{equation}
-%\label{eq:triplet_loss}
-%L_{f_{\theta_{I}}}(q_{im}, q_{im}^+, q_{im}^-) = max\left(\lambda + \norm{f_{\theta_{I}}(q_{im}) - f_{\theta_{I}}(q_{im}^+)}_2 - \norm{f_{\theta_{I}}(q_{im}) - f_{\theta_{I}}(q_{im}^-)}_2, 0 \right),
-%#\end{equation}
-where $f_{\theta_{I}}(x_{im})$ is the global descriptor of image $x_{im}$ and $\lambda$ an hyper-parameter controlling the margin between positive and negative examples. $f_{\theta_{I}}$ can be written as:
-
-where $E_I(x_{im})$ represents the deep feature maps extracted by the decoder and $d_I$ the function used to build the final descriptor from the feature.
-
-We train the depth map encoder and descriptor $\{E_D, d_D\}$ in a same manner, with the triplet loss of equation~(\ref{eq:triplet_loss}), $L_{f_{\theta_{D}}}(\hat{q}_{depth}, \hat{q}_{depth}^+, \hat{q}_{depth}^-)$, where $f_{\theta_{D}}(x_{depth})$ is the global descriptor of depth map $x_{depth}$ and $\hat{x}_{depth}$ is the reconstructed depth map of image $x_{im}$ by the decoder $D_G$:
-\begin{equation}
-\label{eq:generator}
-\hat{x}_{depth} = D_G(E_I(x_{im})).
-\end{equation}
-Decoder $D_G$ uses the deep representation of image $x_{im}$ computed by encoder $E_I$ in order to reconstruct the scene geometry. Notice that even if the encoder $E_I$ is not especially trained for depth map reconstruction, its intern representation is rich enough to be used by the decoder $D_G$ for the task of depth map inference. We choose to use the features already computed by the first encoder $E_I$ instead of introducing another encoder for saving computational resources.
-
-The final image descriptor is trained with the triplet loss $L_{F_{\theta_{I}, \theta_{D}}}({q}_{im}, {q}_{im}^+, {q}_{im}^-)$, where $F_{\theta_{I},\theta_{D}}(x_{im})$ denotes the fusion of image descriptor and depth map descriptor: 
-\begin{equation}
-\label{eq:desc_fuse}
-F_{\theta_{I},\theta_{D}}(x_{im}) = fuse \left( f_{\theta_{I}}(x_{im}), f_{\theta_{D}}(\hat{x}_{depth}) \right).
-\end{equation}
-
-In order to train the depth map generator, we use a simple $L_1$ loss function:
-
-The whole system is trained according to the following constraints:
+We designate $\theta_p$ weights of encoder/descriptor pair $\{E_p, P_p\}$,  $\theta_a$ weights of encoder/descriptor pair $\{E_a, P_a\}$ and $\theta_g$ weights of decoder $D_a$. The whole system is trained according to the following constraints:
 \begin{align}
-	\left( \theta_{I}, \theta_{D} \right) & := arg\,\underset{\theta_{I}, \theta_{D}}{min} \left[ L_{f_{\theta_{I}}} + L_{f_{\theta_{D}}} + L_{F_{\theta_{I},\theta_{D}}} \right], \label{eq:sys_optimization_1} \\ 	
-	\left( \theta_{G} \right) & := arg\,\underset{\theta_{G}}{min} \left[ L_{\theta_{G}} \right]. 	\label{eq:sys_optimization_2}
+	\left( \theta_{p}, \theta_{a} \right) & := arg\,\underset{\theta_p, \theta_a}{min} \left[ L_p(x, x^+, x^-) + L_a(x, x^+, x^-) + L_{p,a}(x, x^+, x^-) \right], \label{eq:sys_optimization_1} \\ 	
+	\left( \theta_{g} \right) & := arg\,\underset{\theta_{g}}{min} \left[ L_{pix}(x, z) \right]. 	\label{eq:sys_optimization_2}
 \end{align}
 
 We use two different optimizers: one updating $\theta_{I}$ and $\theta_{D}$ weights regarding constraint~(\ref{eq:sys_optimization_1}) and the other updating $\theta_{G}$ weights regarding constraint~(\ref{eq:sys_optimization_2}). Because decoder $D_G$ relies on feature maps computed by encoder $E_I$ (see equation~(\ref{eq:generator})), at each optimization step on $\theta_{I}$ we need to update decoder weights $\theta_{G}$ to take in account possible changes in the image features. We finally train our entire system, by alternating between the optimization of weights $\{\theta_{I}, \theta_{D}\}$ and $\{\theta_G\}$ until convergence.
