@@ -146,8 +146,8 @@ L^{swap}(x, x^+, x^-) = max\left(\lambda + \norm{f(x) - f(x^+)}_2 \right. \\
 \subsection{Descriptors fusion and dimension reduction}
 \input{3_side_modality_learning_for_localisation/figures/preliminary/fuse_desc}
 \label{subsec:fuse_desc}
-\paragraph{Fusion policy}
+\paragraph{Fusion policy.}
 We try to replace our basic features fusion operator introduced in equation~\ref{eq:concat_desc} (vectors concatenation) by more advanced functions, in order to benefit as much as possible from the complementarity of the principal and the auxiliary modalities. We investigate: hand-tuned descriptors scalar weighting, trained scalar weighting~\cite{Sizikova2016}, trained modal attention mechanism at the level of descriptors and trained spatial and modal attention mechanism at the level of the deep features~\cite{Seymour2018}. We found that all the fusion policies perform similarly. Indeed, as you can see in figure~\ref{fig:fuse_desc}, the modalities fusion are learned by our system through the triplet loss $L_{p, a}$, making the system aware of what is important and complementary in the radiometric and geometric domain, without the need of a complex fusion method.
 
-\paragraph{Post-treatment}
+\paragraph{Post-treatment.}
 We reduce the dimension of the final descriptor by applying PCA + whitening~\citep{Arandjelovic2017, Radenovic2016, Radenovic2017, Gordo2017}. After the convergence of the whole system we reuse the images from the training dataset to compute the PCA parameters.
