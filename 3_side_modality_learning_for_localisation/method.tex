@@ -4,12 +4,12 @@
 \input{3_side_modality_learning_for_localisation/figures/method/methods_training}
 %\input{figures/method/hall_training}
 
-We use the descriptor architecture introduced in our previous work~\cite{Piasco2019}. The method, presented in figure~\ref{fig:our_method}, is composed of:
+The modified architecture, presented in figure~\ref{fig:our_method}, is composed of:
 
 \begin{itemize}
-	\item a CNN image encoder $E_I$ linked to a feature aggregation layer $d_I$ that produces a compact image descriptor,
-	\item a CNN image decoder $D_G$ used to reconstruct the corresponding depth map according to the monocular image,
-	\item a CNN depth map encoder $E_D$ linked to a feature aggregation layer $d_D$ that produces a compact depth map descriptor,
+	\item a \ac{cnn} image encoder $E_p$ linked to a feature aggregation layer $P_p$ that produces the principal image descriptor,
+	\item a \ac{cnn} image decoder $D_a$ used to reconstruct the corresponding depth map according to the monocular image,
+	\item a \ac{cnn} depth map encoder $E_a$ linked to a feature aggregation layer $P_a$ that produces an auxiliary depth map descriptor,
 	\item a fusion module that concatenates the image and depth map descriptor.
 \end{itemize}
 
