@@ -59,7 +59,7 @@ Our initial method requires triplets of RGB-D data to be trained.
 \subsection{Hallucination network}
 \input{3_side_modality_learning_for_localisation/figures/preliminary/hallucination}
 
-We compare our method of side information learning with a state-of-the-art approach system, named hallucination network~\citep{Hoffman2016}. The hallucination network was originally designed for object detection and classification in images. We adapt the work of~\citet{Hoffman2016} to create an image descriptor system that benefits from depth map side modality during training. Our adaptation of the hallucination network for image description is presented in figure~\ref{fig:hall_method}.
+We compare our method of side information learning with a state-of-the-art approach system, named hallucination network~\citep{Hoffman2016}. The hallucination network was originally designed for object detection and classification in images and have never tested for image description task. We adapt the work of~\citet{Hoffman2016} to create an image descriptor system that benefits from depth map side modality during training. Our adaptation of the hallucination network for image description is presented in figure~\ref{fig:hall_method}.
 
 \paragraph{Principal descriptor.}
 Similar to our proposal, the system is composed of a principal image descriptor: encoder $E_p$ + descriptor $P_p$, trained jointly through triplet ranking loss of equation~\ref{eq:triplet_loss}.
@@ -70,7 +70,7 @@ Hallucination architecture needs an auxiliary network for training purpose, that
 	f_a(z) = P_a(E_a(z)).
 \end{equation}
 
-\paragraph{Hallucination descriptor.} The key component of \citet{Hoffman2016} proposal is the hallucination network. The task of the hallucination branch is, with images as input, to reproduce feature maps that would have been obtained by a network trained with depth map rather than the depth map itself. The hallucination network share the same architecture as the principal and the auxiliary branches. The hallucination descriptor is composed of an encoder $E_h$ and a descriptor $P_h$ with trainable weights $\theta_h$. It is trained with triplet ranking loss $L_z$ under the constraint of a perceptual loss~\citep{Johnson2016}:
+\paragraph{Hallucination descriptor.} The key component of \citet{Hoffman2016} proposal is the hallucination network. The task of the hallucination branch is, with images as input, to reproduce feature maps that would have been obtained by a network trained with depth map rather than the depth map itself. The hallucination network share the same architecture as the principal and the auxiliary branches. The hallucination descriptor is composed of an encoder $E_h$ and a descriptor $P_h$ with trainable weights $\theta_h$. It is trained with triplet ranking loss $L_h$ under the constraint of a perceptual loss~\citep{Johnson2016}:
 \begin{equation}
 	\label{eq:perceptual_loss}
 	L_{feat}(x, z) = \norm{E_h(x) - E_a(z)}_2.
@@ -87,5 +87,10 @@ where $\alpha$ and $\gamma$ are weighting constants. During final optimization, 
 
 Like our proposal, this method requires triplets of RGB-D data to be trained and, at test time, the principal and hallucination descriptors are used on images only.
 
-\subsection{Preliminary results}
+\subsection{Discussion}
 
+Exploratory testing of our method has lead to unsuccessful results. During the training step, our network fails to produce at the same time a meaningful image representation for localization (losses $L_p$, $L_a$ and $L_{p,a}$) and to reconstruct the scene geometry (loss $L_z$). After analyzing our architecture, we came up with the following conclusions: the two target objectives are disrupting each other. This problem is due to the design of our method: error back-propagation from triplet ranking losses are affecting both weights of encoder $E_p$ and decoder $D_a$, as same as error computed by $L_z$ in equation~\ref{eq:l1_loss}. 
+
+We do not encounter the same problem with our implementation of hallucination network. The only loss functions that can interfere during the optimization are triplet ranking loss $L_h$ and perceptual loss $L_{feat}$. Both losses lead to modification of hallucination encoder $E_h$ weights. But targeted task of the two loss function are the same: $L_h$ directly optimize the hallucination embedding for image retrieval and $L_{feat}$ force the features maps of encoder $E_h$ to be close to the features maps of encoder $E_a$, an encoder that have been trained for image retrieval task as well.
+
+In the next section, we propose an improved version of our initial method that solves the aforementioned issue.
