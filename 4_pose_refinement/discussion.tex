@@ -1,0 +1,5 @@
+\subsection{Discussion}
+The final camera pose precision is highly dependent on the images returned by the \ac{cbir} initial step. Thus, our method performances are limited by the quality of the global image descriptor. Wrong initial pose estimation for stairs indoor scene and street outdoor environment cannot be recovered by PnlP pose refinement. It will be interesting to consider more discriminative image descriptors, and especially image descriptors that can benefit from the depth map related to the image~\citep{Piasco2019}.
+
+The pose refinement is also very sensitive to the quality of the generated depth map. Artifacts present on depth map related to images of unknown scenes, see last 4 columns of figure~\ref{fig:depth_map_indoor}, or wrong reconstruction, last column of figure~\ref{fig:depth_map_outdoor}, generate outliers for the PnlP optimization. 
+
