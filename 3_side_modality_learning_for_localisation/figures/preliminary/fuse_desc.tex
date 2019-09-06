@@ -1,8 +1,33 @@
 \begin{figure}
 	\centering
 		
-%	\includegraphics[width=\linewidth]{preliminary/our_method_training}
-	
-	\caption[Descriptors fusion]{\label{fig:fuse_desc} \textbf{:} .}
+	\begin{minipage}{0.65\linewidth}		
+		\centering
+		
+		\begin{minipage}{0.5\linewidth}
+			\includegraphics[width=\linewidth]{preliminary/joint_distance}
+		\end{minipage}\hfill
+		\begin{minipage}{0.5\linewidth}
+			\includegraphics[width=\linewidth]{preliminary/joint_recall}
+		\end{minipage}
+		
+		\vspace{0.2cm}
+		
+		\begin{footnotesize}
+			\setlength{\tabcolsep}{2pt}
+			\begin{tabular}{c l c l}
+				\Large{- -} & Individual optimization & \textbf{\Large{--}} & Joint optimization \\
+			\end{tabular}			
+			
+			\begin{tabular}{c c c}
+				\textcolor{red}{{--} CMU--LT} & \textcolor{magenta}{{--} CMU--Autumn} & \textcolor{blue}{{--} CMU--Snow} \\
+			\end{tabular}			
+		\end{footnotesize}
+		
+	\end{minipage}\hfill
+	\begin{minipage}{0.35\linewidth}
+		\caption[Descriptors fusion]{\label{fig:fuse_desc} \textbf{:} .}
+	\end{minipage}	
+
 \end{figure}
 	

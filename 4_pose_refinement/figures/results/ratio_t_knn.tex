@@ -1,8 +1,29 @@
 \begin{figure}
     \centering
     	
-%	\includegraphics[width=\linewidth]{results/ratio_t_knn}
+   	\begin{minipage}{0.65\linewidth}		
+   		\begin{minipage}{0.5\linewidth}
+   			\includegraphics[width=\linewidth]{results/pos_err}
+   		\end{minipage}\hfill
+   		\begin{minipage}{0.5\linewidth}
+   			\includegraphics[width=\linewidth]{results/ori_err}
+   		\end{minipage}
+   		
+   		\vspace{0.2cm}
+   		
+   		\begin{footnotesize}
+   			\setlength{\tabcolsep}{2pt}
+   			\begin{tabular}{c l c l c l}
+   				\textcolor{red}{\Large{- -}} & NetVALD + RGB & \textcolor{blue}{\Large{- -}} & NetVALD + RGB(D)  & \textcolor{magenta}{\Large{- -}} & NetVALD + RGB(H)\\
+   				\textcolor{red}{\Large{--}} & MAC + RGB & \textcolor{blue}{\Large{--}} & MAC + RGB(D) & \textcolor{magenta}{\Large{--}} & MAC + RGB(H)\\
+   			\end{tabular}		
+   		\end{footnotesize}
+   		
+   	\end{minipage}\hfill
+   	\begin{minipage}{0.35\linewidth}
+   		\caption[]{\label{fig:ratio_t_knn} .}
+   	\end{minipage}	
 	
-	\caption[]{\label{fig:ratio_t_knn} .}
+	
 	
 \end{figure}
