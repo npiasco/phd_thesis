@@ -1,23 +1,27 @@
 \begin{figure}
 	\centering 
 	
-	\begin{minipage}{0.27\linewidth}
-		\includegraphics[width=\linewidth]{plot/mac_vs_vlad/distance}
-	\end{minipage}
-	\begin{minipage}{0.27\linewidth}
-		\includegraphics[width=\linewidth]{plot/mac_vs_vlad/recall}
-	\end{minipage}
-	
-	\vspace{0.2cm}
-	
-	\begin{scriptsize}
-	\setlength{\tabcolsep}{2pt}
-	\begin{tabular}{c l c l c l}
-		\textcolor{red}{\Large{- -}} & NetVALD + RGB & \textcolor{blue}{\Large{- -}} & NetVALD + RGB(D)  & \textcolor{magenta}{\Large{- -}} & NetVALD + RGB(H)\\
-		\textcolor{red}{\Large{--}} & MAC + RGB & \textcolor{blue}{\Large{--}} & MAC + RGB(D) & \textcolor{magenta}{\Large{--}} & MAC + RGB(H)\\
-	\end{tabular}		
-	\end{scriptsize}
-	
-	\caption[Comparison of descriptors pooling layer]{\label{fig:netvlad_vs_mac} \textbf{Comparison of descriptors pooling layer:} NetVLAD~\cite{Arandjelovic2017} pooling layer perform better than MAC~\cite{Radenovic2017} in our preliminary experiment, whatever the tested method.}
+	\begin{minipage}{0.65\linewidth}		
+		\begin{minipage}{0.5\linewidth}
+			\includegraphics[width=\linewidth]{plot/mac_vs_vlad/distance}
+		\end{minipage}\hfill
+		\begin{minipage}{0.5\linewidth}
+			\includegraphics[width=\linewidth]{plot/mac_vs_vlad/recall}
+		\end{minipage}
+		
+		\vspace{0.2cm}
+		
+		\begin{footnotesize}
+		\setlength{\tabcolsep}{2pt}
+		\begin{tabular}{c l c l c l}
+			\textcolor{red}{\Large{- -}} & NetVALD + RGB & \textcolor{blue}{\Large{- -}} & NetVALD + RGB(D)  & \textcolor{magenta}{\Large{- -}} & NetVALD + RGB(H)\\
+			\textcolor{red}{\Large{--}} & MAC + RGB & \textcolor{blue}{\Large{--}} & MAC + RGB(D) & \textcolor{magenta}{\Large{--}} & MAC + RGB(H)\\
+		\end{tabular}		
+		\end{footnotesize}
+		
+	\end{minipage}\hfill
+	\begin{minipage}{0.35\linewidth}
+		\caption[Comparison of descriptors pooling layer]{\label{fig:netvlad_vs_mac} \textbf{Comparison of descriptors pooling layer:} NetVLAD~\cite{Arandjelovic2017} pooling layer perform better than MAC~\cite{Razavian2014a} in our preliminary experiment, whatever the tested method.}
+	\end{minipage}	
 	
 \end{figure}
