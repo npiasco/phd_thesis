@@ -1,0 +1,18 @@
+\begin{algorithm}
+ \KwData{initial pose $\mathbf{h}_{init}$, point cloud to align $\mathcal{P}$ with associated descriptors $\mathcal{D}$ and reference point cloud $\mathcal{P}_{ref}$ with assocaited descriptors $\mathcal{D}_{ref}$}
+ \KwResult{final pose $\mathbf{h}_{refined}$}
+% initialization\;
+ $\mathbf{h}_{refined} \gets \mathbf{h}_{init}$\;
+ $\mathbf{h}_{relative} \gets \mathbf{1}_{4\times 4}$\;
+ \While{$\norm{\mathbf{h}_{relative} - \mathbf{I}_{4\times 4}}_{\mathrm{F}} \geq \epsilon $}{
+    $\mathcal{P}_{aligned} \gets \mathbf{h}_{refined}\mathcal{P}$\;
+	$\mathcal{M} \gets \mathtt{match\_points}(\mathcal{P}_{aligned}, \mathcal{P}_{ref}, \mathcal{D}, \mathcal{D}_{ref})$\;  
+	$\mathbf{h}_{relative} \gets \mathtt{relative\_pose}(\mathcal{M})$\;
+    $\mathbf{h}_{refined} \gets \mathbf{h}_{relative}\mathbf{h}_{refined}$\;
+ }
+ \If{$\norm{\mathcal{M}}_2 > \epsilon_{repro}$}{
+     $\mathbf{h}_{refined} \gets \mathbf{h}_{init}$\;
+ }
+
+ \caption{\label{alg:icp}Our ICP algorithm, see text for details about functions $\mathtt{match\_points}$ and $\mathtt{relative\_pose}$. Pose refinement is rejected if the mean distance between matched points, $\norm{\mathcal{M}}_2$, is superior to $\epsilon_{repro}$.}
+\end{algorithm}

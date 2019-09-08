@@ -1,9 +1,0 @@
-\section{Outdoor localization}
-\label{subseq:outdoor}
-
-\input{4_pose_refinement/tabs/outdoor}
-
-As mentioned previously, we only test our unsupervised set-up for outdoor image pose estimation as the Cambridge Landmarks dataset~\citep{Kendall2015} does not contain ground truth depth maps. Results are presented in table~\ref{tab:outdoor}. PnlP performs well on outdoor scene, with a mean improvement of $\times$1.3/$\times$1.4 for FC architecture, and $\times$1.5/$\times$1.6 for C+\ac{lstm}, in position/rotation precision over initial pose given by \ac{cbir}. Superior performances of C+\ac{lstm} model can be explained by a better capability of the recurrent cells in the C+\ac{lstm} decoder for modeling the 3D structure of the scene, as shown in figure~\ref{fig:depth_map_outdoor}. Our method is not able to recover a proper pose for the scene Street. As same as for the indoor failure case, this is the result of a poor initial pose estimation at the CBIR preliminary step. Compared to Posenet~\citep{Kendall2017}, our method is marginally less precise but requires only one trained model compared to the 6 models needed by Posenet and can potentially be used on unknown scenes according to the previous indoor experiments. We do not compare our method to Relocnet~\citep{Purkait2018} baseline because authors do not evaluate Relocnet on outdoor scenes.
-
-
-\input{4_pose_refinement/figures/results/outdoor_depth_maps}

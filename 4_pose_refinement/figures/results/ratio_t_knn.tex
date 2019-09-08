@@ -1,7 +1,9 @@
 \begin{figure}
     \centering
     	
-   	\begin{minipage}{0.65\linewidth}		
+   	\begin{minipage}{0.65\linewidth}	
+    \centering   	
+   		
    		\begin{minipage}{0.5\linewidth}
    			\includegraphics[width=\linewidth]{results/pos_err}
    		\end{minipage}\hfill
@@ -12,16 +14,12 @@
    		\vspace{0.2cm}
    		
    		\begin{footnotesize}
-   			\setlength{\tabcolsep}{2pt}
-   			\begin{tabular}{c l c l c l}
-   				\textcolor{red}{\Large{- -}} & NetVALD + RGB & \textcolor{blue}{\Large{- -}} & NetVALD + RGB(D)  & \textcolor{magenta}{\Large{- -}} & NetVALD + RGB(H)\\
-   				\textcolor{red}{\Large{--}} & MAC + RGB & \textcolor{blue}{\Large{--}} & MAC + RGB(D) & \textcolor{magenta}{\Large{--}} & MAC + RGB(H)\\
-   			\end{tabular}		
+   				 \hfill\textcolor{blue}{{\Large --} Fire scene}\hfill\textcolor{cyan}{{\Large --} Heads scene}\hfill
    		\end{footnotesize}
    		
    	\end{minipage}\hfill
    	\begin{minipage}{0.35\linewidth}
-   		\caption[]{\label{fig:ratio_t_knn} .}
+   		\caption[Influence in number of kNN]{\textbf{Trade of between precision/computation time:}\label{fig:ratio_t_knn} we compute for two scenes~\citep{Shotton2013} the median absolute error in position and orientation for multiple number of $k$ nearest neighbours used for pose refinement (see section~\ref{subsec:pnlp}). }
    	\end{minipage}	
 	
 	

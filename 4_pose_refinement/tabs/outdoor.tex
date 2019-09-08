@@ -1,18 +1,22 @@
 \begin{table}
-	\centering
-	\begin{scriptsize}
-	\begin{tabular}{c l | c c c c c c }
-					&	&	Great Court	&	Kings C.	&	Old Hosp.	&	Shop &	St Mary's &	Street \\
-		\hline	
-	\multirow{2}{*}{{Im. retrieval}}
-	& FC-unsup.  	& 27.6/26.79 & 4.4/6.10 & 6.2/10.09 & 4.3/14.93	& 6.9/15.17 & 95.5/58.38 \\
-	& C+LSTM-unsup 	& 24.3/20.94 & 5.0/5.86 & 6.5/8.60	& 3.2/9.47  & 5.9/12.71	& 92.5/67.10 \\
-	\multirow{2}{*}{{PnlP}}
-	& FC-unsup. 	& 25.5/22.64 & 2.9/2.98 & 4.9/6.37 & 1.8/5.78 & 3.5/6.99 & 76.2/51.91 \\
-	& C+LSTM-unsup 	& 13.2/10.07 & 2.7/3.10	& 3.5/5.55 & 1.1/3.38 & 2.6/5.85 & 69.5/52.07 \\[1pt]
-	\hline
-	& {Posenet~\citep{Kendall2017}} & - & 0.9/1.04 & 3.2/3.29 & 0.9/3.78 & 1.6/3.32 & 20.3/25.5 \\
-	\end{tabular}
-	\end{scriptsize}
-	\caption[Pose refinement results on outdoor dataset]{\label{tab:outdoor} Results on the Cambridge Landmarks~\citep{Kendall2015} outdoor dataset, we report median position/orientation error in meters/degree. We compare our two network architectures, FC and C+LSTM, trained in an unsupervised manner.}
+\centering
+
+\begin{footnotesize}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{c l | c c c c c c }
+				&	&	Great Court	&	Kings C.	&	Old Hosp.	&	Shop &	St Mary's &	Street \\
+	\hline	
+\multirow{2}{*}{{\textit{Im. retrieval}}}
+& \blue{FC-unsup.}  	& \textit{\blue{27.6/26.79}} & \textit{\blue{4.4/6.10}} & \textit{\blue{6.2/10.09}} & \textit{\blue{4.3/14.93}}	& \textit{\blue{6.9/15.17}} & \textit{\blue{95.5/58.38}} \\
+& \purple{C+LSTM-unsup} 	& \textit{\purple{24.3/20.94}} & \textit{\purple{5.0/5.86}} & \textit{\purple{6.5/8.60}}	& \textit{\purple{3.2/9.47}}  & \textit{\purple{5.9/12.71}}	& \textit{\purple{92.5/67.10}} \\
+\multirow{2}{*}{{PnlP}}
+& \blue{FC-unsup.} 	& \blue{25.5/22.64} & \blue{2.9/2.98} & \blue{4.9/6.37} & \blue{1.8/5.78} & \blue{3.5/6.99} & \blue{76.2/51.91} \\
+& \purple{C+LSTM-unsup} 	& \purple{13.2/10.07} & \purple{2.7/3.10}	& \purple{3.5/5.55} & \purple{1.1/\textbf{3.38}} & \purple{2.6/5.85} & \purple{69.5/52.07} \\[1pt]
+\hline
+& {Posenet~\citep{Kendall2017}} & - & \textbf{0.9/1.04} & \textbf{3.2/3.29} & \textbf{0.9}/3.78 & \textbf{1.6/3.32} & \textbf{20.3/25.5} \\
+\end{tabular}
+\end{footnotesize}
+\caption{\label{tab:outdoor} Results on the Cambridge Landmarks~\citep{Kendall2015} outdoor dataset, we report median position/orientation error in meters/degree. We compare our two network architectures, FC (\blue{in blue}) and C+LSTM (\purple{in purple}), trained in an unsupervised manner. Table best viewed in color.}
+
 \end{table}
