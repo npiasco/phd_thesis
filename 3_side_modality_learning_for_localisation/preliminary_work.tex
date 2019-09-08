@@ -3,14 +3,14 @@
 
 \paragraph{Motivation.}
 \input{3_side_modality_learning_for_localisation/figures/preliminary/image_vs_depth}
-As illustrated in figure~\ref{fig:image_vs_depth}, outdoor conditions drastically impact visual appearance of a scene. It will be challenging for a descriptor relying only on the radiometric information to associate to the four images of figure~\ref{fig:image_vs_depth} similar embeddings. Thus, if we take a look at the underlying geometry in these images (\ie the associated depth maps, bottom of figure~\ref{fig:image_vs_depth}), this information seems more stable across changing conditions. The central idea of our method is to use recent modality transfer network~\citep{Eigen2014, Godard2017, Mahjourian2018} (from images to depth maps) to provide invariant image representation to our \ac{cnn} descriptor during training. At test time, the trained descriptor can be used on images only.
+As illustrated in figure~\ref{fig:image_vs_depth}, outdoor conditions drastically impact visual appearance of a scene. It will be challenging for a descriptor relying only on the radiometric information to associate a similar embedding to the four images of figure~\ref{fig:image_vs_depth}. Thus, if we take a look at the underlying geometry in these images (\ie the associated depth maps, bottom of figure~\ref{fig:image_vs_depth}), this information seems more stable over time. The central idea of our method is to use recent modality transfer network~\citep{Eigen2014, Godard2017, Mahjourian2018} (from images to depth maps) to provide invariant image representation to our \ac{cnn} descriptor during training. At test time, the trained descriptor is used on images only.
 
 \subsection{Initial architecture}
 \input{3_side_modality_learning_for_localisation/figures/preliminary/preliminary_method}
-An overview of our method can be seen in figure~\ref{fig:preliminary_method}.
+An overview of our first method can be seen in figure~\ref{fig:preliminary_method}.
 
 \paragraph{Principal descriptor.}
-We build on recent advance in \ac{cnn} image descriptor for designing our system. We use standard convolution features extractor linked to a pooling descriptor layer (figure~\ref{fig:cnn_aggregation}). Formally, we denote $f_p$ the principal features vector of image $x$ computed by encoder $E_p$ and descriptor $P_p$:
+We build on recent advances in \ac{cnn} image descriptor for designing our system. We use standard convolution features extractor linked to a pooling descriptor layer (figure~\ref{fig:cnn_aggregation}). Formally, we denote $f_p$ the principal features vector of image $x$ computed by encoder $E_p$ and descriptor $P_p$:
 \begin{equation}
 	\label{eq:desc_details}
 	f_p(x) = P_p(E_p(x)).
@@ -26,7 +26,7 @@ Considering the images triplet $\{x, x^+, x^-\}$, as described in previous secti
 where $\lambda$ is an hyper-parameter controlling the margin between positive and negative examples.
 
 \paragraph{Side geometry learning.}
-In order to recover the geometric information from the radiometric signal, we use a fully convolutional decoder $D_a$~\citep{Eigen2014}. $\theta_{a}$ are the trainable weights of our decoder. Lets $\{x, z\}$ be a pair of image and corresponding depth map, we can train our decoder to compute the depth map from input image with the following loss function:
+In order to recover the geometric information from the radiometric signal, we use a fully convolutional decoder $D_a$~\citep{Eigen2014}. Let $\{x, z\}$ be a pair of image and corresponding depth map, we can train our decoder to compute a depth map from an input image with the following loss function:
 \begin{equation}
 	\label{eq:l1_loss}
     L_{pix}(x,z) = \norm{z - \hat{z}(x)}_{1},
@@ -39,7 +39,7 @@ In order to take advantages of the learned depth representation in our final des
 	\label{eq:desc_aux}
 	f_a(x) = P_a(\bar{D}_a(E_p(x))),
 \end{equation}
-where $P_a$ is an auxiliary descriptor and $\bar{D}_a$ designs an intermediate output extracted from decoder $D_a$. We do not use the reconstructed depth map $\hat{z}(x)$ (\ie raw output of $D_a$) to produce vector $f_a(x)$ because it will be to sensitive to small viewpoint variations. Instead, we use an intermediate output from $\bar{D}_a$, that should be more meaningful compared to  $\hat{z}(x)$ and less sensitive to viewpoint changes. Indeed, because the decoder upsample the feature maps, output of $\bar{D}_a$ has a smaller spatial resolution and is deeper in comparison to $\hat{z}(x)$. We apply a triplet ranking loss $L_a$ (see equation~\ref{eq:triplet_loss}) to train weights $\theta_{a}$ of decoder $D_a$ and descriptor $P_a$. 
+where $P_a$ is a descriptor and $\bar{D}_a$ designs an intermediate output extracted from decoder $D_a$. We do not use the reconstructed depth map $\hat{z}(x)$ (\ie raw output of $D_a$) to produce vector $f_a(x)$ because it will be to sensitive to small viewpoint variations. Instead, we use an intermediate output from $\bar{D}_a$, that should be more meaningful compared to  $\hat{z}(x)$ and less sensitive to viewpoint changes. Indeed, because the decoder upsample the feature maps, output of $\bar{D}_a$ has a smaller spatial resolution and is deeper in comparison to $\hat{z}(x)$. We apply a triplet ranking loss $L_a$ (see equation~\ref{eq:triplet_loss}) to train weights $\theta_{a}$ of decoder $D_a$ and descriptor $P_a$. 
 
 \paragraph{Overall training.}
 Finally, we combine the principal and auxiliary features, $f_p(x)$ and $f_a(x)$ in a common vector:
@@ -47,19 +47,19 @@ Finally, we combine the principal and auxiliary features, $f_p(x)$ and $f_a(x)$ 
 	\label{eq:concat_desc}
 	f_{p,a}(x) = \left[ f_p(x), f_a(x)  \right],
 \end{equation}
-where $[ \cdot ]$ is the concatenation operation. Overall optimization is obtained through the last triplet ranking loss $L_{p,a}$ and the final optimization is defined by:
+where $[ \cdot ]$ is the concatenation operation. Combined descriptor optimization is obtained through the last triplet ranking loss $L_{p,a}$ and the final optimization is defined by:
 \begin{multline}
 	\label{eq:overall_loss}
 	\left( \theta_{p}, \theta_{a} \right) := arg\,\underset{\theta_p, \theta_a}{min} \left[ L_p(x, x^+, x^-) + L_a(x, x^+, x^-) + L_{p,a}(x, x^+, x^-) \right. \\
 	\left. + \frac{1}{3}\left( L_{pix}(x, z) + L_{pix}(x^+, z^+) + L_{pix}(x^-, z^-) \right) \right].
 \end{multline}
 
-Our initial method requires triplets of RGB-D data to be trained.
+\noindent Our initial method requires triplets of RGB-D data to be trained.
 
 \subsection{Hallucination network}
 \input{3_side_modality_learning_for_localisation/figures/preliminary/hallucination}
 
-We compare our method of side information learning with a state-of-the-art approach system, named hallucination network~\citep{Hoffman2016}. The hallucination network was originally designed for object detection and classification in images and have never tested for image description task. We adapt the work of~\citet{Hoffman2016} to create an image descriptor system that benefits from depth map side modality during training. Our adaptation of the hallucination network for image description is presented in figure~\ref{fig:hall_method}.
+We compare our method of side information learning with a state-of-the-art approach system, named hallucination network~\citep{Hoffman2016}. The hallucination network was originally designed for object detection and classification in images and has never been used for global image description. We adapt the work of~\citet{Hoffman2016} to create an image descriptor system that benefits from depth map side modality during training. Our adaptation of the hallucination network for image description is presented in figure~\ref{fig:hall_method}.
 
 \paragraph{Principal descriptor.}
 Similar to our proposal, the system is composed of a principal image descriptor: encoder $E_p$ + descriptor $P_p$, trained jointly through triplet ranking loss of equation~\ref{eq:triplet_loss}.
@@ -77,7 +77,7 @@ Hallucination architecture needs an auxiliary network for training purpose, that
 \end{equation}
 This constraint can be interpreted as knowledge distillation~\citep{hinton2015distilling}. Final image descriptor is obtained by concatenating $f_p(x)$ and $f_h(x)$.
 
-\paragraph{Overall training.} Training routine presented in~\citep{Hoffman2016} is two-step: we first train weights $\theta_a$ of the auxiliary descriptor with loss $L_a(z, z^+, z^-)$ and, secondly, we initialize hallucination weights $\theta_h$ with pre-trained weights $\theta_a$ and solve the following optimization:
+\paragraph{Overall training.} Training routine presented in~\citep{Hoffman2016} is two-step: we first optimize weights $\theta_a$ of the auxiliary descriptor with loss $L_a(z, z^+, z^-)$ and, secondly, we initialize hallucination weights $\theta_h$ with pre-trained weights $\theta_a$ and solve the following optimization problem:
 \begin{multline}
 	\label{eq:overall_hall_loss}
 	\left( \theta_{p}, \theta_{h} \right) := arg\,\underset{\theta_p, \theta_h}{min} \left[ \alpha\left[ L_p(x, x^+, x^-) + L_h(x, x^+, x^-) + L_{p,h}(x, x^+, x^-) \right] \right. \\
@@ -89,7 +89,7 @@ Like our proposal, this method requires triplets of RGB-D data to be trained and
 
 \subsection{Discussion}
 \label{subsec:discussion}
-Exploratory testing of our method has lead to unsuccessful results. During the training step, our network failed to produce at the same time a meaningful image representation for localization (losses $L_p$, $L_a$ and $L_{p,a}$) and to reconstruct the scene geometry (loss $L_{pix}$). After analyzing our architecture, we came up with the following conclusions: the two target objectives are disrupting each other. This problem was due to the design of our method: error back-propagation from triplet ranking losses were affecting both weights of encoder $E_p$ and decoder $D_a$, as same as error computed by $L_{pix}$ in equation~\ref{eq:l1_loss}. 
+Exploratory testing of our method has lead to unsuccessful results. During the training step, our network failed to produce at the same time a meaningful image representation for localization (losses $L_p$, $L_a$ and $L_{p,a}$) and to reconstruct the scene geometry (loss $L_{pix}$). After analyzing our architecture, we came up with the following conclusion: the two target objectives are disrupting each other. This problem was due to the design of our initial method: weights modification computed by the triplet ranking losses were affecting both weights of encoder $E_p$ and decoder $D_a$. At the same time, modifications induced by the loss $L_{pix}$ (equation~\ref{eq:l1_loss}) were also correcting the same weights, making the system unable to converge. 
 
 We do not encounter the same problem with our implementation of hallucination network. The only loss functions that can interfere during the optimization are triplet ranking loss $L_h$ and perceptual loss $L_{feat}$. Both losses lead to modification of hallucination encoder $E_h$ weights. But targeted task of the two loss function are the same: $L_h$ directly optimize the hallucination embedding for image retrieval and $L_{feat}$ force the feature maps of encoder $E_h$ to be close to the feature maps of encoder $E_a$, an encoder that have been trained for image retrieval task as well.
 
@@ -116,20 +116,20 @@ We designate $\theta_p$ weights of encoder/descriptor pair $\{E_p, P_p\}$,  $\th
 	\left( \theta_{g} \right) & := arg\,\underset{\theta_{g}}{min} \left[ L_{pix}(x, z) \right]. 	\label{eq:sys_optimization_2}
 \end{align}
 
-We use two different optimizers: one updating $\theta_{p}$ and $\theta_{a}$ weights regarding constraint~(\ref{eq:sys_optimization_1}) and the other updating $\theta_{g}$ weights regarding constraint~(\ref{eq:sys_optimization_2}). Because decoder $D_a$ relies on feature maps computed by encoder $E_p$, at each optimization step on $\theta_p$ we need to update decoder weights $\theta_g$ to take in account possible changes in the image features. We finally train our entire system, by alternating between the optimization of weights $\{\theta_p, \theta_a\}$ and $\{\theta_g\}$ until convergence. By removing $E_p$ from the optimization of the depth from monocular objective (equation~\ref{eq:sys_optimization_2}) and by adding an auxiliary encoder $E_a$, we get rid of the interfering tasks problem observed earlier (see \S~\ref{subsec:discussion}). Notice that even if the encoder $E_p$ is not especially trained for depth map reconstruction, its intern representation is rich enough to be used by the decoder $D_a$ for the task of depth map inference.
+We use two different optimizers: one updating $\theta_{p}$ and $\theta_{a}$ weights regarding constraint~(\ref{eq:sys_optimization_1}) and the other updating $\theta_{g}$ weights regarding constraint~(\ref{eq:sys_optimization_2}). Because decoder $D_a$ relies on feature maps computed by encoder $E_p$, at each optimization step on $\theta_p$ we need to update decoder weights $\theta_g$ to take in account possible changes in the image features. We finally train our entire system, by alternating between the optimization of weights $\{\theta_p, \theta_a\}$ and $\{\theta_g\}$ until convergence. By removing $E_p$ from the optimization of the depth from monocular objective (equation~\ref{eq:sys_optimization_2}) and by adding an auxiliary encoder $E_a$, we get rid of the interfering tasks problem observed earlier (see \S~\ref{subsec:discussion}). Notice that even if the encoder $E_p$ is not especially trained for depth map reconstruction, its intern representation is rich enough to be used by the decoder $D_a$ for depth map reconstruction.
 
 \paragraph{Advantages and drawbacks.}
 \label{paragraph:adv}
-One advantage of the hallucination network over our proposal is that it does not require a decoder network ($D_a$), resulting in a architecture lighter than ours. However, it needs a pre-training step, where image descriptor $\{E_p, P_p\}$ and depth map descriptor $\{E_a, P_a\}$ are trained separately from each other before a final optimization step with the hallucination part of the system ($\{E_h, P_h\}$). Our system does not need such initialization. 
+One advantage of the hallucination network over our proposal is that it does not require a decoder network ($D_a$), resulting in a architecture lighter than ours. However, it needs a pre-training step, where image descriptor $\{E_p, P_p\}$ and depth map descriptor $\{E_a, P_a\}$ are trained separately from each other before a final optimization step with the hallucination part of the system. Our system does not need such initialization. 
 
-One advantage of our method over the hallucination approach is that we have two unrelated objectives during training: learning an efficient image representation for localization and learning how to reconstruct scene geometry from an image. It means that we can train several parts of our system separately, with different source of data. Especially, we can improve the scene geometry reconstruction task with non localized \textit{\{image, depth map\}} pairs. These weakly annotated data are easier to gather than triplet, as we only need calibrated system capable of sensing radiometric and geometric modalities at the same time. We will show in practice how this can be exploited to fine tune the decoder part to deal with complex localization scenarios in the following section~\ref{subsec:results}.
+One advantage of our method over the hallucination approach is that we have two unrelated objectives during training: learning an efficient image representation for localization and learning how to reconstruct scene geometry from an image. It means that we can train several parts of our system separately, with different datasets. Especially, we can improve the scene geometry reconstruction task with non localized \textit{\{image, depth map\}} pairs. These weakly annotated data are easier to gather than triplets, as we only need calibrated system capable of sensing radiometric and geometric modalities at the same time. We will show in practice how this can be exploited to fine tune the decoder part to deal with complex localization scenarios in the following section~\ref{subsec:results}.
 
 \subsection{Hard mining and swapping in triplet ranking loss}
 \label{subsec:hard_minning}
 
-\paragraph{Hard negative minning policy.} As mentioned in the previous section, hard mining is a crucial step in metric learning~\citep{Arandjelovic2017,Radenovic2017,Gordo2016,Iscen2018}. We construct our triplets like in~\citep{Arandjelovic2017}, using the GPS-tag information provided with the data. We gather $N$ triplets $\left\lbrace x, \left\lbrace x^+_i\right\rbrace_{i=1}^{M_p}, \left\lbrace x^-_i\right\rbrace_{i=1}^{M_n} \right\rbrace$ composed of one anchor, $M_p$ positive examples and $M_n$ negative examples. Negative examples are easy to find as we only have to consider all the data located further than a given distance threshold (according to the GPS information), resulting in a large number of examples ($M_n \approx 2000$ in our experiment). 
+\paragraph{Hard negative minning policy.} As mentioned in the previous section, hard mining is a crucial step in metric learning~\citep{Arandjelovic2017,Radenovic2017,Gordo2016,Iscen2018}. We construct our triplets like in~\citep{Arandjelovic2017}, using the GPS-tag information provided with the data. We gather $N$ triplets $\left\lbrace x, \left\lbrace x^+_i\right\rbrace_{i=1}^{M_p}, \left\lbrace x^-_i\right\rbrace_{i=1}^{M_n} \right\rbrace$ composed of one anchor, $M_p$ positive examples and $M_n$ negative examples. Negative examples are easy to collect as we only have to consider all the data located further than a given distance threshold (according to the GPS information), resulting in a large number of negative examples ($M_n \approx 2000$ in our experiment). 
 
-Because $M_n$ is too large, exact hard mining examples is not tractable. In~\citep{Arandjelovic2017}, authors store a fixed representation of the negatives examples that is used for negative mining. They update the representation of all negative examples as soon as the new representation computed by their model differ to much to the stored one. We adopt a different approach with a small overhead in term of computation but taking directly in account model updates. At each iteration, we randomly select a subset of $M_n^{sub}$ negative examples from the entire pool, and compute the truth hard negative example from this subset. This strategy also act as regularization during training as the negative training examples are different at each epoch.
+Because $M_n$ is too large, exact hard mining examples is not tractable. In~\citep{Arandjelovic2017}, authors store a fixed representation of the negatives examples that is used for negative mining. They update the representation of all negative examples as soon as the new representation computed by their model differs to much to the stored one. We adopt a different approach with a small overhead in term of computation but taking directly in account model updates. At each iteration, we randomly select a subset of $M_n^{sub}$ negative examples from the entire pool, and compute the truth hard negative example from this subset. This strategy also act as regularization during training as the negative training examples are different at each epoch.
 
 \paragraph{Anchor and positive swapping.} We also adopt swapping technique introduced in~\citep{Balntas2016}. It simply consists of choosing the most confusing pair between \{anchor, negative\} and \{positive, negative\} examples:
 \begin{multline}
@@ -147,7 +147,7 @@ L^{swap}(x, x^+, x^-) = max\left(\lambda + \norm{f(x) - f(x^+)}_2 \right. \\
 \input{3_side_modality_learning_for_localisation/figures/preliminary/fuse_desc}
 \label{subsec:fuse_desc}
 \paragraph{Fusion policy.}
-We try to replace our basic features fusion operator introduced in equation~\ref{eq:concat_desc} (vectors concatenation) by more advanced functions, in order to benefit as much as possible from the complementarity of the principal and the auxiliary modalities. We investigate: hand-tuned descriptors scalar weighting, trained scalar weighting~\cite{Sizikova2016}, trained modal attention mechanism at the level of descriptors and trained spatial and modal attention mechanism at the level of the deep features~\cite{Seymour2018}. We found that all the fusion policies perform similarly. Indeed, as you can see in figure~\ref{fig:fuse_desc}, the modalities fusion are learned by our system through the triplet loss $L_{p, a}$, making the system aware of what is important and complementary in the radiometric and geometric domain, without the need of a complex fusion method.
+We try to replace our basic features fusion operator introduced in equation~\ref{eq:concat_desc} (vectors concatenation) by more advanced functions, in order to benefit as much as possible from the complementarity of the principal and the auxiliary modalities. We investigate: hand-tuned descriptors scalar weighting, trained scalar weighting~\cite{Sizikova2016}, trained modal attention mechanism at the level of descriptors and trained spatial and modal attention mechanism at the level of the deep features~\citep{Seymour2018}. We found that all the fusion policies perform similarly. Indeed, as you can see in figure~\ref{fig:fuse_desc}, the modalities fusion are learned by our system through the triplet loss $L_{p, a}$, making the system aware of what is important and complementary in the radiometric and geometric domain, without the need of a complex fusion method. Preliminary experiment presented in figure~\ref{fig:fuse_desc} also demonstrates the importance of using a triplet ranking loss on the combination of the two feature vectors $f_p$ and $f_a$.
 
 \paragraph{Post-treatment.}
 We reduce the dimension of the final descriptor by applying PCA + whitening~\citep{Arandjelovic2017, Radenovic2016, Radenovic2017, Gordo2017}. After the convergence of the whole system we reuse the images from the training dataset to compute the PCA parameters.

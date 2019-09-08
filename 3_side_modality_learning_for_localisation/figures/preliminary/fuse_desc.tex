@@ -13,20 +13,18 @@
 		
 		\vspace{0.2cm}
 		
-		\begin{footnotesize}
 			\setlength{\tabcolsep}{2pt}
 			\begin{tabular}{c l c l}
 				\Large{- -} & Individual optimization & \textbf{\Large{--}} & Joint optimization \\
 			\end{tabular}			
 			
-			\begin{tabular}{c c c}
-				\textcolor{red}{{--} CMU--LT} & \textcolor{magenta}{{--} CMU--Autumn} & \textcolor{blue}{{--} CMU--Snow} \\
+			\begin{tabular}{c c c c}
+				Test set: & \textcolor{red}{{--} CMU--LT} & \textcolor{magenta}{{--} CMU--Autumn} & \textcolor{blue}{{--} CMU--Snow} \\
 			\end{tabular}			
-		\end{footnotesize}
 		
 	\end{minipage}\hfill
 	\begin{minipage}{0.35\linewidth}
-		\caption[Descriptors fusion]{\label{fig:fuse_desc} \textbf{:} .}
+		\caption[Joint vs individual optimization]{\label{fig:fuse_desc} \textbf{Influence of the joint loss $L_{p,a}$:} we report localization results of our method trained with or without the joint triplet ranking loss $L_{p,a}$. We detail the used metrics and datasets in section~\ref{sec:impl_details}.}
 	\end{minipage}	
 
 \end{figure}
