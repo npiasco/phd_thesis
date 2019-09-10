@@ -1,7 +1,7 @@
 \section{Relative pose estimation}
 \label{sec:relative_pose}
 
-\subsection{Point cloud alignment}
+\subsection{Iterative Closest learned-Point}
 \input{4_pose_refinement/algo/icp}
 \label{subsec:pc_alignment}
 Thanks to the dense geometric information provided the encoder-decoder network, we can rely on robust ICP algorithm to refine the initial pose. 
@@ -38,10 +38,17 @@ m, n = \underset{k, l}{\mathrm{argmin}} \norm{\left[\mathbf{p}_k, \mathbf{d}_k \
 where $\left[\cdot\right]$ is the concatenation operator. The matches are retrieved efficiently by $k$-d tree fast nearest neighbour search. The $\mathtt{relative\_pose}$ function computes the relative transformation between the matched points that minimises the Euclidean difference between the two point clouds. We embed the pose computation within a \ac{ransac}, as the point cloud may contain erroneous data because it has been generated from image-only information by our encoder/decoder.
 
 \subsection{Perspective-n-learned-Points}
+\input{4_pose_refinement/figures/method/relative_pose}
 \label{subsec:pnlp}
-Thanks to the generated depth map (section~\ref{subsec:depth_map}) and the equation~\ref{eq:3d_proj}, we can project 2D points from retrieved images into 3D coordinates. 2D-2D correspondences obtained in section~\ref{subsec:matching} can be interpreted as 2D-3D correspondences and we can use PnP algorithm to compute the relative transformation $\mathbf{h}_\mathrm{r \rightarrow q}$ between the query image and the reference image. We obtain final pose of query image $\mathrm{I_q}$ using the relation $\mathbf{h}_\mathrm{q} = \mathbf{h}_\mathrm{r}\mathbf{h}_\mathrm{r \rightarrow q}$.
+Thanks to the generated depth map (section~\ref{subsec:depth_map}) and the equation~\ref{eq:3d_proj}, we can project 2D points from retrieved images into 3D coordinates. 2D-2D correspondences obtained in section~\ref{subsec:matching} can be interpreted as 2D-3D correspondences and we can use PnP algorithm to compute the relative transformation $\mathbf{h}_\mathrm{r \rightarrow q}$ between the query image and the reference image. 
 
 We embed the PnP algorithm within a RANSAC consensus where a sub-part of 2D-3D correspondences are evaluated at a time. As we have multiple reference candidates from image retrieval step (section~\ref{subsec:image_indexing}), we select the pose with the largest proportion of inlier correspondences after the PnP optimisation. If the ratio of inlier is below a given threshold, we simply affect the pose of the retrieved image to the query.
+
+\subsection{Final pose computation}
+We obtain final pose of query image $\mathrm{I_q}$ using the relation:
+\begin{equation}
+	\mathbf{h}_\mathrm{q} = \mathbf{h}_\mathrm{r}\mathbf{h}_\mathrm{r \rightarrow q}.
+\end{equation}
 
 \subsection{System design and motivation}
 \paragraph{Multi-task model.} In order to make our system fast and lightweight, we use a single encoder/decoder neural network for the three tasks needed in our pose estimation pipeline. That means with a single image forward, we obtain a compact global image description, dense local descriptors and a depth map corresponding to the observed scene.
