@@ -1,6 +1,7 @@
 \section{Unsupervised training and outdoor localization}
 \label{subseq:outdoor}
 \subsection{Unsupervised depth from monocular training}
+\paragraph{Training.} To learn depth from RGB in a unsupervised manner, we follow the training procedure of~\citep{Zhou2017a}, using the ground truth relative pose between images and by adding SSIM loss function for radiometric comparison as in~\citep{Mahjourian2018}. We train the network with Adam optimizer, learning rate of $10^{-4}$ divided by two every 5, epochs. Training takes the same time as the supervised training, with a batch size reduced to 12.
 
 \paragraph{Unsupervised depth from monocular at scale.} It is not self-explanatory to claim that the depth maps produced from our unsupervised trained network~\citep{Zhou2017a} are at a real scale. Nevertheless, in our experiment they are because we use the absolute 6-DoF camera pose (obtained by SfM) to compute the relative position and orientation of the training images. In~\citep{Zhou2017a}, authors use an auxiliary relative pose estimation network to make their method trainable with video sequences without any pre-processing. The counterpart is that the final CNN produces depth maps up to an unknown scale factor.
 
@@ -11,8 +12,12 @@ For the case of the Cambridge Landmarks dataset~\citep{Kendall2015}, authors res
 
 
 \subsection{Outdoor localization}
+\paragraph{Dataset.} We use the Cambridge Landmarks~\citep{Kendall2015} dataset for outdoor evaluation. This dataset is composed of 6 scenes featuring dynamic changes (pedestrian and cars in movement during the acquisition) acquired by a cell-phone camera. As not ground truth depth maps are available for the Cambridge Landmarks scenes, we only perform outdoor experiments related to the unsupervised depth from monocular training.
+
+\paragraph{Network architecture.} For the unsupervised scenario, we also try to add some recurrent layers (LSTM) in the decoder to capture long term dependencies~\citep{Visin2015, Li2016b}
+
+\paragraph{Results.}
 \input{4_pose_refinement/tabs/outdoor}
-As mentioned previously, we only test our unsupervised set-up for outdoor image pose estimation as the Cambridge Landmarks dataset~\citep{Kendall2015} does not contain ground truth depth maps. Results are presented in table~\ref{tab:outdoor}. PnlP performs well on outdoor scene, with a mean improvement of $\times$1.3/$\times$1.4 for FC architecture, and $\times$1.5/$\times$1.6 for C+LSTM, in position/rotation precision over initial pose given by CBIR. Superior performances of C+LSTM model can be explained by a better capability of the recurrent cells in the C+LSTM decoder for modelling the 3D structure of the scene, as shown in figure~\ref{fig:depth_map_outdoor}. Our method is not able to recover a proper pose for the scene Street. As same as for the indoor failure case, this is the result of a poor initial pose estimation at the CBIR preliminary step. Compared to Posenet~\citep{Kendall2017}, our method is marginally less precise but requires only one trained model compared to the 6 models needed by Posenet and can potentially be used on unknown scenes according to the previous indoor experiments. We do not compare our method to Relocnet~\citep{Purkait2018} baseline because authors do not evaluate Relocnet on outdoor scenes.
-
-
 \input{4_pose_refinement/figures/results/outdoor_depth_maps}
+As mentioned previously, we only test our unsupervised set-up for outdoor image pose estimation as the Cambridge Landmarks dataset~\citep{Kendall2015} does not contain ground truth depth maps. Results are presented in table~\ref{tab:outdoor}. \ac{pnlp} performs well on outdoor scene, with a mean improvement of $\times$1.3/$\times$1.4 for FC architecture, and $\times$1.5/$\times$1.6 for C+LSTM, in position/rotation precision over initial pose given by CBIR. Superior performances of C+LSTM model can be explained by a better capability of the recurrent cells in the C+LSTM decoder for modelling the 3D structure of the scene, as shown in figure~\ref{fig:depth_map_outdoor}. Our method is not able to recover a proper pose for the scene Street. As same as for the indoor failure case, this is the result of a poor initial pose estimation at the CBIR preliminary step. Compared to Posenet~\citep{Kendall2017}, our method is marginally less precise but requires only one trained model compared to the 6 models needed by Posenet and can potentially be used on unknown scenes according to the previous indoor experiments. We do not compare our method to Relocnet~\citep{Purkait2018} baseline because authors do not evaluate Relocnet on outdoor scenes and the source code is not yet available.
+

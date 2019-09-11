@@ -2,7 +2,7 @@
 \label{sec:indoor}
 
 \subsection{Competitors}
-Indoor localisation error on 7 scenes~\citep{Shotton2013} dataset are presented in table~\ref{tab:7_scenes}. We compare our proposal with Relocnet~\citep{Purkait2018} and Posenet~\citep{Kendall2017} trained with a geometric-aware loss. At first glance, we find that the initial pose estimation with image retrieval produces decent results (first two columns), while the network used to produce the global image descriptor has not been trained to this particular task. After applying our PnlP pose refinement, the model trained in a fully supervised manner produces the most precise localisation among the presented methods. 
+Indoor localisation error on 7 scenes~\citep{Shotton2013} dataset are presented in table~\ref{tab:7_scenes}. We compare our proposal with Relocnet~\citep{Purkait2018} and Posenet~\citep{Kendall2017} trained with a geometric-aware loss. At first glance, we find that the initial pose estimation with image retrieval produces decent results (first two columns), while the network used to produce the global image descriptor has not been trained to this particular task. After applying our PnlP pose refinement, the model trained in a fully supervised manner produces the most precise localization among the presented methods. 
 
 \subsection{Results}
 \input{4_pose_refinement/tabs/7_scenes}
