@@ -1,53 +1,43 @@
 \section{Relative pose estimation}
 \label{sec:relative_pose}
+We propose two alternative to compute the relative pose between the query image $x^q$ and the most similar retrieved images $x^{sim}_j, j \in [1, K]$:
+\begin{enumerate}
+	\item an \ac{icp} based method called \ac{iclp} see section~\ref{subsec:pc_alignment},
+	\item a \ac{pnp} based algorithm called \ac{pnlp}, see section~\ref{subsec:pnlp}.
+\end{enumerate}
+\noindent The main differences between these two approaches are that \ac{iclp} is iterative an rely on the reconstructed depth map of the two densely matched images, while \ac{pnlp} is using only one depth map. In figure~\ref{fig:relative_pose}, our two relative pose estimation are presented, side by side.
 
-\subsection{Iterative Closest learned-Point}
-\input{4_pose_refinement/algo/icp}
+\subsection{Iterative Closest Learned Point}
 \label{subsec:pc_alignment}
-Thanks to the dense geometric information provided the encoder-decoder network, we can rely on robust ICP algorithm to refine the initial pose. 
 
-\paragraph{Local point cloud.}
-With the generated depth map obtained by our neural network and the intrinsic parameters of the camera, we can project the depth map on the point cloud $\mathcal{P}_{I}$:
-\begin{equation}
-	\left[\mathcal{P}_{I}\right]_{l + k\times W_d} = \mathbf{p}_{l + k\times W_d} = \left[\mathbf{F}^{\mathrm{D}}_I\right]_{k,l} \cdot \mathbf{K}^{-1}[k, l, 1]^T,
-\end{equation}
-where $\mathbf{p}\in\mathbb{R}^{3}$ is a 3D point and $\left[\cdot\right]_j$ is the subscription operator at index $j$. $\mathcal{P}_{I}$ contains $W_d \times H_d$ 3D points.
+The general idea is to obtain the relative camera pose $\mathbf{h}^\mathrm{r \rightarrow q}$ by registering the point cloud $\mathcal{P}^q$ obtained by projecting in 3D the depth map (equation~\ref{eq:3d_proj}) $\hat{z}^q$ of query $x^q$ to the points cloud $\mathcal{P}^{sim}_j$ from the reference depth maps $\hat{z}^{sim}_j$ of images $x^{sim}_j, j \in [1, K]$. One reference point cloud is evaluate at a time and we chose the final registration that minimise the point-to-point distance between the two point clouds.
 
-\paragraph{Point descriptor.}
-Refinement with ICP involves matching corresponding points between two point clouds in order to estimate a rigid transformation that minimises the distances between the paired points. Standard approaches only consider the Euclidean distance between a single point and its nearest neighbours in the reference point cloud to establish matching, making the initial alignment between the two point clouds a crucial step to obtain correct results. We can rely on point descriptors to establish strongest matches~\cite{Pomerleau2015}. Because the point cloud to align is generated with a deep neural network, we associate to each projected point $\mathbf{p}$ a $C$-dimensional descriptor $\mathbf{d}\in\mathbb{R}^{C}$ corresponding to the deep feature computed by the encoder $\mathrm{E}$ at the same spatial position:
-\begin{equation}
-	\left[ \mathcal{D}_{I} \right]_{l + k\times W_d} =  \mathbf{d}_{l + k\times W_d} = \left[ \mathbf{G}^{\mathrm{E}}_{I} \right]_{k, l},
-\end{equation}
-where $\mathcal{D}_{I}$ is set set of point descriptors associated to point cloud $\mathcal{P}_{I}$ and $\mathbf{G}^{\mathrm{E}}_{I} \in\mathbb{R}^{C\times H_d\times W_d}$ are the feature maps from $\mathrm{E}$ that have the same spatial resolution that the output of $\mathrm{D}$.
+\paragraph{Point matching.}
+\label{para:pc_matching}
+Refinement with \ac{icp} involves matching corresponding points between two point clouds in order to estimate a rigid transformation that minimises the distances between the paired points. Standard approaches only consider the Euclidean distance between a single point and its nearest neighbours in the reference point cloud to establish matching, making the initial alignment between the two point clouds a crucial step to obtain correct results. We can rely on point descriptors to establish strongest matches~\cite{Pomerleau2015}. We use local descriptor $d_{l,m}$ introduced in section~\ref{subsec:matching} and we associate to each projected point $\mathbf{p}_{l,m}$ a the descriptor corresponding to the deep feature computed by the encoder $\mathrm{E}$ at the same spatial position $\left\{l,m\right\}$. The matching process remains the same as the one detailed in \S~\ref{subsec:matching}, with the additional 3D point information added to the local features.
 
-\noindent Descriptors $\mathcal{D}$ are obtained without any additional computation cost because latent features $\mathbf{G}^{\mathrm{E}}_{I}$ have already been computed by $\mathrm{E}$ to produce final features $\mathbf{F}^{\mathrm{E}}_{I}$.
+\paragraph{Algorithm.}
+\label{para:pc_alignment}
+\input{4_pose_refinement/algo/icp}
+Relative pose $\mathbf{h}^\mathrm{r \rightarrow q}$ is obtain thank to the iterative algorithm detailed in~\ref{alg:icp}. The $\mathtt{relative\_pose}$ function computes the relative transformation between the matched points that minimises the Euclidean difference between the two point clouds. We use classical relative pose estimation algorithm~\citep{Pomerleau2015}:  
+\begin{itemize}
+	\item Rotation: we use a \ac{svd} on the matching matrix obtained by multiplication of the zeros-centred corresponding 3D points in each point cloud. Rotation matrix can computed by multiplying the right-singular vectors matrix with the transposed of the left-singular vectors matrix.
+	\item Translation: we obtain the translation component by aligning in the same frame the two point cloud centroids, using the rotation matrix, and evaluating the difference between them.
+\end{itemize}
 
-\paragraph{Global point cloud.} 
-To align the point cloud generated from the query, we need a reference scene geometry. We sample a pool of reference data within a fixed radius centred on the initial retrieved pose $\mathbf{h}_{\mathrm{i}}$. The reference point cloud $\mathcal{P}_{ref}$ is created by aggregating all the point clouds from these data (using ground truth or generated depth maps). We also compute point descriptors $\mathcal{D}_{ref}$ corresponding to the 3D points in $\mathcal{P}_{ref}$.
-\noindent The reference point cloud is computed offline and stored efficiently for fast access during query time.
-
-\paragraph{Pose refinement.}
-Final refined pose $\mathbf{h}_{\mathrm{r}}$ is given by:
-\begin{equation}
-	\mathbf{h}_{\mathrm{r}} = \mathtt{ICP}(\mathbf{h}_{\mathrm{i}}, \mathcal{P}_{I_q}, \mathcal{D}_{I_q}, \mathcal{P}_{ref}, \mathcal{D}_{ref}),
-\end{equation}
-where $\mathtt{ICP}$ is the function described in algorithm~\ref{alg:icp}. The $\mathtt{match\_points}$ function computes pairs of similar points both based on the spatial proximity and on the descriptors similarity. In other words, two pairs of point descriptors $\left\{ \mathbf{p}_m, \mathbf{d}_m \right\}$ and $\left\{ \mathbf{p}_n, \mathbf{d}_n\right\}$ are matched together if:
-\begin{equation}
-m, n = \underset{k, l}{\mathrm{argmin}} \norm{\left[\mathbf{p}_k, \mathbf{d}_k \right] - \left[\mathbf{p}_l, \mathbf{d}_l\right]}_2,
-\end{equation}
-where $\left[\cdot\right]$ is the concatenation operator. The matches are retrieved efficiently by $k$-d tree fast nearest neighbour search. The $\mathtt{relative\_pose}$ function computes the relative transformation between the matched points that minimises the Euclidean difference between the two point clouds. We embed the pose computation within a \ac{ransac}, as the point cloud may contain erroneous data because it has been generated from image-only information by our encoder/decoder.
+We embed the pose computation within a \ac{ransac}, as the point cloud may contain erroneous data because it has been generated from image-only information by our encoder/decoder. We run the algorithm for a fixed size of iterations, for each of the top $K$ retrieved images by the first indexing step. We chose the final relative pose $\mathbf{h}^\mathrm{r \rightarrow q}_{best}, best\in\left[1,K\right]$ according to the minimal mean alignment error returned by our algorithm ($\norm{\mathcal{M}}_2$).
 
 \subsection{Perspective-n-learned-Points}
 \input{4_pose_refinement/figures/method/relative_pose}
 \label{subsec:pnlp}
-Thanks to the generated depth map (section~\ref{subsec:depth_map}) and the equation~\ref{eq:3d_proj}, we can project 2D points from retrieved images into 3D coordinates. 2D-2D correspondences obtained in section~\ref{subsec:matching} can be interpreted as 2D-3D correspondences and we can use PnP algorithm to compute the relative transformation $\mathbf{h}_\mathrm{r \rightarrow q}$ between the query image and the reference image. 
+Thanks to the generated depth map (section~\ref{subsec:depth_map}) and the equation~\ref{eq:3d_proj}, we can project 2D points from retrieved images into 3D coordinates. 2D-2D correspondences obtained in section~\ref{subsec:matching} can be interpreted as 2D-3D correspondences and we can use a \ac{pnp} algorithm to compute the relative transformation $\mathbf{h}_\mathrm{r \rightarrow q}$ between the query image and the reference image. 
 
-We embed the PnP algorithm within a RANSAC consensus where a sub-part of 2D-3D correspondences are evaluated at a time. As we have multiple reference candidates from image retrieval step (section~\ref{subsec:image_indexing}), we select the pose with the largest proportion of inlier correspondences after the PnP optimisation. If the ratio of inlier is below a given threshold, we simply affect the pose of the retrieved image to the query.
+We embed our \ac{pnlp} algorithm within a RANSAC consensus where a sub-part of 2D-3D correspondences are evaluated at a time. We use 3-points algorithm from~\citep{Kneip2011}, using the authors efficient implementation~\citep{Kneip2014opengv}. As we have $K$ reference candidates from image retrieval step (section~\ref{subsec:image_indexing}), we select the best pose $\mathbf{h}^\mathrm{r \rightarrow q}_{best}, best\in\left[1,K\right]$, with the largest proportion of inlier correspondences after the \ac{pnp} optimisation. If the ratio of inlier is below a given threshold, we simply affect the pose of the retrieved image to the query.
 
 \subsection{Final pose computation}
-We obtain final pose of query image $\mathrm{I_q}$ using the relation:
+We obtain final pose of query image $\mathrm{x^q}$ using the relation:
 \begin{equation}
-	\mathbf{h}_\mathrm{q} = \mathbf{h}_\mathrm{r}\mathbf{h}_\mathrm{r \rightarrow q}.
+	\mathbf{h}^\mathrm{q} = \mathbf{h}^\mathrm{r}_{best}\mathbf{h}^\mathrm{r \rightarrow q}_{best}.
 \end{equation}
 
 \subsection{System design and motivation}

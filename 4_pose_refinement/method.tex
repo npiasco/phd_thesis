@@ -17,7 +17,6 @@ The aim of our method is to recover the exact 6~\ac{dof} camera pose $\mathbf{h}
 
 \subsection{Image retrieval}
 \label{subsec:image_indexing}
-
 \Ac{cbir} for localization are deeply detailed in the previous chapter. We provide a short explanation in the following.  We assume that the reference data are augmented with 6-\ac{dof} pose information and we cast the initial pose estimation task as a \ac{cbir} problem like in~\cite{Balntas2018}. In order to evaluate the similarity between the unknown pose query image $x^q$ and the $N$ reference images $\left\{ x_{i}^r \right\}_{i\in\left[1,N\right]}$, we need to use a discriminative image representation. We use deep global image descriptor for place recognition, to describe the data by low-dimensional $L_2$ normalized vectors. The image descriptor $f(x^q) $ is obtained by concatenating the dense feature from neural network encoder $E$: 
 \begin{equation}
 	f(x^q) = P(E(x^q)).
@@ -38,10 +37,16 @@ Local image descriptors $d_{l,m}$ are obtained from the latent image representat
 
 \subsection{Depth from monocular image}
 \label{subsec:depth_map}
-2D to 2D correspondences obtained by dense features matching (section~\ref{subsec:matching}) do not provide enough information to compute relative pose between images at absolute scale. Therefore, we propose to reconstruct the relative scene geometry from the camera to circumvent this limitation. Various recent deep learning generative models are able to properly reconstruct geometry associated to radiometric data, with full supervision training~\cite{Eigen2014}, weakly annotated data~\cite{Godard2017} or even in a self-supervized way~\cite{Mahjourian2018}. 
+2D to 2D correspondences obtained by dense features matching (section~\ref{subsec:matching}) do not provide enough information to compute relative pose between images at absolute scale~\cite{Hartley2003}. Therefore, we propose to reconstruct the relative scene geometry from the camera to circumvent this limitation. Various recent deep learning generative models are able to properly reconstruct geometry associated to radiometric data, with full supervision training~\cite{Eigen2014}, weakly annotated data~\cite{Godard2017} or even in a self-supervized way~\cite{Mahjourian2018}. 
 
-We train an encoder/decoder jointly to predict the corresponding depth map $\hat{z}$ associated to an image: $\hat{z} = D(E(x))$. With the generated depth map obtained by our neural network and the intrinsic parameters of the camera $\mathbf{K}$, we can project the 2D point $\left( l, m \right)^T$ to the corresponding 3D coordinate $\mathbf{p}$:
+We train an encoder/decoder to predict the corresponding depth map $\hat{z}$ associated to an image:
+\begin{equation}
+\hat{z} = D(E(x))
+\end{equation}
+
+\paragraph{3D projection.} With the generated depth map and the intrinsic parameters of the camera $\mathbf{K}$, we can project the 2D point in the image frame at coordinate $\left\{ l,m \right\}$ to the corresponding 3D coordinate in the scene $\mathbf{p}_{l, m}\in\mathbb{R}^3$, relative to the camera frame:
 \begin{equation}
 	\label{eq:3d_proj}
-	\mathbf{p} = \hat{z}_{l, m} \cdot \mathbf{K}^{-1}[l, m, 1]^T.
+	\mathbf{p}_{l, m}= \hat{z}\left[ l, m \right] \cdot \mathbf{K}^{-1}[l, m, 1]^T,
 \end{equation}
+where $\hat{z}\left[ l, m \right]$ is the metric depth value at position $\left\{ l,m \right\}$ in the reconstructed depth map $\hat{z}$.

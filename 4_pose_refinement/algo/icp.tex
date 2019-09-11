@@ -1,18 +1,17 @@
 \begin{algorithm}
- \KwData{initial pose $\mathbf{h}_{init}$, point cloud to align $\mathcal{P}$ with associated descriptors $\mathcal{D}$ and reference point cloud $\mathcal{P}_{ref}$ with assocaited descriptors $\mathcal{D}_{ref}$}
- \KwResult{final pose $\mathbf{h}_{refined}$}
+ \KwData{query point cloud to align $\mathcal{P}^q$ with augmented descriptors $\mathcal{D}^q$ and reference point cloud $\mathcal{P}^{sim}$ with associated descriptors $\mathcal{D}^{sim}$}
+ \KwResult{relative pose $\mathbf{h}^\mathrm{r \rightarrow q}$, mean distance between matched points $\norm{\mathcal{M}}_2$}
 % initialization\;
- $\mathbf{h}_{refined} \gets \mathbf{h}_{init}$\;
- $\mathbf{h}_{relative} \gets \mathbf{1}_{4\times 4}$\;
- \While{$\norm{\mathbf{h}_{relative} - \mathbf{I}_{4\times 4}}_{\mathrm{F}} \geq \epsilon $}{
-    $\mathcal{P}_{aligned} \gets \mathbf{h}_{refined}\mathcal{P}$\;
-	$\mathcal{M} \gets \mathtt{match\_points}(\mathcal{P}_{aligned}, \mathcal{P}_{ref}, \mathcal{D}, \mathcal{D}_{ref})$\;  
-	$\mathbf{h}_{relative} \gets \mathtt{relative\_pose}(\mathcal{M})$\;
-    $\mathbf{h}_{refined} \gets \mathbf{h}_{relative}\mathbf{h}_{refined}$\;
+ $\mathbf{h}^{\mathrm{r \rightarrow q}} \gets \mathbf{I}_{4\times 4}$\;
+ $\mathbf{h}^{it} \gets \mathbf{1}_{4\times 4}$\;
+ \While{$\norm{\mathbf{h}^{it} - \mathbf{I}_{4\times 4}}_{\mathrm{F}} \geq \epsilon $}{
+    $\mathcal{P}^{q} \gets \mathbf{h}^{\mathrm{r \rightarrow q}}\mathcal{P}^{q}$\;
+	$\mathcal{M} \gets \mathtt{match\_points}\left(\left[\mathcal{P}^{q},  \mathcal{D}^q \right],  \left[\mathcal{P}^{sim},  \mathcal{D}^{sim} \right]\right)$\;  
+	$\mathbf{h}^{it} \gets \mathtt{relative\_pose}(\mathcal{M})$\;
+    $\mathbf{h}^{\mathrm{r \rightarrow q}} \gets \mathbf{h}^{it}\mathbf{h}^{\mathrm{r \rightarrow q}}$\;
  }
- \If{$\norm{\mathcal{M}}_2 > \epsilon_{repro}$}{
-     $\mathbf{h}_{refined} \gets \mathbf{h}_{init}$\;
- }
-
- \caption{\label{alg:icp}Our ICP algorithm, see text for details about functions $\mathtt{match\_points}$ and $\mathtt{relative\_pose}$. Pose refinement is rejected if the mean distance between matched points, $\norm{\mathcal{M}}_2$, is superior to $\epsilon_{repro}$.}
+ 
+ \vspace{10pt}
+ 
+ \caption{\label{alg:icp}Our \ac{iclp} algorithm, see section~\ref{subsec:matching} for details about functions $\mathtt{match\_points}$ and section~\ref{para:pc_alignment} for function $\mathtt{relative\_pose}$. Expression $\left[\mathcal{P}^{q},  \mathcal{D}^q \right]$ denote the concatenation of the point coordinates with their corresponding deep feature $d$, as explained in section~\ref{para:pc_matching}}
 \end{algorithm}
