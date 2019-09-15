@@ -15,6 +15,9 @@ For the case of the Cambridge Landmarks dataset~\citep{Kendall2015}, authors res
 \paragraph{Dataset.} We use the Cambridge Landmarks~\citep{Kendall2015} dataset for outdoor evaluation. This dataset is composed of 6 scenes featuring dynamic changes (pedestrian and cars in movement during the acquisition) acquired by a cell-phone camera. As not ground truth depth maps are available for the Cambridge Landmarks scenes, we only perform outdoor experiments related to the unsupervised depth from monocular training.
 
 \paragraph{Network architecture.} For the unsupervised scenario, we also try to add some recurrent layers (LSTM) in the decoder to capture long term dependencies~\citep{Visin2015, Li2016b}
+, and $224 \times 112$ for outdoor images.
+For outdoor localization, we train our two different architectures (FC and C+LSTM) on the Cambridge Landmarks dataset.
+
 
 \paragraph{Results.}
 \input{4_pose_refinement/tabs/outdoor}

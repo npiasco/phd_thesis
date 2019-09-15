@@ -11,4 +11,6 @@ For the unsupervised setting, we found that FC and C+LSTM architectures perform 
 
 \subsection{Generalisation} 
 \input{4_pose_refinement/figures/results/res_visualization_gene}
+The 12 scenes dataset is used to evaluate the generalization capability of our method. 
+
 We also report on table~\ref{tab:7_scenes} localization error on 8 scenes of the 12 Scenes dataset~\citep{Valentin2016}. For these experiments, we use the same network as mentioned earlier, trained on 7 Scenes dataset~\citep{Shotton2013}. We observe an average relative improvement of $\times$1.2/$\times$1.5, respectively $\times$1.1/$\times$1.6, for the supervised, respectively unsupervised, model in position/rotation from initial to refined pose. Even though the pose refinement is not as effective as previously, it shows that our system can be used on completely new indoor environments. We also demonstrate, in figure~\ref{fig:depth_map_indoor}, the generalization capability of our method through the depth maps produced by our networks, from images taken on both known and unknown scenes. We notice that the poor localization performance on the Apt2-bed scenes is closely related to the poor generated depth map on this scene (see figure~\ref{fig:depth_map_indoor}, two last columns).
