@@ -1,0 +1,28 @@
+\begin{figure}
+\centering
+
+\begin{minipage}{0.5\linewidth}
+\begin{footnotesize}
+\renewcommand{\arraystretch}{1.1}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\begin{tabular}{m{0.2\linewidth} | C{0.3\linewidth} C{0.3\linewidth}}
+7 Scenes \citep{Shotton2013}  & \ac{iclp} w/o deep features & \ac{iclp} w/ deep features\\
+%	\cline{3-8} 
+	\hline
+	Chess 	& $0.28/8.6$		&	$\mathbf{0.23/5.4}$	\\
+	Fire	    &	$0.39/16.5$		& $\mathbf{0.30/14.1}$	\\
+	Heads   &	$\mathbf{0.18}/14.9$	&	$0.19/\mathbf{14.1}$	\\
+	Office   &	$0.41/13.4$	& $\mathbf{0.36/11.3}$	\\
+	Pumpkin 	&	$0.40/12.0$	&	$\mathbf{0.35/7.4}$	\\
+	Kitchen & 	$0.24/\ 7.5$	&	$\mathbf{0.19/4.9}$		\\
+	Stairs  	&	$0.57/12.2$	&	$\mathbf{0.48/10.3}$	\\
+	\hline
+\end{tabular}
+\end{footnotesize}
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+
+\caption[Point cloud alignement]{\label{tab:methods_comparison}\textbf{Point cloud registration:} we report median error on position and orientation (m/$^{\circ}$) for each scene. Its shows the importance of deep feature for point cloud matching in our method. Global image descriptors for image indexing are \ac{mac} descriptor, see section~\ref{sec:implementation} for more details about the used datasets and our implementation.}
+\end{minipage}
+
+\end{figure}
