@@ -4,19 +4,19 @@
 \begin{footnotesize}
 \renewcommand{\arraystretch}{1.0}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
-\begin{tabular}{c l | c c | c c }
-					&		&	\multicolumn{2}{c|}{\textit{Image retrieval}} & \multicolumn{2}{c|}{PnlP refinement}  \\
-	\multicolumn{2}{c|}{Scene} 	&	 \purple{FC-sup.}	  & \blue{FC-unsup.} & \purple{FC-sup.}	& \blue{FC-unsup.} \\
+\begin{tabular}{c l | c c | c c}
+					&		&	\multicolumn{2}{c|}{\textit{Image retrieval}} & \multicolumn{2}{c}{\ac{pnlp} refinement}  \\
+	\multicolumn{2}{c|}{Scene} 	&	 \purple{supervised}	  & \blue{unsupervised} & \purple{supervised}	& \blue{unsupervised} \\
 	\hline
-
-\multirow{12}{*}{\rotatebox{90}{7-Scenes~\citep{Shotton2013}}}
+	\hline
+\multirow{7}{*}{\rotatebox{90}{7-Scenes~\citep{Shotton2013}}}
 &		Chess 	&  \purple{\textit{0.29/13.0}} 	& \blue{\textit{0.34/15.4}}	& \textbf{\purple{0.07/2.7}} & \blue{0.13/4.7} 	\\
 &		Fire	&  \purple{\textit{0.40/15.5}}	& \blue{\textit{0.48/19.3}}	& \textbf{\purple{0.07/3.2}} & \blue{0.22/8.2}  \\
 &		Heads	&  \purple{\textit{0.28/20.5}}  & \blue{\textit{0.25/17.9}}	& \textbf{\purple{0.05/3.9}} & \blue{0.15/10.5} \\
 &		Office  &  \purple{\textit{0.38/13.0}}  & \blue{\textit{0.50/16.1}}	& \textbf{\purple{0.09/2.9}} & \blue{0.23/6.3} \\
 &		Pumpkin &  \purple{\textit{0.43/13.1}}	& \blue{\textit{0.54/15.0}}	& \textbf{\purple{0.13/3.6}} & \blue{0.29/7.1} \\
 &		Kitchen &  \purple{\textit{0.23/9.5}}   & \blue{\textit{0.26/10.5}}	& \textbf{\purple{0.05/2.0}} & \blue{0.12/3.3} \\
-&		Stairs  &  \purple{\textit{0.46/14.9}}	& \blue{\textit{0.49/15.5}}	& \purple{0.40/9.2} & \blue{0.48/12.2} \\[1pt]
+&		Stairs  &  \purple{\textit{0.46/14.9}}	& \blue{\textit{0.49/15.5}}	& \textbf{\purple{0.40/9.2}} & \blue{0.48/12.2} \\[1pt]
 \hline	
 \multirow{12}{*}{\rotatebox{90}{12-Scenes~\citep{Valentin2016}}}
 & Apt1-kitchen 	& \purple{\textit{0.12/7.7}} & \blue{\textit{0.14/9.2}} & \purple{\textbf{0.09/4.1}} & \blue{0.14/5.0}  \\
@@ -31,10 +31,10 @@
 & Manolis	 	& \purple{\textit{0.13/6.3}} & \blue{\textit{0.15/7.8}} & \purple{\textbf{0.09/3.7}} & \blue{0.12/4.5}  \\
 & Gates362	 	& \purple{\textit{0.13/5.9}} & \blue{\textit{0.14/6.5}} & \purple{\textbf{0.10}/4.7} & \blue{0.11/\textbf{3.9}}  \\
 & Gates381 		& \purple{\textit{0.15/7.7}} & \blue{\textit{0.16/9.0}} & \purple{\textbf{0.11/4.4}} & \blue{0.13/5.1} \\
+\hline
 \end{tabular}
 \end{footnotesize}
 
-\caption{\label{tab:7_scenes} Results on the \textbf{7 scenes}~\citep{Shotton2013} and \textbf{12 scenes}~\citep{Valentin2016} indoor datasets, we report median position/orientation error in meters/degree. We compare the first pose estimation (im. retrieval, \textit{in italics}) and, the final image localisation (PnlP) of our method and two state-of-the-art approaches. Best localisation results are shown in \textbf{bold} and \underline{underligned} numbers show failure cases when the pose refinement increases the initial pose error. Sup. (\purple{in purple}) and unsup. (\blue{in blue}) stand for supervised, respectively unsupervised, depth from monocular training. Table best viewed in color.}
-
+\caption[Supervised vs unsupervised model for localization]{\label{tab:sup_vs_unsup} Results on the \textbf{7 scenes}~\citep{Shotton2013} and \textbf{12 scenes}~\citep{Valentin2016} indoor datasets, we report median position/orientation error in meters/degrees. Supervised (\purple{in purple}) and unsupervised (\blue{in blue}) refer to our model trained with, respectively without, truth depth maps as supervision signal. Best localization results are shown in \textbf{bold} and \underline{underlined} numbers show failure cases when the pose refinement increases the initial pose error. Table best viewed in color.}
 
 \end{table}

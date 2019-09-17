@@ -1,29 +1,38 @@
 \begin{table}
 \centering
 
+\begin{minipage}{0.5\linewidth}
+
+\centering
 \begin{footnotesize}
 \renewcommand{\arraystretch}{1.0}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
-\begin{tabular}{c l | c c | c c | c c }
-					Scene &	\textit{Image retrieval} & \ac{pnlp} refinement & Relocnet & Posenet  \\
-&	 &  & \citep{Balntas2018} & \citep{Kendall2017} \\
+\begin{tabular}{l | c c }
+					Scene &	\textit{Image retrieval} & \ac{pnlp}  \\
 	\hline
-& Apt1-kitchen 	& {\textit{0.12/7.7}} & {\textbf{0.09/4.1}}  \\
-& Apt1-living 	& {\textit{0.12/6.8}} &  {\textbf{0.08/2.9}}\\
-& Apt2-kitchen 	& {\textit{\textbf{0.10}/6.5}} & {\textbf{0.10/3.7}}   \\
-& Apt2-living 	& {\textit{0.11/5.6}} & {\textbf{0.10}/4.7}  \\
-& Apt2-bed 		& {\textit{0.13/7.0}} &  {\textbf{0.12}/5.7} \\
-& Apt2-luke 	& {\textit{0.15/7.2}} & {\textbf{0.14}/5.5}  \\
-& Office 5a	    & {\textit{0.12/5.3}} &  {\textbf{0.09/3.6}}  \\
-& Office 5b 	& {\textit{0.15/7.2}} & {\textbf{0.10/4.7}} \\
-& Lounge	 	& {\textit{0.16/7.1}} & {\textbf{0.10/3.5}}   \\
-& Manolis	 	& {\textit{0.13/6.3}} & {\textbf{0.09/3.7}} \\
-& Gates362	 	& {\textit{0.13/5.9}} & {\textbf{0.10}/4.7} \\
-& Gates381 		& {\textit{0.15/7.7}} & {\textbf{0.11/4.4}} \\
+	\hline
+ Apt1-kitchen 	& {\textit{0.12/7.7}} & {\textbf{0.09/4.1}}  \\
+ Apt1-living 	& {\textit{0.12/6.8}} &  {\textbf{0.08/2.9}}\\
+ Apt2-kitchen 	& {\textit{\textbf{0.10}/6.5}} & {\textbf{0.10/3.7}}   \\
+ Apt2-living 	& {\textit{0.11/5.6}} & \textbf{0.10/4.7}  \\
+ Apt2-bed 		& {\textit{0.13/7.0}} &  \textbf{0.12/5.7} \\
+ Apt2-luke 	& {\textit{0.15/7.2}} & {\textbf{0.14/5.5}}  \\
+ Office 5a	    & {\textit{0.12/5.3}} &  {\textbf{0.09/3.6}}  \\
+ Office 5b 	& {\textit{0.15/7.2}} & {\textbf{0.10/4.7}} \\
+ Lounge	 	& {\textit{0.16/7.1}} & {\textbf{0.10/3.5}}   \\
+ Manolis	 	& {\textit{0.13/6.3}} & {\textbf{0.09/3.7}} \\
+ Gates362	 	& {\textit{0.13/5.9}} & {\textbf{0.10/4.7}} \\
+ Gates381 		& {\textit{0.15/7.7}} & {\textbf{0.11/4.4}} \\
+ \hline
 \end{tabular}
 \end{footnotesize}
 
-\caption[Results on 12 scenes dataset]{\label{tab:12_scenes} \textbf{Results on the \textbf{12 scenes}~\citep{Valentin2016} indoor dataset:} we report median position/orientation error in meters/degree. We compare the first pose estimation (im. retrieval, \textit{in italics}) and, the final image localization (PnlP) of our method and two state-of-the-art approaches. Best localisation results are shown in \textbf{bold} and \underline{underlined} numbers show failure cases when the pose refinement increases the initial pose error. Sup. ({in purple}) and unsup. (\blue{in blue}) stand for supervised, respectively unsupervised, depth from monocular training. Table best viewed in color.}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\centering
 
+\caption[Results on 12 scenes dataset]{\label{tab:12_scenes} \textbf{Results on the \textbf{12 scenes}~\citep{Valentin2016} indoor dataset:} we report median absolute position/orientation error in meters/degrees. Our model has been trained on a different dataset than the one used for testing. Best results are in \textbf{bold}.}
+
+\end{minipage}
 
 \end{table}

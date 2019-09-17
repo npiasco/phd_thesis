@@ -5,14 +5,14 @@
 \renewcommand{\arraystretch}{1.1}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-\begin{tabular}{l | c c l c c}
-			&		\multicolumn{2}{c|}{\textbf{Initial localization (\ac{cbir}}}	&  \multicolumn{2}{c}{\textbf{Pose refinement}} \\
+\begin{tabular}{l | c c | c c}
+			&		\multicolumn{2}{c|}{\textbf{Initial localization (\ac{cbir})}}	&  \multicolumn{2}{c}{\textbf{Pose refinement}} \\
 %	\cline{3-8} 
 	Scene 	&		MAC (M)		  & NetVLAD (V)		&  V + \ac{iclp} & V + \ac{pnlp} \\
 	\hline
 	\hline	
 	Chess 	& 	$0.31/14.9$	&	$0.29/13.0$	&	$ {0.12/4.5}$		&	\\
-	Fire		& 	$0.49/16.7$	&	$0.40/15.5$	&	$ {0.25/8.9}$		& $\mathbf{O.09/3.6}$\\
+	Fire		& 	$0.49/16.7$	&	$0.40/15.5$	&	$ {0.25/8.9}$		& $\mathbf{0.09/3.6}$\\
 	Heads	& 	$0.28/20.5$   &	$0.20/16.0$	&	$0.18/9.9$		& $\mathbf{0.06/4.3}$ \\
 	Office  & 	$0.46/16.4$	&	$0.38/13.0$	&	${0.22/7.3}$		&\\
 	Pumpkin & $0.50/15.0$	&	$0.43/13.1$	&	${0.21/6.2}$		&\\
@@ -23,6 +23,6 @@
 \end{tabular}
 \end{footnotesize}
 
-\caption[\acs{iclp} vs \ac{pnlp}]{\label{tab:methods_comparison} \textbf{Methods comparison:} we report mean pose error (translation and orientation, m/$^{\circ}$) of our two relative pose algorithm proposal. Best results are shown in \textbf{bold}.}
+\caption[\acs{iclp} vs \ac{pnlp}]{\label{tab:methods_comparison} \textbf{Methods comparison:} we report mean pose error (translation and orientation, m/$^{\circ}$) of our two relative pose algorithms. Best results are shown in \textbf{bold}.}
 
 \end{figure}

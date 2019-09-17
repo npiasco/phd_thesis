@@ -4,25 +4,22 @@
 \label{sec:relative_pose}
 We propose two alternative to compute the relative pose between the query image $x^q$ and the most similar retrieved images $x^{sim}_j, j \in [1, K]$:
 \begin{enumerate}
-	\item an \ac{icp} based method called \ac{iclp} see section~\ref{subsec:pc_alignment},
-	\item a \ac{pnp} based algorithm called \ac{pnlp}, see section~\ref{subsec:pnlp}.
+	\item an \ac{icp}-based method called \ac{iclp} see section~\ref{subsec:pc_alignment},
+	\item a \ac{pnp}-based algorithm called \ac{pnlp}, see section~\ref{subsec:pnlp}.
 \end{enumerate}
 \noindent The main differences between these two approaches are that \ac{iclp} is iterative an rely on the reconstructed depth map of the two densely matched images, while \ac{pnlp} is using only one depth map. In figure~\ref{fig:relative_pose}, our two relative pose estimation are presented, side by side.
 
 \subsection{Iterative Closest Learned Point}
 \label{subsec:pc_alignment}
-
 The general idea is to obtain the relative camera pose $\mathbf{h}^\mathrm{r \rightarrow q}$ by registering the point cloud $\mathcal{P}^q$ obtained by projecting in 3D the depth map (equation~\ref{eq:3d_proj}) $\hat{z}^q$ of query $x^q$ to the points cloud $\mathcal{P}^{sim}_j$ from the reference depth maps $\hat{z}^{sim}_j$ of images $x^{sim}_j, j \in [1, K]$. One reference point cloud is evaluate at a time and we chose the final registration that minimise the point-to-point distance between the two point clouds.
 
+\input{4_pose_refinement/tabs/pc_alignment}
 \paragraph{Point matching.}
 \label{para:pc_matching}
-\input{4_pose_refinement/tabs/pc_alignment}
 Refinement with \ac{icp} involves matching corresponding points between two point clouds in order to estimate a rigid transformation that minimises the distances between the paired points. Standard approaches only consider the Euclidean distance between a single point and its nearest neighbours in the reference point cloud to establish matching, making the initial alignment between the two point clouds a crucial step to obtain correct results. We can rely on point descriptors to establish strongest matches~\cite{Pomerleau2015}. We use local descriptor $d_{l,m}$ introduced in section~\ref{subsec:matching} and we associate to each projected point $\mathbf{p}_{l,m}$ a the descriptor corresponding to the deep feature computed by the encoder $\mathrm{E}$ at the same spatial position $\left\{l,m\right\}$. The matching process remains the same as the one detailed in \S~\ref{subsec:matching}, with the additional 3D point information added to the local features. We present in table~\ref{tab:pc_alignment} results of an exploratory experiment to estimate the benefit of adding the deep features for the point cloud alignment. We observe a clear improvement at almost no cost (the deep features are extracted from the already computed features block of the depth from monocular \ac{cnn}).  
 
-\paragraph{Algorithm.}
-\label{para:pc_alignment}
 \input{4_pose_refinement/algo/icp}
-Relative pose $\mathbf{h}^\mathrm{r \rightarrow q}$ is obtain thank to the iterative algorithm detailed in~\ref{alg:icp}. The $\mathtt{relative\_pose}$ function computes the relative transformation between the matched points that minimises the Euclidean difference between the two point clouds. We use classical relative pose estimation algorithm~\citep{Pomerleau2015}:  
+\paragraph{Algorithm.} \label{para:pc_alignment} Relative pose $\mathbf{h}^\mathrm{r \rightarrow q}$ is obtain thank to the iterative algorithm detailed in~\ref{alg:icp}. The $\mathtt{relative\_pose}$ function computes the relative transformation between the matched points that minimises the Euclidean difference between the two point clouds. We use classical relative pose estimation algorithm~\citep{Pomerleau2015}:  
 \begin{itemize}
 	\item Rotation: we use a \ac{svd} on the matching matrix obtained by multiplication of the zeros-centred corresponding 3D points in each point cloud. Rotation matrix can computed by multiplying the right-singular vectors matrix with the transposed of the left-singular vectors matrix.
 	\item Translation: we obtain the translation component by aligning in the same frame the two point cloud centroids, using the rotation matrix, and evaluating the difference between them.
@@ -44,5 +41,7 @@ We obtain final pose of query image $\mathrm{x^q}$ using the relation:
 
 \subsection{System design and motivation}
 \paragraph{Multi-task model.} In order to make our system fast and lightweight, we use a single encoder/decoder neural network for the three tasks needed in our pose estimation pipeline. That means with a single image forward, we obtain a compact global image description, dense local descriptors and a depth map corresponding to the observed scene.
+
 \paragraph{Single task training policy.} There are dedicated training pipeline for each of the computer vision tasks involved in our image pose estimation framework: methods for learning a global image descriptor~\citep{Arandjelovic2017, Radenovic2017, Gordo2017}, CNN designed to extract and describe local features~\citep{Yi2016a, Rocco2018, Ono2018} and system that produces a depth map from a monocular image~\citep{Eigen2014, Godard2017, Mahjourian2018}. We decide to train our encoder/decoder network for the task of depth from monocular estimation because estimation of erroneous depth measurement will result in wrong estimation of the final pose. In the next section, we experimentally show that even if our network has not been trained especially for the task of image description or local feature matching, the latent features computed within the network embed enough high-level semantic to perform well on these tasks~\citep{Taira2018, Zamir2018}.
-\paragraph{Generalisation.} Because we rely on a non-absolute representation of the scene geometry (depth is estimated \textit{relatively} to the camera frame), our model is not limited to localisation on one specific scene like end-to-end pose estimation networks~\citep{Kendall2017, Brachmann2017b}. In other words, the same trained network can be used to localise images in multiple indoor and outdoor scenes, and even on totally unknown environments. 
+
+\paragraph{Generalization.} Because we rely on a non-absolute representation of the scene geometry (depth is estimated \textit{relatively} to the camera frame), our model is not limited to localization on one specific scene like end-to-end pose estimation networks~\citep{Kendall2017, Brachmann2017b}. In other words, the same trained network can be used to localize images in multiple indoor and outdoor scenes, and even on totally unknown environments. 

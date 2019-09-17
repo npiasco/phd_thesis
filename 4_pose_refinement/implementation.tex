@@ -9,12 +9,10 @@ We consider two localization scenarios: indoor static scenes (section~\ref{subse
 
 \paragraph{Network architecture and training.} We use a U-Net clike convolutional encoder/decoder architecture~\citep{Isola2017} with multi-scale outputs~\citep{Godard2017}, see appendix~\ref{apx:} for details. As the accuracy of our methods is highly correlated to the quality of the generated depth map, we use a more sophisticated network architecture than previously and we train it from scratch, without using pretrained weights. During training and testing, images are resized to $224 \times 224$ pixels. The generated depth map is 4 times smaller than the image input. We use $L_1$ pixel loss function for the fully supervised depth from monocular training. We train our architecture with Adam optimizer, learning rate of $10^{-4}$ divided by two every 50 epochs. Training our model using all the training sequence of the 7 scenes of \citet{Shotton2013} dataset takes approximately one day on our Nvidia Titan X GPU with a batch size sets to 24.
 
-%We denote the fully convolutional architecture as \textbf{FC} and convolutional layers + recurrent layers architecture as \textbf{C+LSTM}. FC and C+LSTM encoders are identical, with 6.3M parameters, FC decoder has 16.7M parameters and C+LSTM decoder has 10.1M parameters.
-
 \paragraph{Method parameters.} We compare \ac{mac}~\citep{Razavian2014a} and NetVLAD layer~\citep{Arandjelovic2017} with 64 clusters as global image descriptor for initial pose estimation. Deep local features are gathered from the second convolutional layer before the Relu activation of our architecture (appendix~\ref{apx:}), resulting on 56$\times$56 feature vectors of dimension 64. We use this particular features block as it has the same spatial dimension as the generated depth map (\ie 4 times smaller than the input). Concerning the \ac{iclp} algorithm: we set the maximum number of iteration to 100 and the threshold $\theta$ equal to $0.4$. For the \ac{pnlp} method, we set the inliers ratio threshold mentioned in section~\ref{subsec:pnlp} to 10\%.
 
-\subsection{Methods comparison}
 \input{4_pose_refinement/tabs/methods_comparison}
+\subsection{Methods comparison}
 We report in table~\ref{tab:methods_comparison} initial result on the 7 scenes indoor dataset, using only the top-1 retrieved candidate for pose estimation for time saving. 
 
 \paragraph{Initial localization.} We observe a comparable behavior than the one observed previously (section~\ref{sec:experiments}): NetVLAD pooling layer is more efficient than \ac{mac} for initial localization. In the following experiments, we only use the NetVLAD layer for global image descriptor. 
