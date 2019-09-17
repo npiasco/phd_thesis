@@ -4,10 +4,10 @@ In this section, we discuss about implementation details and training and testin
 
 We consider two localization scenarios: indoor static scenes (section~\ref{subseq:indoor}) and outdoor dynamic scenes (section~\ref{subseq:outdoor}). We also divide our evaluation according to the data available to train our encoder/decoder architecture: fully supervised depth from monocular training (when ground-truth associated depth map are available during training), and unsupervised depth from monocular (when the only data available during training are video sequences with true relative poses between images).
 
-\subsection{Implementation.}
+\subsection{Implementation}
 \paragraph{Dataset.} We train and test our method on the 7 scenes indoor localization dataset~\citep{Shotton2013}. This datasets are composed of various indoor environments scanned with RGB-D sensors.  6-DoF image poses and camera calibration parameters are provided. For all the experiments, reference images used for the initial pose estimation with \ac{vbl} are taken from the training split and query images are taken from the testing split of the respective datasets. 
 
-\paragraph{Network architecture and training.} We use a U-Net clike convolutional encoder/decoder architecture~\citep{Isola2017} with multi-scale outputs~\citep{Godard2017}, see appendix~\ref{apx:} for details. As the accuracy of our methods is highly correlated to the quality of the generated depth map, we use a more sophisticated network architecture than previously and we train it from scratch, without using pretrained weights. During training and testing, images are resized to $224 \times 224$ pixels. The generated depth map is 4 times smaller than the image input. We use $L_1$ loss function for the fully supervised depth from monocular training. We train our architecture with Adam optimizer, learning rate of $10^{-4}$ divided by two every 50 epochs. Training our model using all the training sequence of the 7 scenes of \citet{Shotton2013} dataset takes approximately one day on our Nvidia Titan X GPU with a batch size is set to 24.
+\paragraph{Network architecture and training.} We use a U-Net clike convolutional encoder/decoder architecture~\citep{Isola2017} with multi-scale outputs~\citep{Godard2017}, see appendix~\ref{apx:} for details. As the accuracy of our methods is highly correlated to the quality of the generated depth map, we use a more sophisticated network architecture than previously and we train it from scratch, without using pretrained weights. During training and testing, images are resized to $224 \times 224$ pixels. The generated depth map is 4 times smaller than the image input. We use $L_1$ pixel loss function for the fully supervised depth from monocular training. We train our architecture with Adam optimizer, learning rate of $10^{-4}$ divided by two every 50 epochs. Training our model using all the training sequence of the 7 scenes of \citet{Shotton2013} dataset takes approximately one day on our Nvidia Titan X GPU with a batch size sets to 24.
 
 %We denote the fully convolutional architecture as \textbf{FC} and convolutional layers + recurrent layers architecture as \textbf{C+LSTM}. FC and C+LSTM encoders are identical, with 6.3M parameters, FC decoder has 16.7M parameters and C+LSTM decoder has 10.1M parameters.
 
@@ -15,14 +15,11 @@ We consider two localization scenarios: indoor static scenes (section~\ref{subse
 
 \subsection{Methods comparison}
 \input{4_pose_refinement/tabs/methods_comparison}
-\input{4_pose_refinement/figures/results/ratio_t_knn}
 We report in table~\ref{tab:methods_comparison} initial result on the 7 scenes indoor dataset, using only the top-1 retrieved candidate for pose estimation for time saving. 
 
 \paragraph{Initial localization.} We observe a comparable behavior than the one observed previously (section~\ref{sec:experiments}): NetVLAD pooling layer is more efficient than \ac{mac} for initial localization. In the following experiments, we only use the NetVLAD layer for global image descriptor. 
 
-\paragraph{Deep descriptor.}
-As we can see on the $x^{th}$ and $y^{th}$ columns of table~\ref{tab:methods_comparison}, using deep descriptors as well as 3D-point coordinates helps to form good matches, as expected in section~\ref{subsec:pc_alignment}.
-
 \paragraph{\ac{iclp} vs \ac{pnlp}.} Our \ac{pnlp} pose refinement clearly outperform the \ac{iclp} approaches. This can be explained by the fact that wrong estimations in the depth map values are penalizing twice the \ac{iclp} approach and only once the \ac{pnlp} refinement. Thus, in the following, we use only the \ac{pnlp} pose estimation for refinement.
 
+\input{4_pose_refinement/figures/results/ratio_t_knn}
 \paragraph{Number of retrieved candidates.} We use two scenes of the 7 scenes dataset to evaluate the impact of the number $K$ of retrieved candidates on the final localization. Figure~\ref{fig:ratio_t_knn} plot improvement for 4 values of $K$, from 1 to 10. We found that $K=5$ is a good trade-off between pose precision and time consumption. Localizing a query takes approximately one second using our non-optimized python code, including the image indexing step.

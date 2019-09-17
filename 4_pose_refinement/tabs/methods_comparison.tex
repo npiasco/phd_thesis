@@ -5,24 +5,24 @@
 \renewcommand{\arraystretch}{1.1}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-\begin{tabularx}{\linewidth}{l l | c c | Y c c | c c}
-			&		\multicolumn{2}{c|}{\textbf{Only Indexing}}	&  \multicolumn{3}{c|}{\textbf{Scene specific} (one network trained by scene)} 	& \multicolumn{2}{c}{\textbf{All scenes}} \\
+\begin{tabular}{l | c c l c c}
+			&		\multicolumn{2}{c|}{\textbf{Initial localization (\ac{cbir}}}	&  \multicolumn{2}{c}{\textbf{Pose refinement}} \\
 %	\cline{3-8} 
-	Scene 	&		MAC (M)		  & NetVLAD (V)		& M + ICP w/o dc. &	M + ICP & V + ICP & V + ICP & V + ICP (GT) \\
+	Scene 	&		MAC (M)		  & NetVLAD (V)		&  V + \ac{iclp} & V + \ac{pnlp} \\
 	\hline
 	\hline	
-	Chess 	& 	$0.31m, 14.9^{\circ}$	&	$0.29m, 13.0^{\circ}$	& $0.28m, \ 8.6^{\circ}$		&	$0.23m, \ 5.4^{\circ}$	&	$0.22m, \ 4.9^{\circ}$ &	$0.24m, \ 5.0^{\circ}$		&	$\mathbf{0.12m,\ 4.5^{\circ}}$		\\
-	Fire	& 	$0.49m, 16.7^{\circ}$	&	$0.40m, 15.5^{\circ}$	&	$0.39m, 16.5^{\circ}$		& $0.30m, 14.1^{\circ}$	&	$0.30m, 14.1^{\circ}$	 &	$0.26m, \ 9.7^{\circ}$	&	$\mathbf{0.25m,\ 8.9^{\circ}}$	\\
-	Heads	& 	$0.28m, 20.5^{\circ}$   &	$0.20m, 16.0^{\circ}$		&	$0.18m, 14.9^{\circ}$	&	$0.19m, 14.1^{\circ}$	&	$0.17m, 12,9^{\circ}$	&	$\mathbf{0.16m}, 10.1^{\circ}$	&	$0.18m,\ \mathbf{9.9^{\circ}}$	\\
-	Office  & 	$0.46m, 16.4^{\circ}$	&	$0.38m, 13.0^{\circ}$		&	$0.41m, 13.4^{\circ}$	& $0.36m, 11.3^{\circ}$		&	$0.30m, \ 8.6^{\circ}$	&	$0.32m, \ 7.8^{\circ}$		&	$\mathbf{0.22m,\ 7.3^{\circ}}$	\\
-	Pumpkin & $0.50m, 15.0^{\circ}$	&	$0.43m, 13.1^{\circ}$		&	$0.40m, 12.0^{\circ}$	&	$0.35m, \ 7.4^{\circ}$		&	$0.34m, \ 6.8^{\circ}$	&	$0.37m, \ 6.9^{\circ}$	&	$\mathbf{0.21m,\ 6.2^{\circ}}$	\\
-	Red Kitchen &  $0.30m, 11.2^{\circ}$		&	$0.23m, \ 9.5^{\circ}$		&	$0.24m, \ 7.5^{\circ}$	&	$0.19m, \ 4.9^{\circ}$		&	$0.18m, \ 4.6^{\circ}$	&	$0.23m, \ 5.0^{\circ}$	&	$\mathbf{0.15m,\ 4.5^{\circ}}$	\\
-	Stairs  	&	$0.64m, 16.0^{\circ}$		&	$\mathbf{0.46m}, 14.9^{\circ}$		&	$0.57m, 12.2^{\circ}$	&	$0.48m, 10.3^{\circ}$		&	$0.50m, \ \mathbf{9.5^{\circ}}$	&	$0.51m, 10.4^{\circ}$	&	$0.48m, 12.2^{\circ}$	\\
+	Chess 	& 	$0.31/14.9$	&	$0.29/13.0$	&	$ {0.12/4.5}$		&	\\
+	Fire		& 	$0.49/16.7$	&	$0.40/15.5$	&	$ {0.25/8.9}$		& $\mathbf{O.09/3.6}$\\
+	Heads	& 	$0.28/20.5$   &	$0.20/16.0$	&	$0.18/9.9$		& $\mathbf{0.06/4.3}$ \\
+	Office  & 	$0.46/16.4$	&	$0.38/13.0$	&	${0.22/7.3}$		&\\
+	Pumpkin & $0.50/15.0$	&	$0.43/13.1$	&	${0.21/6.2}$		&\\
+	Kitchen &  $0.30/11.2$	&	$0.23/9.5$		&	${0.15/4.5}$		&\\
+	Stairs  	&	$0.64/16.0$	&	$\mathbf{0.46m}/14.9$		&	$0.48/12.2$	& \\
 	\hline
-%	\multicolumn{2}{c|}{\textbf{Complete}} &	$0.40m, 14.8^{\circ}$		&	$0.33m, 12.6^{\circ}$		&	$0.34m, 11.3^{\circ}$	&	$0.28m, \ 8.7^{\circ}$		&	$0.26m, \ 7.7^{\circ}$	&	$0.28m, \ 7.1^{\circ}$  &	$\mathbf{0.20m,\ 6.6^{\circ}}$	\\
-\end{tabularx}
+%	\multicolumn{2}{c|}{\textbf{Complete}} &	$0.40/14.8$		&	$0.33/12.6$		&	$0.34/11.3$	&	$0.28/\ 8.7$		&	$0.26/\ 7.7$	&	$0.28/\ 7.1$  &	$\mathbf{0.20m,\ 6.6}$	\\
+\end{tabular}
 \end{footnotesize}
 
-\caption{\label{tab:methods_comparison}}
+\caption[\acs{iclp} vs \ac{pnlp}]{\label{tab:methods_comparison} \textbf{Methods comparison:} we report mean pose error (translation and orientation, m/$^{\circ}$) of our two relative pose algorithm proposal. Best results are shown in \textbf{bold}.}
 
 \end{figure}
