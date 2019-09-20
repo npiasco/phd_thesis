@@ -1,8 +1,8 @@
 \section{Unsupervised training and outdoor localization}
+\label{sec:outdoor}
 
 In this section, we are interested in applied our method for outdoor localization. However, accurate dense depth map of outdoor environment for supervised depth from monocular \ac{cnn} training are not easy to obtain. Thus, we decide to train our model in a unsupervised manner, \ie without ground truth depth maps as training data. In the following, we first compare the impact of unsupervised training for indoor localization and then we test our proposal on outdoor scenes.
 
-\label{subseq:outdoor}
 \subsection{Unsupervised depth from monocular training}
 \paragraph{Training.} To learn depth from RGB in a unsupervised manner, we follow the training procedure of~\citep{Zhou2017a}, using the ground truth relative pose between images and by adding SSIM loss function for radiometric comparison as in~\citep{Mahjourian2018}. We train the network with Adam optimizer, learning rate of $10^{-4}$ divided by two every 5, epochs. Training takes the same time as the supervised training, with a batch size reduced to 12.
 
