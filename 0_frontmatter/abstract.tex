@@ -1,14 +1,22 @@
-
+\acresetall
 % Thesis Abstract -----------------------------------------------------
 
 
 %\begin{abstractslong}    %uncommenting this line, gives a different abstract heading
 \begin{abstracts}        %this creates the heading for the abstract page
 
+\ac{vbl} consists of retrieving the location of a visual request, the query, within a known space, the database. \ac{vbl} is involved in several present-day practical applications, such as indoor and outdoor navigation, 3D reconstruction, etc. The main challenge in \ac{vbl} comes from the fact that the visual request to localize could have been taken at a different time than the reference database. Visual changes may occur on the observed environment during this period of time, especially for outdoor localization. Recent approaches use complementary information in order to address these visually challenging localization scenarios, like geometric information or semantic information. However geometric or semantic information are not always available or can be costly to obtain. In order to get free of any extra modalities used to solve challenging localization scenarios, we propose to use a modality transfer model capable of reproducing the underlying scene geometry from a monocular image. 
+
+At first, we cast the localization problem as a \ac{cbir} problem and we train a \ac{cnn} image descriptor with radiometry to dense geometry transfer as side training objective. Once trained, our system can be used on monocular images only to construct an expressive descriptor for localization in challenging conditions. Secondly, we introduce a new relocalization pipeline to improve the localization given by our initial localization step. In a same manner as our global image descriptor, the relocalization is aided by the geometric information learned during an offline stage. The extra geometric information is used to constrain the final pose estimation of the query. Through comprehensive experiments, we demonstrate the effectiveness of our method for both indoor and outdoor localization.
+
 \end{abstracts}
 %\end{abstractlongs}
 %-------------------------------------------------------------------------
 
 \begin{abstractFrench}
+
+La localisation basée vision consiste \`a déterminer l'emplacement d'une requête visuelle par rapport \`a espace de référence connu. Le principal d\'efi de la localisation visuelle r\'eside dans le fait que la requête peut avoir \'et\'e acquise \`a un moment diff\'erent de celui de la base de donn\'ees de r\'ef\'erence. On pourra alors observer des changements visuels entre l'environnement actuel et celui de la base de r\'ef\'erence, en particulier lors d'application de localisation en ext\'erieur. Les approches r\'ecentes utilisent des informations compl\'ementaires afin de r\'epondre \`a ces sc\'enarios de localisation visuellement ambigu, comme la g\'eom\'etriques ou la s\'emantiques. Cependant, ces modalit\'es auxiliaires ne sont pas toujours disponible ou peuvent être coûteuse \`a obtenir. Afin de s'affranchir de l'utilisation modalit\'e suppl\'ementaire pour faire face \`a ces sc\'enarios de localisation difficiles, nous proposons d'utiliser un mod\`ele de transfert de modalit\'e capable de reproduire la g\'eom\'etrie d'une sc\`ene \`a partir d'une image monoculaire. 
+
+Dans un premier temps, nous pr\'esentons le probl\`eme de localisation comme un probl\`eme d'indexation d'images et nous entrainons un r\'eseau de neurones convolutif pour la description global d'image en introduisant le transfert de modalit\'e radiom\'etrie vers g\'eom\'etrie comme objectif secondaire. Une fois entrain\'e, notre mod\`ele peut être appliqu\'e sur des images monoculaires pour construire un descripteur efficace pour la localisation en conditions difficiles. Dans un second temps, nous introduisons une nouvelle m\'ethode de raffinement de pose pour am\'eliorer la localisation donn\'ee par notre premi\`ere \'etape. De la même mani\`ere que notre descripteur d'image globale, la relocalisation est facilit\'ee par les informations g\'eom\'etriques apprises lors d'une \'etape pr\'ealable. L'information g\'eom\'etrique suppl\'ementaire est utilis\'ee pour contraindre l'estimation finale de la pose de la requête.
 
 \end{abstractFrench}
